@@ -1,0 +1,18 @@
+{
+    "server keys": [
+        {
+            "private key": "-----BEGIN PRIVATE KEY-----\nMIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAM0F7FQWq5+2KSbg\nC5/6iUvlXXznsNrHiL/lXx7onSBDUM+SxPKx9X3jYSQOG+om0BmGXUsV9bqYRhgs\n/ya1cimrqg36wikBI1kQWbC/yLZTmH0MeghcHio33SKKC/xyGlaOFFFUT5ko1Yqn\nwZmZCJ4WHRhSB9RSg0N8XIodz4iJAgMBAAECgYEAkFuoUHj59OWtShsc9FLS02a3\nkdgNVa6DIiLd/ARrhij/wHgmRoB5S1+LqXhpvVAA3MgX7mOS9wR67lDYgyflLiFR\nGikSFPM2LWuWtI2fnpDJPbNsv5+PfjpMHqgCdWsg/U4DYHGVBLAiRiwsN6gyLS+j\n/y1yKcByEOsqcP9r80UCQQDsdPwlhiLKh8HVEb9jKvGfFVRWH04pL/z6h81NioRT\nK/uK0BLhk/soyXA2DJTdGdg0ZZYpds3rvkEekvZuBit7AkEA3ffadcjQf6HAMoJm\nAavgDZ2RrspUrHxtX1x2SJDcnsgj7ejaiKY+7vXiCEl3MU0o8Wegr2b2BWtEY3uh\nYRTKywJAcneXcNrkkMLzlKAI1Ir/eRGsSBzTi6DNiMKhIn6B3HmYRfTAjy9CENaj\nWabxka9nOMZM0TnQKeVqRNDENzMJbQJBAKKAMKwoPxQha97OfjVdCiONprjrIYBB\ne6TjwSiw/QM1jLBA17RQ2SQCWN8uQZeTYJUTA51F6HjhJeka+nNjUG8CQQCjZjhQ\nWz3X0cXfCVAFCsjFACl7b8IOnCbsI4sj5hbjXmTu550TNwYawQrG4R/LiSXhw0mj\nOy1D8xOpDTt6WZbA\n-----END PRIVATE KEY-----\n",
+            "public key": "-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDNBexUFquftikm4Auf+olL5V18\n57Dax4i/5V8e6J0gQ1DPksTysfV942EkDhvqJtAZhl1LFfW6mEYYLP8mtXIpq6oN\n+sIpASNZEFmwv8i2U5h9DHoIXB4qN90iigv8chpWjhRRVE+ZKNWKp8GZmQieFh0Y\nUgfUUoNDfFyKHc+IiQIDAQAB\n-----END PUBLIC KEY-----\n"
+        }
+    ],
+    "users": [
+        {
+            "aes_key": "84SsjMd9RMdk4wFXZYmgWA==",
+            "username": "joebiden"
+        },
+        {
+            "aes_key": "WtgswvwXVBlRKCGK4XrlPw==",
+            "username": "yasuomain"
+        }
+    ]
+}

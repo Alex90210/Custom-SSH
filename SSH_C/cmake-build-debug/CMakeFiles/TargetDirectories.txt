@@ -1,3 +1,0 @@
-/home/alex/Desktop/SSH_C/cmake-build-debug/CMakeFiles/MySSH_Client.dir
-/home/alex/Desktop/SSH_C/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/alex/Desktop/SSH_C/cmake-build-debug/CMakeFiles/rebuild_cache.dir
