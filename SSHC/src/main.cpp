@@ -1,10 +1,9 @@
-#include "../include/string_operations.h"
-#include "../include/json_functions.h"
-#include "../include/keys.h"
-#include "../include/client_functions.h"
+#include "../include/utils.h"
+#include "../include/manage_keys.h"
+#include "../include/utils.h"
 #include "../include/base64.h"
 #include "../include/AES.h"
-using namespace nlohmann;
+#include "../include/client.h"
 
 extern int errno;
 int port;
@@ -134,10 +133,10 @@ int main (int argc, char *argv[]) {
     // sending the aes key to the server as the first message
 
     std::string aesKeyString = get_aes_key_from_json(json_path, username);
-    EVP_PKEY* publicKey = loadPublicKeyFromJSON(json_path);
+    EVP_PKEY* publicKey = load_public_key_JSON(json_path);
 
-    std::string encryptedUsername = encryptWithPublicKey(publicKey, username);
-    std::string encryptedAesKey = encryptWithPublicKey(publicKey, aesKeyString);
+    std::string encryptedUsername = encrypt_with_public_key(publicKey, username);
+    std::string encryptedAesKey = encrypt_with_public_key(publicKey, aesKeyString);
 
     int usernameLen = username.length(); // Length of unencrypted username
     int aesKeyLen = aesKeyString.length(); // Length of unencrypted AES key

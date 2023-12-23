@@ -1,4 +1,4 @@
-#include "../include/keys.h"
+#include "../include/manage_keys.h"
 
 bool generate_aes_key(unsigned char (&aesKey)[KEY_LENGTH_BYTES]) {
     OpenSSL_add_all_algorithms();
@@ -74,7 +74,7 @@ bool receive_and_store_s_public_key(int socket, const std::string& jsonFilePath)
     return true;
 }
 
-EVP_PKEY* loadPublicKeyFromJSON(const std::string& jsonFilePath) {
+EVP_PKEY* load_public_key_JSON(const std::string& jsonFilePath) {
     std::ifstream ifs(jsonFilePath);
     if (!ifs) {
         std::cerr << "Cannot open JSON file: " << jsonFilePath << std::endl;
@@ -109,7 +109,7 @@ EVP_PKEY* loadPublicKeyFromJSON(const std::string& jsonFilePath) {
     return publicKey;
 }
 
-std::string encryptWithPublicKey(EVP_PKEY* publicKey, const std::string& message) {
+std::string encrypt_with_public_key(EVP_PKEY* publicKey, const std::string& message) {
     EVP_PKEY_CTX* ctx = EVP_PKEY_CTX_new(publicKey, nullptr);
     if (!ctx) {
         std::cerr << "Error creating context for encryption: " << ERR_error_string(ERR_get_error(), nullptr) << std::endl;

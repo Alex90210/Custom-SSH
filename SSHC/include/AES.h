@@ -1,7 +1,10 @@
 #ifndef AES_H
 #define AES_H
 
-#include "json_functions.h"
+#include <fstream>
+
+#include "utils.h"
+#include <openssl/evp.h>
 
 std::string get_aes_key_from_json(const std::string& jsonFilePath, const std::string& username);
 std::string aes_encrypt(const std::string& plaintext, const std::string& key);

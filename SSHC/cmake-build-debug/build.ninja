@@ -56,29 +56,15 @@ build CMakeFiles/SSH_C.dir/src/main.cpp.o: CXX_COMPILER__SSH_C_unscanned_Debug /
   OBJECT_DIR = CMakeFiles/SSH_C.dir
   OBJECT_FILE_DIR = CMakeFiles/SSH_C.dir/src
 
-build CMakeFiles/SSH_C.dir/src/keys.cpp.o: CXX_COMPILER__SSH_C_unscanned_Debug /home/alex/Desktop/SSH/SSHC/src/keys.cpp || cmake_object_order_depends_target_SSH_C
-  DEP_FILE = CMakeFiles/SSH_C.dir/src/keys.cpp.o.d
+build CMakeFiles/SSH_C.dir/src/manage_keys.cpp.o: CXX_COMPILER__SSH_C_unscanned_Debug /home/alex/Desktop/SSH/SSHC/src/manage_keys.cpp || cmake_object_order_depends_target_SSH_C
+  DEP_FILE = CMakeFiles/SSH_C.dir/src/manage_keys.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -I/home/alex/json/single_include
   OBJECT_DIR = CMakeFiles/SSH_C.dir
   OBJECT_FILE_DIR = CMakeFiles/SSH_C.dir/src
 
-build CMakeFiles/SSH_C.dir/src/string_operations.cpp.o: CXX_COMPILER__SSH_C_unscanned_Debug /home/alex/Desktop/SSH/SSHC/src/string_operations.cpp || cmake_object_order_depends_target_SSH_C
-  DEP_FILE = CMakeFiles/SSH_C.dir/src/string_operations.cpp.o.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I/home/alex/json/single_include
-  OBJECT_DIR = CMakeFiles/SSH_C.dir
-  OBJECT_FILE_DIR = CMakeFiles/SSH_C.dir/src
-
-build CMakeFiles/SSH_C.dir/src/json_functions.cpp.o: CXX_COMPILER__SSH_C_unscanned_Debug /home/alex/Desktop/SSH/SSHC/src/json_functions.cpp || cmake_object_order_depends_target_SSH_C
-  DEP_FILE = CMakeFiles/SSH_C.dir/src/json_functions.cpp.o.d
-  FLAGS = -g -fdiagnostics-color=always
-  INCLUDES = -I/home/alex/json/single_include
-  OBJECT_DIR = CMakeFiles/SSH_C.dir
-  OBJECT_FILE_DIR = CMakeFiles/SSH_C.dir/src
-
-build CMakeFiles/SSH_C.dir/src/client_functions.cpp.o: CXX_COMPILER__SSH_C_unscanned_Debug /home/alex/Desktop/SSH/SSHC/src/client_functions.cpp || cmake_object_order_depends_target_SSH_C
-  DEP_FILE = CMakeFiles/SSH_C.dir/src/client_functions.cpp.o.d
+build CMakeFiles/SSH_C.dir/src/utils.cpp.o: CXX_COMPILER__SSH_C_unscanned_Debug /home/alex/Desktop/SSH/SSHC/src/utils.cpp || cmake_object_order_depends_target_SSH_C
+  DEP_FILE = CMakeFiles/SSH_C.dir/src/utils.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always
   INCLUDES = -I/home/alex/json/single_include
   OBJECT_DIR = CMakeFiles/SSH_C.dir
@@ -98,6 +84,13 @@ build CMakeFiles/SSH_C.dir/src/base64.cpp.o: CXX_COMPILER__SSH_C_unscanned_Debug
   OBJECT_DIR = CMakeFiles/SSH_C.dir
   OBJECT_FILE_DIR = CMakeFiles/SSH_C.dir/src
 
+build CMakeFiles/SSH_C.dir/src/client.cpp.o: CXX_COMPILER__SSH_C_unscanned_Debug /home/alex/Desktop/SSH/SSHC/src/client.cpp || cmake_object_order_depends_target_SSH_C
+  DEP_FILE = CMakeFiles/SSH_C.dir/src/client.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -I/home/alex/json/single_include
+  OBJECT_DIR = CMakeFiles/SSH_C.dir
+  OBJECT_FILE_DIR = CMakeFiles/SSH_C.dir/src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target SSH_C
@@ -106,7 +99,7 @@ build CMakeFiles/SSH_C.dir/src/base64.cpp.o: CXX_COMPILER__SSH_C_unscanned_Debug
 #############################################
 # Link the executable SSH_C
 
-build SSH_C: CXX_EXECUTABLE_LINKER__SSH_C_Debug CMakeFiles/SSH_C.dir/src/main.cpp.o CMakeFiles/SSH_C.dir/src/keys.cpp.o CMakeFiles/SSH_C.dir/src/string_operations.cpp.o CMakeFiles/SSH_C.dir/src/json_functions.cpp.o CMakeFiles/SSH_C.dir/src/client_functions.cpp.o CMakeFiles/SSH_C.dir/src/AES.cpp.o CMakeFiles/SSH_C.dir/src/base64.cpp.o | /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so
+build SSH_C: CXX_EXECUTABLE_LINKER__SSH_C_Debug CMakeFiles/SSH_C.dir/src/main.cpp.o CMakeFiles/SSH_C.dir/src/manage_keys.cpp.o CMakeFiles/SSH_C.dir/src/utils.cpp.o CMakeFiles/SSH_C.dir/src/AES.cpp.o CMakeFiles/SSH_C.dir/src/base64.cpp.o CMakeFiles/SSH_C.dir/src/client.cpp.o | /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so
   FLAGS = -g
   LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libssl.so  /usr/lib/x86_64-linux-gnu/libcrypto.so
   OBJECT_DIR = CMakeFiles/SSH_C.dir

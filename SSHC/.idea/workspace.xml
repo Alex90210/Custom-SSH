@@ -21,130 +21,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="130bb384-29c7-42af-8209-79973e5eb384" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../.vscode/tasks.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/compiler_depend.internal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/AES.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/AES.cpp.o.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/base64.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/base64.cpp.o.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/client_functions.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/client_functions.cpp.o.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/json_functions.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/json_functions.cpp.o.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client_data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/AES.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/base64.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/client_functions.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/json_functions.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/include/string_operations.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AES.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/base64.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/client_functions.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/json_functions.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/string_operations.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/compiler_depend.internal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/AES.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/AES.cpp.o.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/base64.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/base64.cpp.o.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/json_functions.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/json_functions.cpp.o.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/rsa_key.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/rsa_key.cpp.o.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/server_functions.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/server_functions.cpp.o.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/include/AES.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/include/base64.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/include/client_handler.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/include/json_functions.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/include/rsa_key.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/include/server_functions.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/server_data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/src/AES.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/src/base64.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/src/client_handler.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/src/json_functions.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/src/rsa_key.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SSHS/src/server_functions.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/.idea/MySSH Client.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/.cmake/api/v1/query/cache-v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/.cmake/api/v1/query/codemodel-v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/.cmake/api/v1/query/toolchains-v1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/.cmake/api/v1/reply/cache-v2-cee80abcf333d2d85195.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-bc6912e351e6ff81d031.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-d2dc8cd729984a9bc3ae.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/.cmake/api/v1/reply/index-2023-12-09T16-16-20-0124.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/.cmake/api/v1/reply/target-MySSH_Client-Debug-60052fdd8ba134be2051.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-30cb24357ccee65b3b3b.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/.ninja_deps" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/.ninja_log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/CMakeFiles/3.26.4/CMakeCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/CMakeFiles/3.26.4/CMakeSystem.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdC/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/CMakeFiles/MySSH_Client.dir/main.c.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/MySSH_Client" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/build.ninja" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_C/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/.idea/MySSH Server.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/.cmake/api/v1/query/cache-v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/.cmake/api/v1/query/codemodel-v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/.cmake/api/v1/query/toolchains-v1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/.cmake/api/v1/reply/cache-v2-1cecec27324b4d935474.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-54f5bace6810b37eb055.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-4444afefb16bfbd363fd.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/.cmake/api/v1/reply/index-2023-12-09T20-21-18-0282.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/.cmake/api/v1/reply/target-MySSH_Server-Debug-167d7726b4a9426a670b.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-6f549a7495c37c099964.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/.ninja_deps" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/.ninja_log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/CMakeFiles/3.26.4/CMakeCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/CMakeFiles/3.26.4/CMakeCXXCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/CMakeFiles/3.26.4/CMakeSystem.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdC/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/CMakeFiles/3.26.4/CompilerIdCXX/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/CMakeFiles/MySSH_Server.dir/main.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/MySSH_Server" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/build.ninja" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSH_S/main.cpp" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/client.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/client.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-89c61be240f6c0695c38.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-12-21T17-34-20-0778.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-SSH_C-Debug-e11920db63975c1546f1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/SSH_C" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/SSH_C" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/AES.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/AES.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/client_functions.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/utils.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/json_functions.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/keys.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/manage_keys.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/string_operations.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client_functions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/json_functions.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/keys.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/manage_keys.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/string_operations.cpp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,6 +103,11 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SSH_C" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="127.0.0.1 2908" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="SSH_C" TARGET_NAME="SSH_C" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="SSH_C" RUN_TARGET_NAME="SSH_C">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -295,7 +198,7 @@
       <workItem from="1703241570729" duration="86000" />
       <workItem from="1703242057301" duration="65000" />
       <workItem from="1703266554235" duration="24000" />
-      <workItem from="1703329384234" duration="1000" />
+      <workItem from="1703329384234" duration="2158000" />
     </task>
     <servers />
   </component>

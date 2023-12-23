@@ -6,17 +6,15 @@ set(CMAKE_CXX_STANDARD 17)
 include_directories(/home/alex/json/single_include)
 
 add_executable(SSH_C src/main.cpp
-        src/keys.cpp
-        src/string_operations.cpp
-        include/string_operations.h
-        src/json_functions.cpp
-        include/json_functions.h
-        src/client_functions.cpp
-        include/client_functions.h
+        src/manage_keys.cpp
+        src/utils.cpp
+        include/utils.h
         include/AES.h
         src/AES.cpp
         include/base64.h
-        src/base64.cpp)
+        src/base64.cpp
+        include/client.h
+        src/client.cpp)
 
 find_package(OpenSSL REQUIRED)
 
