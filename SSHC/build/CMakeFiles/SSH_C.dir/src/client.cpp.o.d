@@ -1,5 +1,6 @@
-CMakeFiles/SSH_C.dir/src/AES.cpp.o: \
- /home/alex/Desktop/SSH/SSHC/src/AES.cpp /usr/include/stdc-predef.h \
+CMakeFiles/SSH_C.dir/src/client.cpp.o: \
+ /home/alex/Desktop/SSH/SSHC/src/client.cpp /usr/include/stdc-predef.h \
+ /home/alex/Desktop/SSH/SSHC/src/../include/client.h \
  /home/alex/Desktop/SSH/SSHC/src/../include/AES.h \
  /usr/include/c++/12/fstream /usr/include/c++/12/istream \
  /usr/include/c++/12/ios /usr/include/c++/12/iosfwd \
@@ -293,4 +294,5 @@ CMakeFiles/SSH_C.dir/src/AES.cpp.o: \
  /usr/include/openssl/params.h /usr/include/openssl/bn.h \
  /usr/include/openssl/bnerr.h /usr/include/openssl/objects.h \
  /usr/include/openssl/obj_mac.h /usr/include/openssl/asn1.h \
- /usr/include/openssl/asn1err.h /usr/include/openssl/objectserr.h
+ /usr/include/openssl/asn1err.h /usr/include/openssl/objectserr.h \
+ /home/alex/Desktop/SSH/SSHC/src/../include/base64.h

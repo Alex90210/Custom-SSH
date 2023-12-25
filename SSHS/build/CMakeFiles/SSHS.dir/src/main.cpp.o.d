@@ -197,7 +197,7 @@ CMakeFiles/SSHS.dir/src/main.cpp.o: \
  /usr/include/c++/12/bits/basic_ios.tcc \
  /usr/include/c++/12/bits/ostream.tcc /usr/include/c++/12/istream \
  /usr/include/c++/12/bits/istream.tcc \
- /home/alex/Desktop/SSH/SSHS/src/../include/rsa_key.h \
+ /home/alex/Desktop/SSH/SSHS/src/../include/RSA.h \
  /usr/include/openssl/evp.h /usr/include/openssl/macros.h \
  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
  /usr/include/x86_64-linux-gnu/openssl/configuration.h \

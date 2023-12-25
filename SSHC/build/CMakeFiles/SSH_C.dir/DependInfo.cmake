@@ -10,11 +10,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/alex/Desktop/SSH/SSHC/src/AES.cpp" "CMakeFiles/SSH_C.dir/src/AES.cpp.o" "gcc" "CMakeFiles/SSH_C.dir/src/AES.cpp.o.d"
   "/home/alex/Desktop/SSH/SSHC/src/base64.cpp" "CMakeFiles/SSH_C.dir/src/base64.cpp.o" "gcc" "CMakeFiles/SSH_C.dir/src/base64.cpp.o.d"
-  "/home/alex/Desktop/SSH/SSHC/src/client_functions.cpp" "CMakeFiles/SSH_C.dir/src/client_functions.cpp.o" "gcc" "CMakeFiles/SSH_C.dir/src/client_functions.cpp.o.d"
-  "/home/alex/Desktop/SSH/SSHC/src/json_functions.cpp" "CMakeFiles/SSH_C.dir/src/json_functions.cpp.o" "gcc" "CMakeFiles/SSH_C.dir/src/json_functions.cpp.o.d"
-  "/home/alex/Desktop/SSH/SSHC/src/keys.cpp" "CMakeFiles/SSH_C.dir/src/keys.cpp.o" "gcc" "CMakeFiles/SSH_C.dir/src/keys.cpp.o.d"
+  "/home/alex/Desktop/SSH/SSHC/src/client.cpp" "CMakeFiles/SSH_C.dir/src/client.cpp.o" "gcc" "CMakeFiles/SSH_C.dir/src/client.cpp.o.d"
   "/home/alex/Desktop/SSH/SSHC/src/main.cpp" "CMakeFiles/SSH_C.dir/src/main.cpp.o" "gcc" "CMakeFiles/SSH_C.dir/src/main.cpp.o.d"
-  "/home/alex/Desktop/SSH/SSHC/src/string_operations.cpp" "CMakeFiles/SSH_C.dir/src/string_operations.cpp.o" "gcc" "CMakeFiles/SSH_C.dir/src/string_operations.cpp.o.d"
+  "/home/alex/Desktop/SSH/SSHC/src/manage_keys.cpp" "CMakeFiles/SSH_C.dir/src/manage_keys.cpp.o" "gcc" "CMakeFiles/SSH_C.dir/src/manage_keys.cpp.o.d"
+  "/home/alex/Desktop/SSH/SSHC/src/utils.cpp" "CMakeFiles/SSH_C.dir/src/utils.cpp.o" "gcc" "CMakeFiles/SSH_C.dir/src/utils.cpp.o.d"
   )
 
 # Targets to which this target links.

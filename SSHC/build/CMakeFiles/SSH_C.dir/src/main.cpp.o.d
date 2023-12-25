@@ -1,6 +1,6 @@
 CMakeFiles/SSH_C.dir/src/main.cpp.o: \
  /home/alex/Desktop/SSH/SSHC/src/main.cpp /usr/include/stdc-predef.h \
- /home/alex/Desktop/SSH/SSHC/src/../include/string_operations.h \
+ /home/alex/Desktop/SSH/SSHC/src/../include/utils.h \
  /usr/include/c++/12/cstring \
  /usr/include/x86_64-linux-gnu/c++/12/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/12/bits/os_defines.h \
@@ -180,7 +180,6 @@ CMakeFiles/SSH_C.dir/src/main.cpp.o: \
  /usr/include/c++/12/bits/basic_ios.tcc \
  /usr/include/c++/12/bits/ostream.tcc /usr/include/c++/12/istream \
  /usr/include/c++/12/bits/istream.tcc \
- /home/alex/Desktop/SSH/SSHC/src/../include/json_functions.h \
  /home/alex/json/single_include/nlohmann/json.hpp \
  /usr/include/c++/12/algorithm /usr/include/c++/12/bits/stl_algo.h \
  /usr/include/c++/12/bits/algorithmfwd.h \
@@ -271,27 +270,11 @@ CMakeFiles/SSH_C.dir/src/main.cpp.o: \
  /usr/include/c++/12/bits/fs_dir.h /usr/include/c++/12/bits/fs_ops.h \
  /usr/include/c++/12/numeric /usr/include/c++/12/bits/stl_numeric.h \
  /usr/include/c++/12/pstl/glue_numeric_defs.h /usr/include/c++/12/any \
- /usr/include/c++/12/fstream \
- /usr/include/x86_64-linux-gnu/c++/12/bits/basic_file.h \
- /usr/include/x86_64-linux-gnu/c++/12/bits/c++io.h \
- /usr/include/c++/12/bits/fstream.tcc /usr/include/termios.h \
- /usr/include/x86_64-linux-gnu/bits/termios.h \
- /usr/include/x86_64-linux-gnu/bits/termios-struct.h \
- /usr/include/x86_64-linux-gnu/bits/termios-c_cc.h \
- /usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h \
- /usr/include/x86_64-linux-gnu/bits/termios-c_oflag.h \
- /usr/include/x86_64-linux-gnu/bits/termios-baud.h \
- /usr/include/x86_64-linux-gnu/bits/termios-c_cflag.h \
- /usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h \
- /usr/include/x86_64-linux-gnu/bits/termios-tcflow.h \
- /usr/include/x86_64-linux-gnu/bits/termios-misc.h \
- /usr/include/x86_64-linux-gnu/sys/ttydefaults.h \
- /usr/include/openssl/bio.h /usr/include/openssl/macros.h \
+ /home/alex/Desktop/SSH/SSHC/src/../include/manage_keys.h \
+ /usr/include/openssl/rand.h /usr/include/openssl/macros.h \
  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
  /usr/include/x86_64-linux-gnu/openssl/configuration.h \
- /usr/include/openssl/opensslv.h /usr/include/openssl/e_os2.h \
- /usr/include/openssl/crypto.h /usr/include/openssl/safestack.h \
- /usr/include/openssl/stack.h /usr/include/openssl/types.h \
+ /usr/include/openssl/opensslv.h /usr/include/openssl/types.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
@@ -300,18 +283,17 @@ CMakeFiles/SSH_C.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
- /usr/include/openssl/cryptoerr.h /usr/include/openssl/symhacks.h \
- /usr/include/openssl/cryptoerr_legacy.h /usr/include/openssl/core.h \
- /usr/include/openssl/bioerr.h /usr/include/openssl/evp.h \
- /usr/include/openssl/core_dispatch.h /usr/include/openssl/evperr.h \
+ /usr/include/openssl/e_os2.h /usr/include/openssl/safestack.h \
+ /usr/include/openssl/stack.h /usr/include/openssl/randerr.h \
+ /usr/include/openssl/symhacks.h /usr/include/openssl/cryptoerr_legacy.h \
+ /usr/include/openssl/evp.h /usr/include/openssl/core.h \
+ /usr/include/openssl/core_dispatch.h /usr/include/openssl/bio.h \
+ /usr/include/openssl/crypto.h /usr/include/openssl/cryptoerr.h \
+ /usr/include/openssl/bioerr.h /usr/include/openssl/evperr.h \
  /usr/include/openssl/params.h /usr/include/openssl/bn.h \
  /usr/include/openssl/bnerr.h /usr/include/openssl/objects.h \
  /usr/include/openssl/obj_mac.h /usr/include/openssl/asn1.h \
  /usr/include/openssl/asn1err.h /usr/include/openssl/objectserr.h \
- /home/alex/Desktop/SSH/SSHC/src/../include/keys.h \
- /home/alex/Desktop/SSH/SSHC/src/../include/../include/string_operations.h \
- /home/alex/Desktop/SSH/SSHC/src/../include/../include/json_functions.h \
- /usr/include/openssl/rand.h /usr/include/openssl/randerr.h \
  /usr/include/openssl/pem.h /usr/include/openssl/x509.h \
  /usr/include/openssl/buffer.h /usr/include/openssl/buffererr.h \
  /usr/include/openssl/ec.h /usr/include/openssl/ecerr.h \
@@ -324,7 +306,13 @@ CMakeFiles/SSH_C.dir/src/main.cpp.o: \
  /usr/include/openssl/http.h /usr/include/openssl/conf.h \
  /usr/include/openssl/conferr.h /usr/include/openssl/conftypes.h \
  /usr/include/openssl/pemerr.h /usr/include/openssl/err.h \
- /home/alex/Desktop/SSH/SSHC/src/../include/client_functions.h \
+ /usr/include/c++/12/fstream \
+ /usr/include/x86_64-linux-gnu/c++/12/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/12/bits/c++io.h \
+ /usr/include/c++/12/bits/fstream.tcc \
+ /home/alex/Desktop/SSH/SSHC/src/../include/utils.h \
  /home/alex/Desktop/SSH/SSHC/src/../include/base64.h \
  /home/alex/Desktop/SSH/SSHC/src/../include/AES.h \
- /home/alex/Desktop/SSH/SSHC/src/../include/json_functions.h
+ /home/alex/Desktop/SSH/SSHC/src/../include/client.h \
+ /home/alex/Desktop/SSH/SSHC/src/../include/AES.h \
+ /home/alex/Desktop/SSH/SSHC/src/../include/base64.h

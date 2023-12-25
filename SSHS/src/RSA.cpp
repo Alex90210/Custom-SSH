@@ -1,5 +1,5 @@
 #include <openssl/core_names.h>
-#include "../include/rsa_key.h"
+#include "../include/RSA.h"
 
 EVP_PKEY* generate_rsa_key() {
     EVP_PKEY_CTX* ctx = EVP_PKEY_CTX_new_id(EVP_PKEY_RSA, nullptr);

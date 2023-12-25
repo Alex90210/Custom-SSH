@@ -97,19 +97,19 @@ CMakeFiles/SSHS.dir/src/client_handler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSHS.dir/src/client_handler.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHS/src/client_handler.cpp -o CMakeFiles/SSHS.dir/src/client_handler.cpp.s
 
-CMakeFiles/SSHS.dir/src/server_functions.cpp.o: CMakeFiles/SSHS.dir/flags.make
-CMakeFiles/SSHS.dir/src/server_functions.cpp.o: /home/alex/Desktop/SSH/SSHS/src/server_functions.cpp
-CMakeFiles/SSHS.dir/src/server_functions.cpp.o: CMakeFiles/SSHS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/SSH/SSHS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SSHS.dir/src/server_functions.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SSHS.dir/src/server_functions.cpp.o -MF CMakeFiles/SSHS.dir/src/server_functions.cpp.o.d -o CMakeFiles/SSHS.dir/src/server_functions.cpp.o -c /home/alex/Desktop/SSH/SSHS/src/server_functions.cpp
+CMakeFiles/SSHS.dir/src/server.cpp.o: CMakeFiles/SSHS.dir/flags.make
+CMakeFiles/SSHS.dir/src/server.cpp.o: /home/alex/Desktop/SSH/SSHS/src/server.cpp
+CMakeFiles/SSHS.dir/src/server.cpp.o: CMakeFiles/SSHS.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/SSH/SSHS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SSHS.dir/src/server.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SSHS.dir/src/server.cpp.o -MF CMakeFiles/SSHS.dir/src/server.cpp.o.d -o CMakeFiles/SSHS.dir/src/server.cpp.o -c /home/alex/Desktop/SSH/SSHS/src/server.cpp
 
-CMakeFiles/SSHS.dir/src/server_functions.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SSHS.dir/src/server_functions.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/SSH/SSHS/src/server_functions.cpp > CMakeFiles/SSHS.dir/src/server_functions.cpp.i
+CMakeFiles/SSHS.dir/src/server.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SSHS.dir/src/server.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/SSH/SSHS/src/server.cpp > CMakeFiles/SSHS.dir/src/server.cpp.i
 
-CMakeFiles/SSHS.dir/src/server_functions.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSHS.dir/src/server_functions.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHS/src/server_functions.cpp -o CMakeFiles/SSHS.dir/src/server_functions.cpp.s
+CMakeFiles/SSHS.dir/src/server.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSHS.dir/src/server.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHS/src/server.cpp -o CMakeFiles/SSHS.dir/src/server.cpp.s
 
 CMakeFiles/SSHS.dir/src/json_functions.cpp.o: CMakeFiles/SSHS.dir/flags.make
 CMakeFiles/SSHS.dir/src/json_functions.cpp.o: /home/alex/Desktop/SSH/SSHS/src/json_functions.cpp
@@ -125,19 +125,19 @@ CMakeFiles/SSHS.dir/src/json_functions.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSHS.dir/src/json_functions.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHS/src/json_functions.cpp -o CMakeFiles/SSHS.dir/src/json_functions.cpp.s
 
-CMakeFiles/SSHS.dir/src/rsa_key.cpp.o: CMakeFiles/SSHS.dir/flags.make
-CMakeFiles/SSHS.dir/src/rsa_key.cpp.o: /home/alex/Desktop/SSH/SSHS/src/rsa_key.cpp
-CMakeFiles/SSHS.dir/src/rsa_key.cpp.o: CMakeFiles/SSHS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/SSH/SSHS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SSHS.dir/src/rsa_key.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SSHS.dir/src/rsa_key.cpp.o -MF CMakeFiles/SSHS.dir/src/rsa_key.cpp.o.d -o CMakeFiles/SSHS.dir/src/rsa_key.cpp.o -c /home/alex/Desktop/SSH/SSHS/src/rsa_key.cpp
+CMakeFiles/SSHS.dir/src/RSA.cpp.o: CMakeFiles/SSHS.dir/flags.make
+CMakeFiles/SSHS.dir/src/RSA.cpp.o: /home/alex/Desktop/SSH/SSHS/src/RSA.cpp
+CMakeFiles/SSHS.dir/src/RSA.cpp.o: CMakeFiles/SSHS.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/SSH/SSHS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SSHS.dir/src/RSA.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SSHS.dir/src/RSA.cpp.o -MF CMakeFiles/SSHS.dir/src/RSA.cpp.o.d -o CMakeFiles/SSHS.dir/src/RSA.cpp.o -c /home/alex/Desktop/SSH/SSHS/src/RSA.cpp
 
-CMakeFiles/SSHS.dir/src/rsa_key.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SSHS.dir/src/rsa_key.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/SSH/SSHS/src/rsa_key.cpp > CMakeFiles/SSHS.dir/src/rsa_key.cpp.i
+CMakeFiles/SSHS.dir/src/RSA.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SSHS.dir/src/RSA.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/SSH/SSHS/src/RSA.cpp > CMakeFiles/SSHS.dir/src/RSA.cpp.i
 
-CMakeFiles/SSHS.dir/src/rsa_key.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSHS.dir/src/rsa_key.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHS/src/rsa_key.cpp -o CMakeFiles/SSHS.dir/src/rsa_key.cpp.s
+CMakeFiles/SSHS.dir/src/RSA.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSHS.dir/src/RSA.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHS/src/RSA.cpp -o CMakeFiles/SSHS.dir/src/RSA.cpp.s
 
 CMakeFiles/SSHS.dir/src/base64.cpp.o: CMakeFiles/SSHS.dir/flags.make
 CMakeFiles/SSHS.dir/src/base64.cpp.o: /home/alex/Desktop/SSH/SSHS/src/base64.cpp
@@ -167,31 +167,47 @@ CMakeFiles/SSHS.dir/src/AES.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSHS.dir/src/AES.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHS/src/AES.cpp -o CMakeFiles/SSHS.dir/src/AES.cpp.s
 
+CMakeFiles/SSHS.dir/src/exec_command.cpp.o: CMakeFiles/SSHS.dir/flags.make
+CMakeFiles/SSHS.dir/src/exec_command.cpp.o: /home/alex/Desktop/SSH/SSHS/src/exec_command.cpp
+CMakeFiles/SSHS.dir/src/exec_command.cpp.o: CMakeFiles/SSHS.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/SSH/SSHS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/SSHS.dir/src/exec_command.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SSHS.dir/src/exec_command.cpp.o -MF CMakeFiles/SSHS.dir/src/exec_command.cpp.o.d -o CMakeFiles/SSHS.dir/src/exec_command.cpp.o -c /home/alex/Desktop/SSH/SSHS/src/exec_command.cpp
+
+CMakeFiles/SSHS.dir/src/exec_command.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SSHS.dir/src/exec_command.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/SSH/SSHS/src/exec_command.cpp > CMakeFiles/SSHS.dir/src/exec_command.cpp.i
+
+CMakeFiles/SSHS.dir/src/exec_command.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSHS.dir/src/exec_command.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHS/src/exec_command.cpp -o CMakeFiles/SSHS.dir/src/exec_command.cpp.s
+
 # Object files for target SSHS
 SSHS_OBJECTS = \
 "CMakeFiles/SSHS.dir/src/main.cpp.o" \
 "CMakeFiles/SSHS.dir/src/client_handler.cpp.o" \
-"CMakeFiles/SSHS.dir/src/server_functions.cpp.o" \
+"CMakeFiles/SSHS.dir/src/server.cpp.o" \
 "CMakeFiles/SSHS.dir/src/json_functions.cpp.o" \
-"CMakeFiles/SSHS.dir/src/rsa_key.cpp.o" \
+"CMakeFiles/SSHS.dir/src/RSA.cpp.o" \
 "CMakeFiles/SSHS.dir/src/base64.cpp.o" \
-"CMakeFiles/SSHS.dir/src/AES.cpp.o"
+"CMakeFiles/SSHS.dir/src/AES.cpp.o" \
+"CMakeFiles/SSHS.dir/src/exec_command.cpp.o"
 
 # External object files for target SSHS
 SSHS_EXTERNAL_OBJECTS =
 
 SSHS: CMakeFiles/SSHS.dir/src/main.cpp.o
 SSHS: CMakeFiles/SSHS.dir/src/client_handler.cpp.o
-SSHS: CMakeFiles/SSHS.dir/src/server_functions.cpp.o
+SSHS: CMakeFiles/SSHS.dir/src/server.cpp.o
 SSHS: CMakeFiles/SSHS.dir/src/json_functions.cpp.o
-SSHS: CMakeFiles/SSHS.dir/src/rsa_key.cpp.o
+SSHS: CMakeFiles/SSHS.dir/src/RSA.cpp.o
 SSHS: CMakeFiles/SSHS.dir/src/base64.cpp.o
 SSHS: CMakeFiles/SSHS.dir/src/AES.cpp.o
+SSHS: CMakeFiles/SSHS.dir/src/exec_command.cpp.o
 SSHS: CMakeFiles/SSHS.dir/build.make
 SSHS: /usr/lib/x86_64-linux-gnu/libssl.so
 SSHS: /usr/lib/x86_64-linux-gnu/libcrypto.so
 SSHS: CMakeFiles/SSHS.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alex/Desktop/SSH/SSHS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable SSHS"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alex/Desktop/SSH/SSHS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable SSHS"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SSHS.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

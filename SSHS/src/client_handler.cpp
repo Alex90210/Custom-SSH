@@ -1,5 +1,5 @@
 #include "../include/client_handler.h"
-#include "../include/server_functions.h"
+#include "../include/server.h"
 #include "../include/AES.h"
 #include "../include/base64.h"
 
@@ -46,6 +46,8 @@ void raspunde(void *arg) {
     char message_r[1000];
 
     std::string user = receive_AES_key(tdL.cl);
+    std::string current_path = get_current_directory();
+    // std::string current_path = "/home/alex";
 
     while (1) {
 
@@ -115,7 +117,7 @@ void raspunde(void *arg) {
 
         printf("[Thread %d]Trimitem mesajul inapoi...%d\n", tdL.idThread, nr);
 
-        verify_command(fullMessage, tdL, user);
+        verify_command(fullMessage, tdL, user, current_path);
         free(fullMessage);
     }
 }

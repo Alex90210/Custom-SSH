@@ -1,73 +1,48 @@
-#include "../include/server_functions.h"
+#include "../include/server.h"
 #include "../include/json_functions.h"
-#include "../include/rsa_key.h"
+#include "../include/RSA.h"
 
-void verify_command(const char* fullMessage, struct thData tdL, const std::string& username) {
-    if (strcmp(fullMessage, "login") == 0) {
-        char message_s[] = "Comanda 'Login' a fost recunoscuta.";
-
-        if (write(tdL.cl, &message_s, strlen(message_s) + 1) <= 0) {
-            printf("[Thread %d] ", tdL.idThread);
-            perror("[Thread]Eroare la write() catre client.\n");
-        } else
-            printf("[Thread %d]Mesajul a fost trasmis cu succes.\n", tdL.idThread);
-
-    } else if (strcmp(fullMessage, "create account") == 0) {
-
-        char message_s[] = "Comanda 'Create Account' a fost recunoscuta.";
-        if (write(tdL.cl, &message_s, strlen(message_s) + 1) <= 0) {
-            printf("[Thread %d] ", tdL.idThread);
-            perror("[Thread]Eroare la write() catre client.\n");
-        } else
-            printf("[Thread %d]Mesajul a fost trasmis cu succes.\n", tdL.idThread);
-
-    } else if (strcmp(fullMessage, "show public key") == 0) {
-
-        char message_s[] = "Comanda 'Show Public Key' a fost recunoscuta.";
-        if (write(tdL.cl, &message_s, strlen(message_s) + 1) <= 0) {
-            printf("[Thread %d] ", tdL.idThread);
-            perror("[Thread]Eroare la write() catre client.\n");
-        } else
-            printf("[Thread %d]Mesajul a fost trasmis cu succes.\n", tdL.idThread);
-
-    } else if (strcmp(fullMessage, "show private key") == 0) {
-
-        char message_s[] = "Comanda 'Show Private Key' a fost recunoscuta.";
-        if (write(tdL.cl, &message_s, strlen(message_s) + 1) <= 0) {
-            printf("[Thread %d] ", tdL.idThread);
-            perror("[Thread]Eroare la write() catre client.\n");
-        } else
-            printf("[Thread %d]Mesajul a fost trasmis cu succes.\n", tdL.idThread);
-
-    } else {
-
-        // const char *baseMessage = "Comanda nerecunoscuta: ";
-        // int baseMessageLen = strlen(baseMessage);
-        /*fullMessage = "mesaj DE LA SERVER";
-        std::string b64_aes_key = get_aes_key_from_json("../server_data.json", username);
-        std::string aes_key = base64_decode(b64_aes_key);
-
-        std::string cripted = aes_encrypt(fullMessage, aes_key);
-        cripted = base64_encode(reinterpret_cast<const unsigned char *>(cripted.c_str()), cripted.length());*/
+void verify_command(const char* fullMessage, struct thData tdL,
+                    const std::string& username, std::string& path) {
 
         int fullMessageLen = strlen(fullMessage);
 
-        // Allocate memory for the response
         char *responseMessage = (char *) malloc(fullMessageLen + 1); // +1 for null terminator
         if (responseMessage == NULL) {
             perror("Error allocating memory for response message");
             // Handle the error (e.g., return, close connection, etc.)
         }
 
-        // Initialize the response message
-        responseMessage[0] = '\0'; // Add this line to initialize the memory
+        responseMessage[0] = '\0';
 
-        // Build the response message
-        // If you want to use baseMessage as well, uncomment and use strcpy and strcat as follows:
-        // strcpy(responseMessage, baseMessage);
+
         strcat(responseMessage, fullMessage);
+        printf("[Server] Received from client: %s\n", responseMessage);
 
-        if (write(tdL.cl, responseMessage, strlen(responseMessage)) <= 0) {
+        std::string ciphertext = base64_decode(responseMessage);
+
+        std::string b64_aes_key = get_aes_key_from_json("../server_data.json", username);
+        std::string aes_key = base64_decode(b64_aes_key);
+
+        std::string dec = aes_decrypt(ciphertext, aes_key);
+        std::cout << "[Server] The decrypted message is: " << dec << std::endl;
+
+        char text[] = "Message received: ";
+        strcat(text, dec.c_str());
+
+        // executing
+        std::string command_output = interpret_command(dec, path);
+
+
+
+
+
+
+        // change this to only the exec ouput
+        std::string encrypted = aes_encrypt(command_output, aes_key);
+        encrypted = base64_encode(encrypted);
+
+        if (write(tdL.cl, encrypted.c_str(), strlen(encrypted.c_str())) <= 0) {
             printf("[Thread %d] ", tdL.idThread);
             perror("[Thread]Eroare la write() catre client.\n");
         } else {
@@ -76,7 +51,7 @@ void verify_command(const char* fullMessage, struct thData tdL, const std::strin
 
         free(responseMessage);
 
-    }
+
 }
 
 std::string receive_AES_key(int client_socket) {
@@ -112,7 +87,7 @@ std::string receive_AES_key(int client_socket) {
     decryptedUsername.resize(username_len);
     decryptedAesKey.resize(key_len);
 
-    update_user_key("../server_data.json", std::string(decryptedUsername),
+    update_user_key("/home/alex/Desktop/SSH/SSHS/server_data.json", std::string(decryptedUsername),
                     std::string(decryptedAesKey));
 
     // delete[] decrypted_username;

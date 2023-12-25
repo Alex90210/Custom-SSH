@@ -83,66 +83,38 @@ CMakeFiles/SSH_C.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSH_C.dir/src/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHC/src/main.cpp -o CMakeFiles/SSH_C.dir/src/main.cpp.s
 
-CMakeFiles/SSH_C.dir/src/keys.cpp.o: CMakeFiles/SSH_C.dir/flags.make
-CMakeFiles/SSH_C.dir/src/keys.cpp.o: /home/alex/Desktop/SSH/SSHC/src/keys.cpp
-CMakeFiles/SSH_C.dir/src/keys.cpp.o: CMakeFiles/SSH_C.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/SSH/SSHC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SSH_C.dir/src/keys.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SSH_C.dir/src/keys.cpp.o -MF CMakeFiles/SSH_C.dir/src/keys.cpp.o.d -o CMakeFiles/SSH_C.dir/src/keys.cpp.o -c /home/alex/Desktop/SSH/SSHC/src/keys.cpp
+CMakeFiles/SSH_C.dir/src/manage_keys.cpp.o: CMakeFiles/SSH_C.dir/flags.make
+CMakeFiles/SSH_C.dir/src/manage_keys.cpp.o: /home/alex/Desktop/SSH/SSHC/src/manage_keys.cpp
+CMakeFiles/SSH_C.dir/src/manage_keys.cpp.o: CMakeFiles/SSH_C.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/SSH/SSHC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SSH_C.dir/src/manage_keys.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SSH_C.dir/src/manage_keys.cpp.o -MF CMakeFiles/SSH_C.dir/src/manage_keys.cpp.o.d -o CMakeFiles/SSH_C.dir/src/manage_keys.cpp.o -c /home/alex/Desktop/SSH/SSHC/src/manage_keys.cpp
 
-CMakeFiles/SSH_C.dir/src/keys.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SSH_C.dir/src/keys.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/SSH/SSHC/src/keys.cpp > CMakeFiles/SSH_C.dir/src/keys.cpp.i
+CMakeFiles/SSH_C.dir/src/manage_keys.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SSH_C.dir/src/manage_keys.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/SSH/SSHC/src/manage_keys.cpp > CMakeFiles/SSH_C.dir/src/manage_keys.cpp.i
 
-CMakeFiles/SSH_C.dir/src/keys.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSH_C.dir/src/keys.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHC/src/keys.cpp -o CMakeFiles/SSH_C.dir/src/keys.cpp.s
+CMakeFiles/SSH_C.dir/src/manage_keys.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSH_C.dir/src/manage_keys.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHC/src/manage_keys.cpp -o CMakeFiles/SSH_C.dir/src/manage_keys.cpp.s
 
-CMakeFiles/SSH_C.dir/src/string_operations.cpp.o: CMakeFiles/SSH_C.dir/flags.make
-CMakeFiles/SSH_C.dir/src/string_operations.cpp.o: /home/alex/Desktop/SSH/SSHC/src/string_operations.cpp
-CMakeFiles/SSH_C.dir/src/string_operations.cpp.o: CMakeFiles/SSH_C.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/SSH/SSHC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SSH_C.dir/src/string_operations.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SSH_C.dir/src/string_operations.cpp.o -MF CMakeFiles/SSH_C.dir/src/string_operations.cpp.o.d -o CMakeFiles/SSH_C.dir/src/string_operations.cpp.o -c /home/alex/Desktop/SSH/SSHC/src/string_operations.cpp
+CMakeFiles/SSH_C.dir/src/utils.cpp.o: CMakeFiles/SSH_C.dir/flags.make
+CMakeFiles/SSH_C.dir/src/utils.cpp.o: /home/alex/Desktop/SSH/SSHC/src/utils.cpp
+CMakeFiles/SSH_C.dir/src/utils.cpp.o: CMakeFiles/SSH_C.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/SSH/SSHC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SSH_C.dir/src/utils.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SSH_C.dir/src/utils.cpp.o -MF CMakeFiles/SSH_C.dir/src/utils.cpp.o.d -o CMakeFiles/SSH_C.dir/src/utils.cpp.o -c /home/alex/Desktop/SSH/SSHC/src/utils.cpp
 
-CMakeFiles/SSH_C.dir/src/string_operations.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SSH_C.dir/src/string_operations.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/SSH/SSHC/src/string_operations.cpp > CMakeFiles/SSH_C.dir/src/string_operations.cpp.i
+CMakeFiles/SSH_C.dir/src/utils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SSH_C.dir/src/utils.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/SSH/SSHC/src/utils.cpp > CMakeFiles/SSH_C.dir/src/utils.cpp.i
 
-CMakeFiles/SSH_C.dir/src/string_operations.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSH_C.dir/src/string_operations.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHC/src/string_operations.cpp -o CMakeFiles/SSH_C.dir/src/string_operations.cpp.s
-
-CMakeFiles/SSH_C.dir/src/json_functions.cpp.o: CMakeFiles/SSH_C.dir/flags.make
-CMakeFiles/SSH_C.dir/src/json_functions.cpp.o: /home/alex/Desktop/SSH/SSHC/src/json_functions.cpp
-CMakeFiles/SSH_C.dir/src/json_functions.cpp.o: CMakeFiles/SSH_C.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/SSH/SSHC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SSH_C.dir/src/json_functions.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SSH_C.dir/src/json_functions.cpp.o -MF CMakeFiles/SSH_C.dir/src/json_functions.cpp.o.d -o CMakeFiles/SSH_C.dir/src/json_functions.cpp.o -c /home/alex/Desktop/SSH/SSHC/src/json_functions.cpp
-
-CMakeFiles/SSH_C.dir/src/json_functions.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SSH_C.dir/src/json_functions.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/SSH/SSHC/src/json_functions.cpp > CMakeFiles/SSH_C.dir/src/json_functions.cpp.i
-
-CMakeFiles/SSH_C.dir/src/json_functions.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSH_C.dir/src/json_functions.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHC/src/json_functions.cpp -o CMakeFiles/SSH_C.dir/src/json_functions.cpp.s
-
-CMakeFiles/SSH_C.dir/src/client_functions.cpp.o: CMakeFiles/SSH_C.dir/flags.make
-CMakeFiles/SSH_C.dir/src/client_functions.cpp.o: /home/alex/Desktop/SSH/SSHC/src/client_functions.cpp
-CMakeFiles/SSH_C.dir/src/client_functions.cpp.o: CMakeFiles/SSH_C.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/SSH/SSHC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SSH_C.dir/src/client_functions.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SSH_C.dir/src/client_functions.cpp.o -MF CMakeFiles/SSH_C.dir/src/client_functions.cpp.o.d -o CMakeFiles/SSH_C.dir/src/client_functions.cpp.o -c /home/alex/Desktop/SSH/SSHC/src/client_functions.cpp
-
-CMakeFiles/SSH_C.dir/src/client_functions.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SSH_C.dir/src/client_functions.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/SSH/SSHC/src/client_functions.cpp > CMakeFiles/SSH_C.dir/src/client_functions.cpp.i
-
-CMakeFiles/SSH_C.dir/src/client_functions.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSH_C.dir/src/client_functions.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHC/src/client_functions.cpp -o CMakeFiles/SSH_C.dir/src/client_functions.cpp.s
+CMakeFiles/SSH_C.dir/src/utils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSH_C.dir/src/utils.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHC/src/utils.cpp -o CMakeFiles/SSH_C.dir/src/utils.cpp.s
 
 CMakeFiles/SSH_C.dir/src/AES.cpp.o: CMakeFiles/SSH_C.dir/flags.make
 CMakeFiles/SSH_C.dir/src/AES.cpp.o: /home/alex/Desktop/SSH/SSHC/src/AES.cpp
 CMakeFiles/SSH_C.dir/src/AES.cpp.o: CMakeFiles/SSH_C.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/SSH/SSHC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SSH_C.dir/src/AES.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/SSH/SSHC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SSH_C.dir/src/AES.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SSH_C.dir/src/AES.cpp.o -MF CMakeFiles/SSH_C.dir/src/AES.cpp.o.d -o CMakeFiles/SSH_C.dir/src/AES.cpp.o -c /home/alex/Desktop/SSH/SSHC/src/AES.cpp
 
 CMakeFiles/SSH_C.dir/src/AES.cpp.i: cmake_force
@@ -156,7 +128,7 @@ CMakeFiles/SSH_C.dir/src/AES.cpp.s: cmake_force
 CMakeFiles/SSH_C.dir/src/base64.cpp.o: CMakeFiles/SSH_C.dir/flags.make
 CMakeFiles/SSH_C.dir/src/base64.cpp.o: /home/alex/Desktop/SSH/SSHC/src/base64.cpp
 CMakeFiles/SSH_C.dir/src/base64.cpp.o: CMakeFiles/SSH_C.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/SSH/SSHC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/SSH_C.dir/src/base64.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/SSH/SSHC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/SSH_C.dir/src/base64.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SSH_C.dir/src/base64.cpp.o -MF CMakeFiles/SSH_C.dir/src/base64.cpp.o.d -o CMakeFiles/SSH_C.dir/src/base64.cpp.o -c /home/alex/Desktop/SSH/SSHC/src/base64.cpp
 
 CMakeFiles/SSH_C.dir/src/base64.cpp.i: cmake_force
@@ -167,31 +139,43 @@ CMakeFiles/SSH_C.dir/src/base64.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSH_C.dir/src/base64.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHC/src/base64.cpp -o CMakeFiles/SSH_C.dir/src/base64.cpp.s
 
+CMakeFiles/SSH_C.dir/src/client.cpp.o: CMakeFiles/SSH_C.dir/flags.make
+CMakeFiles/SSH_C.dir/src/client.cpp.o: /home/alex/Desktop/SSH/SSHC/src/client.cpp
+CMakeFiles/SSH_C.dir/src/client.cpp.o: CMakeFiles/SSH_C.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/SSH/SSHC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/SSH_C.dir/src/client.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SSH_C.dir/src/client.cpp.o -MF CMakeFiles/SSH_C.dir/src/client.cpp.o.d -o CMakeFiles/SSH_C.dir/src/client.cpp.o -c /home/alex/Desktop/SSH/SSHC/src/client.cpp
+
+CMakeFiles/SSH_C.dir/src/client.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SSH_C.dir/src/client.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/SSH/SSHC/src/client.cpp > CMakeFiles/SSH_C.dir/src/client.cpp.i
+
+CMakeFiles/SSH_C.dir/src/client.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSH_C.dir/src/client.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHC/src/client.cpp -o CMakeFiles/SSH_C.dir/src/client.cpp.s
+
 # Object files for target SSH_C
 SSH_C_OBJECTS = \
 "CMakeFiles/SSH_C.dir/src/main.cpp.o" \
-"CMakeFiles/SSH_C.dir/src/keys.cpp.o" \
-"CMakeFiles/SSH_C.dir/src/string_operations.cpp.o" \
-"CMakeFiles/SSH_C.dir/src/json_functions.cpp.o" \
-"CMakeFiles/SSH_C.dir/src/client_functions.cpp.o" \
+"CMakeFiles/SSH_C.dir/src/manage_keys.cpp.o" \
+"CMakeFiles/SSH_C.dir/src/utils.cpp.o" \
 "CMakeFiles/SSH_C.dir/src/AES.cpp.o" \
-"CMakeFiles/SSH_C.dir/src/base64.cpp.o"
+"CMakeFiles/SSH_C.dir/src/base64.cpp.o" \
+"CMakeFiles/SSH_C.dir/src/client.cpp.o"
 
 # External object files for target SSH_C
 SSH_C_EXTERNAL_OBJECTS =
 
 SSH_C: CMakeFiles/SSH_C.dir/src/main.cpp.o
-SSH_C: CMakeFiles/SSH_C.dir/src/keys.cpp.o
-SSH_C: CMakeFiles/SSH_C.dir/src/string_operations.cpp.o
-SSH_C: CMakeFiles/SSH_C.dir/src/json_functions.cpp.o
-SSH_C: CMakeFiles/SSH_C.dir/src/client_functions.cpp.o
+SSH_C: CMakeFiles/SSH_C.dir/src/manage_keys.cpp.o
+SSH_C: CMakeFiles/SSH_C.dir/src/utils.cpp.o
 SSH_C: CMakeFiles/SSH_C.dir/src/AES.cpp.o
 SSH_C: CMakeFiles/SSH_C.dir/src/base64.cpp.o
+SSH_C: CMakeFiles/SSH_C.dir/src/client.cpp.o
 SSH_C: CMakeFiles/SSH_C.dir/build.make
 SSH_C: /usr/lib/x86_64-linux-gnu/libssl.so
 SSH_C: /usr/lib/x86_64-linux-gnu/libcrypto.so
 SSH_C: CMakeFiles/SSH_C.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alex/Desktop/SSH/SSHC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable SSH_C"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alex/Desktop/SSH/SSHC/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable SSH_C"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SSH_C.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

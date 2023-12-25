@@ -1,6 +1,6 @@
-CMakeFiles/SSHS.dir/src/client_handler.cpp.o: \
- /home/alex/Desktop/SSH/SSHS/src/client_handler.cpp \
- /usr/include/stdc-predef.h \
+CMakeFiles/SSHS.dir/src/server.cpp.o: \
+ /home/alex/Desktop/SSH/SSHS/src/server.cpp /usr/include/stdc-predef.h \
+ /home/alex/Desktop/SSH/SSHS/src/../include/server.h \
  /home/alex/Desktop/SSH/SSHS/src/../include/client_handler.h \
  /usr/include/x86_64-linux-gnu/sys/types.h /usr/include/features.h \
  /usr/include/features-time64.h \
@@ -198,8 +198,6 @@ CMakeFiles/SSHS.dir/src/client_handler.cpp.o: \
  /usr/include/c++/12/bits/basic_ios.tcc \
  /usr/include/c++/12/bits/ostream.tcc /usr/include/c++/12/istream \
  /usr/include/c++/12/bits/istream.tcc \
- /home/alex/Desktop/SSH/SSHS/src/../include/server.h \
- /home/alex/Desktop/SSH/SSHS/src/../include/client_handler.h \
  /home/alex/Desktop/SSH/SSHS/src/../include/AES.h \
  /usr/include/nlohmann/json.hpp /usr/include/c++/12/algorithm \
  /usr/include/c++/12/bits/stl_algo.h \
@@ -373,5 +371,18 @@ CMakeFiles/SSHS.dir/src/client_handler.cpp.o: \
  /usr/include/openssl/obj_mac.h /usr/include/openssl/asn1.h \
  /usr/include/openssl/asn1err.h /usr/include/openssl/objectserr.h \
  /home/alex/Desktop/SSH/SSHS/src/../include/base64.h \
- /home/alex/Desktop/SSH/SSHS/src/../include/AES.h \
- /home/alex/Desktop/SSH/SSHS/src/../include/base64.h
+ /home/alex/Desktop/SSH/SSHS/src/../include/json_functions.h \
+ /home/alex/Desktop/SSH/SSHS/src/../include/RSA.h \
+ /usr/include/openssl/rsa.h /usr/include/openssl/rsaerr.h \
+ /usr/include/openssl/err.h /usr/include/openssl/lhash.h \
+ /usr/include/openssl/pem.h /usr/include/openssl/x509.h \
+ /usr/include/openssl/buffer.h /usr/include/openssl/buffererr.h \
+ /usr/include/openssl/ec.h /usr/include/openssl/ecerr.h \
+ /usr/include/openssl/dsa.h /usr/include/openssl/dh.h \
+ /usr/include/openssl/dherr.h /usr/include/openssl/dsaerr.h \
+ /usr/include/openssl/sha.h /usr/include/openssl/x509err.h \
+ /usr/include/openssl/x509_vfy.h /usr/include/openssl/pkcs7.h \
+ /usr/include/openssl/pkcs7err.h /usr/include/openssl/http.h \
+ /usr/include/openssl/conf.h /usr/include/openssl/conferr.h \
+ /usr/include/openssl/conftypes.h /usr/include/openssl/pemerr.h \
+ /home/alex/Desktop/SSH/SSHS/src/../include/json_functions.h

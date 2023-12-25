@@ -153,6 +153,30 @@ src/AES.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/AES.cpp.s
 .PHONY : src/AES.cpp.s
 
+src/RSA.o: src/RSA.cpp.o
+.PHONY : src/RSA.o
+
+# target to build an object file
+src/RSA.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/RSA.cpp.o
+.PHONY : src/RSA.cpp.o
+
+src/RSA.i: src/RSA.cpp.i
+.PHONY : src/RSA.i
+
+# target to preprocess a source file
+src/RSA.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/RSA.cpp.i
+.PHONY : src/RSA.cpp.i
+
+src/RSA.s: src/RSA.cpp.s
+.PHONY : src/RSA.s
+
+# target to generate assembly for a file
+src/RSA.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/RSA.cpp.s
+.PHONY : src/RSA.cpp.s
+
 src/base64.o: src/base64.cpp.o
 .PHONY : src/base64.o
 
@@ -200,6 +224,30 @@ src/client_handler.s: src/client_handler.cpp.s
 src/client_handler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/client_handler.cpp.s
 .PHONY : src/client_handler.cpp.s
+
+src/exec_command.o: src/exec_command.cpp.o
+.PHONY : src/exec_command.o
+
+# target to build an object file
+src/exec_command.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/exec_command.cpp.o
+.PHONY : src/exec_command.cpp.o
+
+src/exec_command.i: src/exec_command.cpp.i
+.PHONY : src/exec_command.i
+
+# target to preprocess a source file
+src/exec_command.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/exec_command.cpp.i
+.PHONY : src/exec_command.cpp.i
+
+src/exec_command.s: src/exec_command.cpp.s
+.PHONY : src/exec_command.s
+
+# target to generate assembly for a file
+src/exec_command.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/exec_command.cpp.s
+.PHONY : src/exec_command.cpp.s
 
 src/json_functions.o: src/json_functions.cpp.o
 .PHONY : src/json_functions.o
@@ -249,53 +297,29 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/rsa_key.o: src/rsa_key.cpp.o
-.PHONY : src/rsa_key.o
+src/server.o: src/server.cpp.o
+.PHONY : src/server.o
 
 # target to build an object file
-src/rsa_key.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/rsa_key.cpp.o
-.PHONY : src/rsa_key.cpp.o
+src/server.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/server.cpp.o
+.PHONY : src/server.cpp.o
 
-src/rsa_key.i: src/rsa_key.cpp.i
-.PHONY : src/rsa_key.i
-
-# target to preprocess a source file
-src/rsa_key.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/rsa_key.cpp.i
-.PHONY : src/rsa_key.cpp.i
-
-src/rsa_key.s: src/rsa_key.cpp.s
-.PHONY : src/rsa_key.s
-
-# target to generate assembly for a file
-src/rsa_key.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/rsa_key.cpp.s
-.PHONY : src/rsa_key.cpp.s
-
-src/server_functions.o: src/server_functions.cpp.o
-.PHONY : src/server_functions.o
-
-# target to build an object file
-src/server_functions.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/server_functions.cpp.o
-.PHONY : src/server_functions.cpp.o
-
-src/server_functions.i: src/server_functions.cpp.i
-.PHONY : src/server_functions.i
+src/server.i: src/server.cpp.i
+.PHONY : src/server.i
 
 # target to preprocess a source file
-src/server_functions.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/server_functions.cpp.i
-.PHONY : src/server_functions.cpp.i
+src/server.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/server.cpp.i
+.PHONY : src/server.cpp.i
 
-src/server_functions.s: src/server_functions.cpp.s
-.PHONY : src/server_functions.s
+src/server.s: src/server.cpp.s
+.PHONY : src/server.s
 
 # target to generate assembly for a file
-src/server_functions.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/server_functions.cpp.s
-.PHONY : src/server_functions.cpp.s
+src/server.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/server.cpp.s
+.PHONY : src/server.cpp.s
 
 # Help Target
 help:
@@ -309,24 +333,27 @@ help:
 	@echo "... src/AES.o"
 	@echo "... src/AES.i"
 	@echo "... src/AES.s"
+	@echo "... src/RSA.o"
+	@echo "... src/RSA.i"
+	@echo "... src/RSA.s"
 	@echo "... src/base64.o"
 	@echo "... src/base64.i"
 	@echo "... src/base64.s"
 	@echo "... src/client_handler.o"
 	@echo "... src/client_handler.i"
 	@echo "... src/client_handler.s"
+	@echo "... src/exec_command.o"
+	@echo "... src/exec_command.i"
+	@echo "... src/exec_command.s"
 	@echo "... src/json_functions.o"
 	@echo "... src/json_functions.i"
 	@echo "... src/json_functions.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/rsa_key.o"
-	@echo "... src/rsa_key.i"
-	@echo "... src/rsa_key.s"
-	@echo "... src/server_functions.o"
-	@echo "... src/server_functions.i"
-	@echo "... src/server_functions.s"
+	@echo "... src/server.o"
+	@echo "... src/server.i"
+	@echo "... src/server.s"
 .PHONY : help
 
 

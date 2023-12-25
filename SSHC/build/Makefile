@@ -177,77 +177,29 @@ src/base64.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/base64.cpp.s
 .PHONY : src/base64.cpp.s
 
-src/client_functions.o: src/client_functions.cpp.o
-.PHONY : src/client_functions.o
+src/client.o: src/client.cpp.o
+.PHONY : src/client.o
 
 # target to build an object file
-src/client_functions.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/client_functions.cpp.o
-.PHONY : src/client_functions.cpp.o
+src/client.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/client.cpp.o
+.PHONY : src/client.cpp.o
 
-src/client_functions.i: src/client_functions.cpp.i
-.PHONY : src/client_functions.i
-
-# target to preprocess a source file
-src/client_functions.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/client_functions.cpp.i
-.PHONY : src/client_functions.cpp.i
-
-src/client_functions.s: src/client_functions.cpp.s
-.PHONY : src/client_functions.s
-
-# target to generate assembly for a file
-src/client_functions.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/client_functions.cpp.s
-.PHONY : src/client_functions.cpp.s
-
-src/json_functions.o: src/json_functions.cpp.o
-.PHONY : src/json_functions.o
-
-# target to build an object file
-src/json_functions.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/json_functions.cpp.o
-.PHONY : src/json_functions.cpp.o
-
-src/json_functions.i: src/json_functions.cpp.i
-.PHONY : src/json_functions.i
+src/client.i: src/client.cpp.i
+.PHONY : src/client.i
 
 # target to preprocess a source file
-src/json_functions.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/json_functions.cpp.i
-.PHONY : src/json_functions.cpp.i
+src/client.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/client.cpp.i
+.PHONY : src/client.cpp.i
 
-src/json_functions.s: src/json_functions.cpp.s
-.PHONY : src/json_functions.s
-
-# target to generate assembly for a file
-src/json_functions.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/json_functions.cpp.s
-.PHONY : src/json_functions.cpp.s
-
-src/keys.o: src/keys.cpp.o
-.PHONY : src/keys.o
-
-# target to build an object file
-src/keys.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/keys.cpp.o
-.PHONY : src/keys.cpp.o
-
-src/keys.i: src/keys.cpp.i
-.PHONY : src/keys.i
-
-# target to preprocess a source file
-src/keys.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/keys.cpp.i
-.PHONY : src/keys.cpp.i
-
-src/keys.s: src/keys.cpp.s
-.PHONY : src/keys.s
+src/client.s: src/client.cpp.s
+.PHONY : src/client.s
 
 # target to generate assembly for a file
-src/keys.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/keys.cpp.s
-.PHONY : src/keys.cpp.s
+src/client.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/client.cpp.s
+.PHONY : src/client.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
@@ -273,29 +225,53 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/string_operations.o: src/string_operations.cpp.o
-.PHONY : src/string_operations.o
+src/manage_keys.o: src/manage_keys.cpp.o
+.PHONY : src/manage_keys.o
 
 # target to build an object file
-src/string_operations.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/string_operations.cpp.o
-.PHONY : src/string_operations.cpp.o
+src/manage_keys.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/manage_keys.cpp.o
+.PHONY : src/manage_keys.cpp.o
 
-src/string_operations.i: src/string_operations.cpp.i
-.PHONY : src/string_operations.i
+src/manage_keys.i: src/manage_keys.cpp.i
+.PHONY : src/manage_keys.i
 
 # target to preprocess a source file
-src/string_operations.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/string_operations.cpp.i
-.PHONY : src/string_operations.cpp.i
+src/manage_keys.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/manage_keys.cpp.i
+.PHONY : src/manage_keys.cpp.i
 
-src/string_operations.s: src/string_operations.cpp.s
-.PHONY : src/string_operations.s
+src/manage_keys.s: src/manage_keys.cpp.s
+.PHONY : src/manage_keys.s
 
 # target to generate assembly for a file
-src/string_operations.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/string_operations.cpp.s
-.PHONY : src/string_operations.cpp.s
+src/manage_keys.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/manage_keys.cpp.s
+.PHONY : src/manage_keys.cpp.s
+
+src/utils.o: src/utils.cpp.o
+.PHONY : src/utils.o
+
+# target to build an object file
+src/utils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/utils.cpp.o
+.PHONY : src/utils.cpp.o
+
+src/utils.i: src/utils.cpp.i
+.PHONY : src/utils.i
+
+# target to preprocess a source file
+src/utils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/utils.cpp.i
+.PHONY : src/utils.cpp.i
+
+src/utils.s: src/utils.cpp.s
+.PHONY : src/utils.s
+
+# target to generate assembly for a file
+src/utils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/utils.cpp.s
+.PHONY : src/utils.cpp.s
 
 # Help Target
 help:
@@ -312,21 +288,18 @@ help:
 	@echo "... src/base64.o"
 	@echo "... src/base64.i"
 	@echo "... src/base64.s"
-	@echo "... src/client_functions.o"
-	@echo "... src/client_functions.i"
-	@echo "... src/client_functions.s"
-	@echo "... src/json_functions.o"
-	@echo "... src/json_functions.i"
-	@echo "... src/json_functions.s"
-	@echo "... src/keys.o"
-	@echo "... src/keys.i"
-	@echo "... src/keys.s"
+	@echo "... src/client.o"
+	@echo "... src/client.i"
+	@echo "... src/client.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/string_operations.o"
-	@echo "... src/string_operations.i"
-	@echo "... src/string_operations.s"
+	@echo "... src/manage_keys.o"
+	@echo "... src/manage_keys.i"
+	@echo "... src/manage_keys.s"
+	@echo "... src/utils.o"
+	@echo "... src/utils.i"
+	@echo "... src/utils.s"
 .PHONY : help
 
 

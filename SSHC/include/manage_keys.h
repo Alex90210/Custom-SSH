@@ -12,7 +12,7 @@
 
 using json = nlohmann::json;
 
-constexpr int KEY_LENGTH_BITS = 128;
+constexpr int KEY_LENGTH_BITS = 256;
 constexpr int KEY_LENGTH_BYTES = KEY_LENGTH_BITS / 8;
 
 bool generate_aes_key(unsigned char (&aesKey)[KEY_LENGTH_BYTES]);

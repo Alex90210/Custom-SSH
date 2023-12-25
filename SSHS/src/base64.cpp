@@ -1,18 +1,27 @@
 #include "../include/base64.h"
 
-std::string base64_encode(const unsigned char* input, size_t length) {
+std::string base64_encode(const std::string& input) {
+    // Create a BIO chain with a memory sink and base64 filter
     BIO* bio = BIO_new(BIO_s_mem());
     BIO* b64 = BIO_new(BIO_f_base64());
-    BIO_set_flags(b64, BIO_FLAGS_BASE64_NO_NL);
+    BIO_set_flags(b64, BIO_FLAGS_BASE64_NO_NL);  // No newlines
     BIO_push(b64, bio);
 
-    BIO_write(b64, input, length);
+    // Write the input data to the base64 encoder
+    BIO_write(b64, input.data(), input.size());
     BIO_flush(b64);
 
+    // Fetch the encoded data
     char* encoded_data;
     long encoded_length = BIO_get_mem_data(bio, &encoded_data);
 
-    return std::string(encoded_data, encoded_length);
+    // Create a std::string from the encoded data
+    std::string encoded_string(encoded_data, encoded_length);
+
+    // Clean up
+    BIO_free_all(b64);
+
+    return encoded_string;
 }
 
 std::string base64_decode(const std::string& encoded) {

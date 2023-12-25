@@ -19,8 +19,8 @@ void command_loop(const int& sd, std::string& username) {
 
             int bytes_num = read(0, buf, sizeof(buf));
             buf[bytes_num] = '\0';
-            printf("[client]Am citit: %s", buf);
-            printf("[client]Lungimea acestuia este: %zu\n", strlen(buf));
+            printf("[Client] INPUT: %s", buf);
+            // printf("[client]Lungimea acestuia este: %zu\n", strlen(buf));
 
             if (bytes_num > 0 && buf[bytes_num - 1] == '\n') {
                 buf[bytes_num - 1] = '\0';
@@ -43,13 +43,13 @@ void command_loop(const int& sd, std::string& username) {
 
             // Encode encrypted data to Base64 for display or transport
             std::string base64Encrypted = base64_encode(encrypted);
-            std::cout << "BASE 64 CIPHERTEXT: " << base64Encrypted << std::endl;
-            std::cout << "CIPHERTEXT: " << encrypted << std::endl;
+            std::cout << "[Client] BASE 64 CIPHERTEXT: " << base64Encrypted << std::endl;
+            // std::cout << "CIPHERTEXT: " << encrypted << std::endl;
 
             // Decrypt the original encrypted data
-            std::string decrypted = aes_decrypt(encrypted, aes_key); // Use 'encrypted', not 'cipher_text'
+            // std::string decrypted = aes_decrypt(encrypted, aes_key); // Use 'encrypted', not 'cipher_text'
 
-            std::cout << "DECRYPTED TEXT: " << decrypted << std::endl;
+            // std::cout << "DECRYPTED TEXT: " << decrypted << std::endl;
 
 
             char* fullMessageWithHeader = add_len_header(base64Encrypted.c_str());
@@ -60,7 +60,7 @@ void command_loop(const int& sd, std::string& username) {
                     throw std::runtime_error("Error writing message to server.");
                 }
 
-                printf("[client]Dimensiunea pachetului este: %ld\n", sizeof(int) + strlen(fullMessageWithHeader));
+                // printf("[client]Dimensiunea pachetului este: %ld\n", sizeof(int) + strlen(fullMessageWithHeader));
                 // free(fullMessage);
 
                 // Receive message from server
@@ -77,13 +77,13 @@ void command_loop(const int& sd, std::string& username) {
                 // fflush(stdout); // Flush standard output buffer
                 int string_len = strlen(buf);
                 buf[string_len] = '\0';
-                printf("[client]dim mesaj server: %d\n", string_len);
-                printf("[client]Mesajul criptat de la server: %s\n", buf);
+                // printf("[client]dim mesaj server: %d\n", string_len);
+                // printf("[Client] The encrypted message from the server is: %s\n", buf);
 
                 std::string binary_ciphertext = base64_decode(buf);
                 std::string decoded = aes_decrypt(binary_ciphertext, aes_key);
 
-                std::cout << "[client]Mesajul decriptat de la server: " << decoded << std::endl;
+                std::cout << "[Client] The decrypted msg is: " << decoded << std::endl;
 
             } catch (std::exception &e) {
                 printf("[client]Eroare la mesaj: %s\n", e.what());
