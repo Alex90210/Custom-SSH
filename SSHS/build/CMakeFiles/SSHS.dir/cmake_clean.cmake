@@ -13,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/SSHS.dir/src/json_functions.cpp.o.d"
   "CMakeFiles/SSHS.dir/src/main.cpp.o"
   "CMakeFiles/SSHS.dir/src/main.cpp.o.d"
+  "CMakeFiles/SSHS.dir/src/parse_command.cpp.o"
+  "CMakeFiles/SSHS.dir/src/parse_command.cpp.o.d"
   "CMakeFiles/SSHS.dir/src/server.cpp.o"
   "CMakeFiles/SSHS.dir/src/server.cpp.o.d"
   "SSHS"

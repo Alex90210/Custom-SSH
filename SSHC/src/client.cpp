@@ -5,22 +5,16 @@ void command_loop(const int& sd, std::string& username) {
     const char* user_n = username.c_str();
     try {
         while(1) {
+
             char buf[1000];
             memset(buf, 0, sizeof(buf));
 
             printf("%s> ", user_n);
             fflush(stdout);
 
-            /*std::string user_input;
-            std::cin >> user_input;
-
-            std::cout << "You wrote: " << user_input << std::endl;
-            std::cout << "The length of this text is: " << user_input.length() << std::endl;*/
-
             int bytes_num = read(0, buf, sizeof(buf));
             buf[bytes_num] = '\0';
-            printf("[Client] INPUT: %s", buf);
-            // printf("[client]Lungimea acestuia este: %zu\n", strlen(buf));
+            printf("[Client]User input: %s", buf);
 
             if (bytes_num > 0 && buf[bytes_num - 1] == '\n') {
                 buf[bytes_num - 1] = '\0';
@@ -29,69 +23,81 @@ void command_loop(const int& sd, std::string& username) {
                 buf[bytes_num] = '\0';
             }
 
-            // ----------------------
-            // Send message to server
-
-            // std::string user_input {"joe biden!!!"};
-            // const char* fullm = user_input.c_str();
-
+            // Getting the AES key of the user
             std::string b64_aes_key = get_aes_key_from_json("../client_data.json", username);
             std::string aes_key = base64_decode(b64_aes_key); // Decode once
 
-            // Encrypt the buffer
+            // Encrypting and encoding the user input
             std::string encrypted = aes_encrypt(buf, aes_key);
-
-            // Encode encrypted data to Base64 for display or transport
             std::string base64Encrypted = base64_encode(encrypted);
-            std::cout << "[Client] BASE 64 CIPHERTEXT: " << base64Encrypted << std::endl;
-            // std::cout << "CIPHERTEXT: " << encrypted << std::endl;
+            std::cout << "[Client]Base 64 ciphertext: " << base64Encrypted << std::endl;
 
-            // Decrypt the original encrypted data
-            // std::string decrypted = aes_decrypt(encrypted, aes_key); // Use 'encrypted', not 'cipher_text'
-
-            // std::cout << "DECRYPTED TEXT: " << decrypted << std::endl;
-
-
-            char* fullMessageWithHeader = add_len_header(base64Encrypted.c_str());
+            // Adding the length header to the message
+            char* full_msg_with_header = add_len_header(base64Encrypted.c_str());
             int total_len = base64Encrypted.length() + sizeof(int);
 
-            try {
-                if (write(sd, fullMessageWithHeader, total_len) <= 0) {
-                    throw std::runtime_error("Error writing message to server.");
-                }
-
-                // printf("[client]Dimensiunea pachetului este: %ld\n", sizeof(int) + strlen(fullMessageWithHeader));
-                // free(fullMessage);
-
-                // Receive message from server
-                // ADD ALOCATE MEMORY DYNAMICALLY
-                int read_result = read(sd, buf, sizeof(buf));
-                if (read_result < 0) {
-                    throw std::runtime_error("Error reading message from server.");
-                } else if (read_result == 0) {
-                    printf("[client]Serverul este offline, conexiunea a fost inchisa.\n");
-                    shutdown(sd, SHUT_RDWR);
-                    break;
-                }
-
-                // fflush(stdout); // Flush standard output buffer
-                int string_len = strlen(buf);
-                buf[string_len] = '\0';
-                // printf("[client]dim mesaj server: %d\n", string_len);
-                // printf("[Client] The encrypted message from the server is: %s\n", buf);
-
-                std::string binary_ciphertext = base64_decode(buf);
-                std::string decoded = aes_decrypt(binary_ciphertext, aes_key);
-
-                std::cout << "[Client] The decrypted msg is: " << decoded << std::endl;
-
-            } catch (std::exception &e) {
-                printf("[client]Eroare la mesaj: %s\n", e.what());
-                break;
+            // Sending the message to the server
+            if (write(sd, full_msg_with_header, total_len) <= 0) {
+                throw std::runtime_error("Error writing message to server.");
             }
+
+            // Receiving the message from the server dynamically
+
+                // ----------------------
+                // I should implement a 'wait' function to wait for the server to send the message,
+                // if its of substantial length
+                // ----------------------
+
+            // Read the message length header
+            int message_len {};
+            ssize_t bytes_read = read(sd, &message_len, sizeof(int));
+            if (bytes_read <= 0) {
+                if (bytes_read == 0) {
+                    printf("The server closed the connection.");
+                } else {
+                    perror("Error reading message length header");
+                }
+                close(sd);
+                return;
+            }
+
+            // Allocate memory for the full message and an extra byte for the null terminator
+                // Change malloc with new
+            char *client_input = (char *)malloc(message_len + 1);
+            if (client_input == NULL) {
+                perror("Error allocating memory for full message");
+                return;
+            }
+
+            // Read the actual message
+            ssize_t bytesRead = 0;
+            while (bytesRead < message_len) {
+                ssize_t result = read(sd, client_input + bytesRead, message_len - bytesRead);
+                if (result <= 0) {
+                    if (result == 0) {
+                        printf("Client closed the connection.\n");
+                    } else {
+                        perror("Error reading message");
+                    }
+                    free(client_input);
+                    return;
+                }
+                bytesRead += result;
+            }
+
+            client_input[message_len] = '\0';
+            if (bytesRead > 0 && client_input[bytesRead - 1] == '\n') {
+                client_input[bytesRead - 1] = '\0';
+            }
+
+            // Decoding and decrypting the message
+            std::string binary_ciphertext = base64_decode(client_input);
+            std::string decoded = aes_decrypt(binary_ciphertext, aes_key);
+
+            std::cout << "[Client]The decrypted msg is: " << decoded << std::endl;
 
         }
     } catch (...) {
-        printf("[client]Eroare generala in comanda.\n");
+        std::cerr << "[Client]General error at sending/receiving the message." << std::endl;
     }
 }

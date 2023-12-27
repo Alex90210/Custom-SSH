@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/alex/Desktop/SSH/SSHS/src/exec_command.cpp" "CMakeFiles/SSHS.dir/src/exec_command.cpp.o" "gcc" "CMakeFiles/SSHS.dir/src/exec_command.cpp.o.d"
   "/home/alex/Desktop/SSH/SSHS/src/json_functions.cpp" "CMakeFiles/SSHS.dir/src/json_functions.cpp.o" "gcc" "CMakeFiles/SSHS.dir/src/json_functions.cpp.o.d"
   "/home/alex/Desktop/SSH/SSHS/src/main.cpp" "CMakeFiles/SSHS.dir/src/main.cpp.o" "gcc" "CMakeFiles/SSHS.dir/src/main.cpp.o.d"
+  "/home/alex/Desktop/SSH/SSHS/src/parse_command.cpp" "CMakeFiles/SSHS.dir/src/parse_command.cpp.o" "gcc" "CMakeFiles/SSHS.dir/src/parse_command.cpp.o.d"
   "/home/alex/Desktop/SSH/SSHS/src/server.cpp" "CMakeFiles/SSHS.dir/src/server.cpp.o" "gcc" "CMakeFiles/SSHS.dir/src/server.cpp.o.d"
   )
 

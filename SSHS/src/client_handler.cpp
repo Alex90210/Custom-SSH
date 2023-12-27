@@ -25,7 +25,7 @@ void *treat(void * arg) {
 
     // -------------------------------------
 
-    raspunde((struct thData*)arg);
+    answer_client((struct thData*)arg);
     close ((intptr_t)arg);
     return(NULL);
 };
@@ -37,21 +37,18 @@ void printHex(const char* data, int len) {
     std::cout << std::dec << std::endl; // Switch back to decimal format
 }
 
-void raspunde(void *arg) {
+void answer_client(void *arg) {
 
-    int nr;
+    int thread_id;
     struct thData tdL;
     tdL= *((struct thData*)arg);
 
-    char message_r[1000];
-
     std::string user = receive_AES_key(tdL.cl);
     std::string current_path = get_current_directory();
-    // std::string current_path = "/home/alex";
 
     while (1) {
 
-        char buf[1000];
+        // Read the message length header
         int message_len {};
         ssize_t bytes_read = read(tdL.cl, &message_len, sizeof(int));
         if (bytes_read <= 0) {
@@ -65,8 +62,9 @@ void raspunde(void *arg) {
         }
 
         // Allocate memory for the full message and an extra byte for the null terminator
-        char *fullMessage = (char *)malloc(message_len + 1); // +1 for null terminator
-        if (fullMessage == NULL) {
+        // Change malloc with new
+        char *client_input = (char *)malloc(message_len + 1);
+        if (client_input == NULL) {
             perror("Error allocating memory for full message");
             return;
         }
@@ -74,50 +72,31 @@ void raspunde(void *arg) {
         // Read the actual message
         ssize_t bytesRead = 0;
         while (bytesRead < message_len) {
-            ssize_t result = read(tdL.cl, fullMessage + bytesRead, message_len - bytesRead);
+            ssize_t result = read(tdL.cl, client_input + bytesRead, message_len - bytesRead);
             if (result <= 0) {
                 if (result == 0) {
                     printf("Client closed the connection.\n");
                 } else {
                     perror("Error reading message");
                 }
-                free(fullMessage);
+                free(client_input);
                 return;
             }
             bytesRead += result;
         }
 
-        fullMessage[message_len] = '\0';
-
-        if (bytesRead > 0 && fullMessage[bytesRead - 1] == '\n') {
-            fullMessage[bytesRead - 1] = '\0';
+        client_input[message_len] = '\0';
+        if (bytesRead > 0 && client_input[bytesRead - 1] == '\n') {
+            client_input[bytesRead - 1] = '\0';
         }
 
-        std::string string_cipther = fullMessage;
-        // DECODE THE MESSAGE
-        std::string b64_aes_key = get_aes_key_from_json("../server_data.json", user);
-        std::cout << "BASE 64 KEY: " << b64_aes_key << std::endl;
+        message_len = strlen(client_input);
+        printf("Length of message: %d\n", message_len);
+        printf("[Thread %d]Received message (b64 encoded): %s\n", tdL.idThread, client_input);
+        printf("[Thread %d]Processing the command and sending it back...%d\n",
+               tdL.idThread, thread_id);
 
-        // Decode the AES key
-        std::string aes_key = base64_decode(b64_aes_key);
-        std::cout << "KEY: " << aes_key << std::endl;
-
-        // Assuming fullMessage is the Base64-encoded ciphertext received from the client
-        std::cout << "BASE 64 CIPHERTEXT: " << string_cipther << std::endl;
-        std::string encryptedMessage = base64_decode(string_cipther);
-        std::cout << "CIPHERTEXT: " << encryptedMessage << std::endl;
-
-        /*// Decrypt the message
-        std::string plaintext = aes_decrypt(encryptedMessage, aes_key);
-        std::cout << "DECRYPTED TEXT: " << plaintext << std::endl;*/
-
-        message_len = strlen(fullMessage);
-        printf("SIZE_OF_MESSAGE: %d\n", message_len);
-        printf("[Thread %d] Received message: %s\n", tdL.idThread, encryptedMessage.c_str());
-
-        printf("[Thread %d]Trimitem mesajul inapoi...%d\n", tdL.idThread, nr);
-
-        verify_command(fullMessage, tdL, user, current_path);
-        free(fullMessage);
+        process_command(client_input, tdL, user, current_path);
+        free(client_input);
     }
 }

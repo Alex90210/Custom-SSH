@@ -297,6 +297,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/parse_command.o: src/parse_command.cpp.o
+.PHONY : src/parse_command.o
+
+# target to build an object file
+src/parse_command.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/parse_command.cpp.o
+.PHONY : src/parse_command.cpp.o
+
+src/parse_command.i: src/parse_command.cpp.i
+.PHONY : src/parse_command.i
+
+# target to preprocess a source file
+src/parse_command.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/parse_command.cpp.i
+.PHONY : src/parse_command.cpp.i
+
+src/parse_command.s: src/parse_command.cpp.s
+.PHONY : src/parse_command.s
+
+# target to generate assembly for a file
+src/parse_command.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/parse_command.cpp.s
+.PHONY : src/parse_command.cpp.s
+
 src/server.o: src/server.cpp.o
 .PHONY : src/server.o
 
@@ -351,6 +375,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/parse_command.o"
+	@echo "... src/parse_command.i"
+	@echo "... src/parse_command.s"
 	@echo "... src/server.o"
 	@echo "... src/server.i"
 	@echo "... src/server.s"

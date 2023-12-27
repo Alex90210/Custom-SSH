@@ -21,6 +21,6 @@ typedef struct thData {
 
 // am eliminat static de aici, ar putea aparea probleme in viitor
 void *treat(void * arg);
-void raspunde(void *arg);
+void answer_client(void *arg);
 
 #endif

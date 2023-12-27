@@ -371,6 +371,21 @@ CMakeFiles/SSHS.dir/src/server.cpp.o: \
  /usr/include/openssl/obj_mac.h /usr/include/openssl/asn1.h \
  /usr/include/openssl/asn1err.h /usr/include/openssl/objectserr.h \
  /home/alex/Desktop/SSH/SSHS/src/../include/base64.h \
+ /home/alex/Desktop/SSH/SSHS/src/../include/exec_command.h \
+ /usr/include/x86_64-linux-gnu/sys/wait.h \
+ /usr/include/x86_64-linux-gnu/bits/types/idtype_t.h \
+ /home/alex/Desktop/SSH/SSHS/src/../include/parse_command.h \
+ /usr/include/fcntl.h /usr/include/x86_64-linux-gnu/bits/fcntl.h \
+ /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
+ /usr/include/linux/falloc.h /usr/include/x86_64-linux-gnu/bits/stat.h \
+ /usr/include/x86_64-linux-gnu/bits/struct_stat.h \
+ /usr/include/x86_64-linux-gnu/sys/stat.h \
+ /usr/include/x86_64-linux-gnu/bits/statx.h /usr/include/linux/stat.h \
+ /usr/include/linux/types.h /usr/include/x86_64-linux-gnu/asm/types.h \
+ /usr/include/asm-generic/types.h /usr/include/asm-generic/int-ll64.h \
+ /usr/include/x86_64-linux-gnu/bits/statx-generic.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h \
  /home/alex/Desktop/SSH/SSHS/src/../include/json_functions.h \
  /home/alex/Desktop/SSH/SSHS/src/../include/RSA.h \
  /usr/include/openssl/rsa.h /usr/include/openssl/rsaerr.h \

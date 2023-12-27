@@ -2,56 +2,47 @@
 #include "../include/json_functions.h"
 #include "../include/RSA.h"
 
-void verify_command(const char* fullMessage, struct thData tdL,
-                    const std::string& username, std::string& path) {
+void process_command(const char* fullMessage, struct thData tdL,
+                     const std::string& username, std::string& path) {
 
-        int fullMessageLen = strlen(fullMessage);
+    // The header containing the message size should be received in the previous function
+    // You could get its size from a parameter
+    int full_message_len = strlen(fullMessage);
+    char *response_message = new char[full_message_len + 1];
+    response_message[0] = '\0';
+    strcat(response_message, fullMessage);
+    printf("[Server]Received from client: %s\n", response_message);
 
-        char *responseMessage = (char *) malloc(fullMessageLen + 1); // +1 for null terminator
-        if (responseMessage == NULL) {
-            perror("Error allocating memory for response message");
-            // Handle the error (e.g., return, close connection, etc.)
-        }
+    // Getting the key
+    std::string b64_aes_key = get_aes_key_from_json("../server_data.json", username);
+    std::string aes_key = base64_decode(b64_aes_key);
 
-        responseMessage[0] = '\0';
+    // Decrypt the message
+    std::string ciphertext = base64_decode(response_message);
+    std::string decrypted_ciphertext = aes_decrypt(ciphertext, aes_key);
+    std::cout << "[Server]The decrypted message is: " << decrypted_ciphertext << std::endl;
 
+    // Interpret the command
+    std::string command_output;
+    command_output = interpret_command(decrypted_ciphertext, path);
 
-        strcat(responseMessage, fullMessage);
-        printf("[Server] Received from client: %s\n", responseMessage);
+    // Encrypt the message
+    std::string encrypted = aes_encrypt(command_output, aes_key);
+    encrypted = base64_encode(encrypted);
 
-        std::string ciphertext = base64_decode(responseMessage);
+    // Send the message.
+    char* full_message = add_len_header(encrypted.c_str());
+    int total_length = encrypted.length() + sizeof(int);
 
-        std::string b64_aes_key = get_aes_key_from_json("../server_data.json", username);
-        std::string aes_key = base64_decode(b64_aes_key);
+    // Write the message with the length header to the client
+    if (write(tdL.cl, full_message, total_length) <= 0) {
+        printf("[Thread %d] ", tdL.idThread);
+        perror("[Thread] Error at writing the message to the client.\n");
+    } else {
+        printf("[Thread %d] The message was sent successfully.\n", tdL.idThread);
+    }
 
-        std::string dec = aes_decrypt(ciphertext, aes_key);
-        std::cout << "[Server] The decrypted message is: " << dec << std::endl;
-
-        char text[] = "Message received: ";
-        strcat(text, dec.c_str());
-
-        // executing
-        std::string command_output = interpret_command(dec, path);
-
-
-
-
-
-
-        // change this to only the exec ouput
-        std::string encrypted = aes_encrypt(command_output, aes_key);
-        encrypted = base64_encode(encrypted);
-
-        if (write(tdL.cl, encrypted.c_str(), strlen(encrypted.c_str())) <= 0) {
-            printf("[Thread %d] ", tdL.idThread);
-            perror("[Thread]Eroare la write() catre client.\n");
-        } else {
-            printf("[Thread %d]Mesajul a fost trasmis cu succes.\n", tdL.idThread);
-        }
-
-        free(responseMessage);
-
-
+    delete[] response_message;
 }
 
 std::string receive_AES_key(int client_socket) {
@@ -108,6 +99,24 @@ char* add_len_header(const char* buffer) {
 
     memcpy(full_message, &string_len, sizeof(int));
     memcpy(full_message + sizeof(int), buffer, string_len);
+
+    return full_message;
+}
+
+std::vector<char> add_len_header2(const std::string& buffer) {
+    int string_len = buffer.size();
+
+    // Convert the length to a binary representation
+    std::vector<char> length_bytes(sizeof(int));
+    std::memcpy(length_bytes.data(), &string_len, sizeof(int));
+
+    // Create a vector to hold the length bytes followed by the string data
+    std::vector<char> full_message;
+    full_message.reserve(sizeof(int) + string_len);
+
+    // Append length bytes and string data
+    full_message.insert(full_message.end(), length_bytes.begin(), length_bytes.end());
+    full_message.insert(full_message.end(), buffer.begin(), buffer.end());
 
     return full_message;
 }

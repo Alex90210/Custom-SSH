@@ -21,57 +21,59 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="130bb384-29c7-42af-8209-79973e5eb384" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/client.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/client.cpp.o.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/manage_keys.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/manage_keys.cpp.o.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/utils.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/utils.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/RSA.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/RSA.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/exec_command.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/exec_command.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/parse_command.cpp.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/parse_command.cpp.o.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/server.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/compiler_depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/compiler_depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/compiler_depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/AES.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/AES.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/AES.cpp.o.d" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/AES.cpp.o.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/main.cpp.o.d" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/main.cpp.o.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/build/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/client.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/client.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/SSH_C" beforeDir="false" afterPath="$PROJECT_DIR$/build/SSH_C" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/client_data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2023-12-23T11-17-00-0025.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SSH_C.dir/src/client.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SSH_C.dir/src/client.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SSH_C.dir/src/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SSH_C.dir/src/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SSH_C.dir/src/manage_keys.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SSH_C.dir/src/manage_keys.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/SSH_C" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/SSH_C" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/include/manage_keys.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/manage_keys.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/client.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SSHS/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-ed7875becb8afb1165ac.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/.cmake/api/v1/reply/index-2023-12-21T18-51-02-0843.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/.cmake/api/v1/reply/target-SSHS-Debug-2b929094049194498be1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/Progress/1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/Progress/2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/Progress/3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/Progress/count.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/compiler_depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/compiler_depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/compiler_depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/compiler_depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/base64.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/base64.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/client_handler.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/client_handler.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/client_handler.cpp.o.d" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/client_handler.cpp.o.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/server.cpp.o.d" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/SSHS.dir/src/server.cpp.o.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/build/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/build/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/build/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/build/SSHS" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/build/SSHS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/.cmake/api/v1/reply/index-2023-12-24T17-11-51-0232.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/base64.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/base64.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/client_handler.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/client_handler.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/exec_command.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/exec_command.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/server.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/server.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/SSHS" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/SSHS" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/include/base64.h" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/include/base64.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SSHS/include/client_handler.h" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/include/client_handler.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/include/rsa_key.h" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/include/RSA.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/include/server_functions.h" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/include/server.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/include/server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/include/server.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SSHS/server_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/server_data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/src/base64.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/src/base64.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SSHS/src/client_handler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/src/client_handler.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/src/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/src/rsa_key.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/src/RSA.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/src/server_functions.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/src/server.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/src/exec_command.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/src/exec_command.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/src/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/src/server.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,28 +106,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;CMake Application.SSH_C.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/alex/Desktop/SSH/SSHC&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "CMake Application.SSH_C.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/alex/Desktop/SSH/SSHC",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.new.ui",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -238,6 +240,23 @@
       <workItem from="1703338609507" duration="45000" />
       <workItem from="1703339253937" duration="70000" />
       <workItem from="1703340837758" duration="6000" />
+      <workItem from="1703665944180" duration="24000" />
+      <workItem from="1703670948216" duration="231000" />
+      <workItem from="1703671235871" duration="293000" />
+      <workItem from="1703671558776" duration="81000" />
+      <workItem from="1703671705972" duration="83000" />
+      <workItem from="1703671902175" duration="100000" />
+      <workItem from="1703672081976" duration="824000" />
+      <workItem from="1703673618354" duration="703000" />
+      <workItem from="1703674723120" duration="55000" />
+      <workItem from="1703674943627" duration="35000" />
+      <workItem from="1703675005342" duration="12000" />
+      <workItem from="1703675047037" duration="14000" />
+      <workItem from="1703675523958" duration="48000" />
+      <workItem from="1703675591490" duration="18000" />
+      <workItem from="1703675942307" duration="42000" />
+      <workItem from="1703676122318" duration="273000" />
+      <workItem from="1703676539717" duration="252000" />
     </task>
     <servers />
   </component>
