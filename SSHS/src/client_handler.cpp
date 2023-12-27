@@ -44,8 +44,8 @@ void answer_client(void *arg) {
     tdL= *((struct thData*)arg);
 
     std::string user = receive_AES_key(tdL.cl);
-    std::string current_path = get_current_directory();
-
+    // std::string current_path = get_current_directory();
+    std::string current_path = "/home/alex";
     while (1) {
 
         // Read the message length header

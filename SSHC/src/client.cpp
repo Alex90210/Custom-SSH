@@ -2,6 +2,7 @@
 
 void command_loop(const int& sd, std::string& username) {
 
+    std::string path = "/home/alex";
     const char* user_n = username.c_str();
     try {
         while(1) {
@@ -9,7 +10,8 @@ void command_loop(const int& sd, std::string& username) {
             char buf[1000];
             memset(buf, 0, sizeof(buf));
 
-            printf("%s> ", user_n);
+            // printf("%s> ", user_n);
+            std::cout << user_n << " @ <" << path << "> :: ";
             fflush(stdout);
 
             int bytes_num = read(0, buf, sizeof(buf));
