@@ -113,7 +113,6 @@ int main (int argc, char *argv[]) {
     }
 
     // generate and store the aes key
-
     unsigned char aesKeyC[KEY_LENGTH_BYTES];
     if (!generate_aes_key(aesKeyC)) {
         std::cerr << ("AES Key generation error.");

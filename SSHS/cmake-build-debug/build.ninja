@@ -97,8 +97,20 @@ build CMakeFiles/SSHS.dir/src/exec_command.cpp.o: CXX_COMPILER__SSHS_unscanned_D
   OBJECT_DIR = CMakeFiles/SSHS.dir
   OBJECT_FILE_DIR = CMakeFiles/SSHS.dir/src
 
-build CMakeFiles/SSHS.dir/src/parse_command.cpp.o: CXX_COMPILER__SSHS_unscanned_Debug /home/alex/Desktop/SSH/SSHS/src/parse_command.cpp || cmake_object_order_depends_target_SSHS
-  DEP_FILE = CMakeFiles/SSHS.dir/src/parse_command.cpp.o.d
+build CMakeFiles/SSHS.dir/src/multiple_commands.cpp.o: CXX_COMPILER__SSHS_unscanned_Debug /home/alex/Desktop/SSH/SSHS/src/multiple_commands.cpp || cmake_object_order_depends_target_SSHS
+  DEP_FILE = CMakeFiles/SSHS.dir/src/multiple_commands.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/SSHS.dir
+  OBJECT_FILE_DIR = CMakeFiles/SSHS.dir/src
+
+build CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.o: CXX_COMPILER__SSHS_unscanned_Debug /home/alex/Desktop/SSH/SSHS/src/infix_to_postfix.cpp || cmake_object_order_depends_target_SSHS
+  DEP_FILE = CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.o.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/SSHS.dir
+  OBJECT_FILE_DIR = CMakeFiles/SSHS.dir/src
+
+build CMakeFiles/SSHS.dir/src/command_AST.cpp.o: CXX_COMPILER__SSHS_unscanned_Debug /home/alex/Desktop/SSH/SSHS/src/command_AST.cpp || cmake_object_order_depends_target_SSHS
+  DEP_FILE = CMakeFiles/SSHS.dir/src/command_AST.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/SSHS.dir
   OBJECT_FILE_DIR = CMakeFiles/SSHS.dir/src
@@ -111,7 +123,7 @@ build CMakeFiles/SSHS.dir/src/parse_command.cpp.o: CXX_COMPILER__SSHS_unscanned_
 #############################################
 # Link the executable SSHS
 
-build SSHS: CXX_EXECUTABLE_LINKER__SSHS_Debug CMakeFiles/SSHS.dir/src/main.cpp.o CMakeFiles/SSHS.dir/src/client_handler.cpp.o CMakeFiles/SSHS.dir/src/server.cpp.o CMakeFiles/SSHS.dir/src/json_functions.cpp.o CMakeFiles/SSHS.dir/src/RSA.cpp.o CMakeFiles/SSHS.dir/src/base64.cpp.o CMakeFiles/SSHS.dir/src/AES.cpp.o CMakeFiles/SSHS.dir/src/exec_command.cpp.o CMakeFiles/SSHS.dir/src/parse_command.cpp.o | /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so
+build SSHS: CXX_EXECUTABLE_LINKER__SSHS_Debug CMakeFiles/SSHS.dir/src/main.cpp.o CMakeFiles/SSHS.dir/src/client_handler.cpp.o CMakeFiles/SSHS.dir/src/server.cpp.o CMakeFiles/SSHS.dir/src/json_functions.cpp.o CMakeFiles/SSHS.dir/src/RSA.cpp.o CMakeFiles/SSHS.dir/src/base64.cpp.o CMakeFiles/SSHS.dir/src/AES.cpp.o CMakeFiles/SSHS.dir/src/exec_command.cpp.o CMakeFiles/SSHS.dir/src/multiple_commands.cpp.o CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.o CMakeFiles/SSHS.dir/src/command_AST.cpp.o | /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/x86_64-linux-gnu/libcrypto.so
   FLAGS = -g
   LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libssl.so  /usr/lib/x86_64-linux-gnu/libcrypto.so
   OBJECT_DIR = CMakeFiles/SSHS.dir

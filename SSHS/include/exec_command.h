@@ -6,7 +6,8 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <iostream>
-#include "parse_command.h"
+#include "multiple_commands.h"
+#include "infix_to_postfix.h"
 
 bool is_path_valid(const std::filesystem::path& path);
 std::string interpret_command(const std::string& command, std::string& path);

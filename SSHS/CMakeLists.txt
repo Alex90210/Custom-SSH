@@ -21,8 +21,12 @@ add_executable(SSHS src/main.cpp
         src/AES.cpp
         include/exec_command.h
         src/exec_command.cpp
-        include/parse_command.h
-        src/parse_command.cpp)
+        include/multiple_commands.h
+        src/multiple_commands.cpp
+        include/infix_to_postfix.h
+        src/infix_to_postfix.cpp
+        include/command_AST.h
+        src/command_AST.cpp)
 
 # Find the OpenSSL package
 find_package(OpenSSL REQUIRED)

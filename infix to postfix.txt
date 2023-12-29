@@ -1,0 +1,18 @@
+1. Know the priority of operators.
+
+operators: |, <, >, 2>, &&, ||, ;
+order 1: <, >, 2>
+order 2: |
+order 3: &&, ||
+order 4: ;
+Or something like this...
+
+2. No two operators of the same priority can stay together in the stack.
+
+3. Lower priority cannot be placed after higher priority.
+
+infix expr: 
+echo hello && ls -l | grep 'txt' > output.txt ; cat output.txt
+
+postfix expr:
+

@@ -1,5 +1,30 @@
 #include "../include/exec_command.h"
 
+std::string get_current_directory() {
+    size_t size = 1024;
+    char *buffer = new (std::nothrow) char[size];
+    if (buffer == nullptr) {
+        std::cerr << "Unable to allocate buffer" << std::endl;
+        return "";
+    }
+
+    while (getcwd(buffer, size) == nullptr) {
+        size *= 2;
+        char *newBuffer = new (std::nothrow) char[size];
+        if (newBuffer == nullptr) {
+            std::cerr << "Unable to reallocate buffer" << std::endl;
+            delete[] buffer;
+            return "";
+        }
+        delete[] buffer;
+        buffer = newBuffer;
+    }
+
+    std::string currentDirectory(buffer);
+    delete[] buffer;
+    return currentDirectory;
+}
+
 bool is_path_valid(const std::filesystem::path& path) {
     return std::filesystem::exists(path);
 }
@@ -15,13 +40,31 @@ std::string interpret_command(const std::string& command, std::string& path) {
         command_output = path;
     }
     if (command.substr(0, 3) == "cd ") {
-        if (is_path_valid(command.substr(3, command.length()))) {
+        std::string parsed_path = command.substr(3, command.length());
+        if (is_path_valid(path)) {
             path = command.substr(3, command.length());
             command_output = path;
         }
+        else {
+            command_output = "Invalid path";
+        }
     }
     else {
-        command_output = execute_command(command, path);
+        // A single command
+        if (!containsBashOperator(command)) {
+            command_output = execute_command(command, path);
+        }
+        // Multiple commands
+        else {
+            std::vector<std::string> tokens = tokenize(command);
+            std::vector<std::string> postfix = convertToPostfix(tokens);
+            // The command is correctly parsed and converted to postfix
+
+
+
+
+
+        }
     }
 
     return command_output;
@@ -71,29 +114,4 @@ std::string execute_command(const std::string& command, std::string& path) {
         std::cerr << "Failed to execute command." << std::endl;
         exit(EXIT_FAILURE);
     }
-}
-
-std::string get_current_directory() {
-    size_t size = 1024;
-    char *buffer = new (std::nothrow) char[size];
-    if (buffer == nullptr) {
-        std::cerr << "Unable to allocate buffer" << std::endl;
-        return "";
-    }
-
-    while (getcwd(buffer, size) == nullptr) {
-        size *= 2;
-        char *newBuffer = new (std::nothrow) char[size];
-        if (newBuffer == nullptr) {
-            std::cerr << "Unable to reallocate buffer" << std::endl;
-            delete[] buffer;
-            return "";
-        }
-        delete[] buffer;
-        buffer = newBuffer;
-    }
-
-    std::string currentDirectory(buffer);
-    delete[] buffer;
-    return currentDirectory;
 }
