@@ -96,7 +96,7 @@ void command_loop(const int& sd, std::string& username) {
             std::string binary_ciphertext = base64_decode(client_input);
             std::string decoded = aes_decrypt(binary_ciphertext, aes_key);
 
-            std::cout << "[Client]The decrypted msg is: " << decoded << std::endl;
+            std::cout << "[Client]The decrypted msg is: " << std::endl << decoded;
 
         }
     } catch (...) {

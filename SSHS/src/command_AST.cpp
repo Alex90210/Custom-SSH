@@ -3,6 +3,7 @@
 struct CommandResult {
     std::string output;
     int exitStatus;
+    bool processed {false};
 };
 
 struct TreeNode {
@@ -63,17 +64,15 @@ CommandResult traverseAndExecute(TreeNode* node, const std::string& path) {
     CommandResult result;
 
     if (node == nullptr) {
-        result.output = "";
-        result.exitStatus = 0;
-        return result;
+        return { "", 0 };
     }
 
+    // Directly return the command for leaf nodes
     if (!isOperator(node->value)) {
-        result.output = node->value;
-        result.exitStatus = 0;
-        return result;
+        return { node->value, 0 };
     }
 
+    // Recursively process left and right subtrees
     CommandResult leftResult = traverseAndExecute(node->left, path);
     CommandResult rightResult = traverseAndExecute(node->right, path);
 
@@ -89,37 +88,46 @@ CommandResult traverseAndExecute(TreeNode* node, const std::string& path) {
     else if (node->value == "2>") {
         return redirectStderrToFile(leftResult.output, rightResult.output);
     }
-    if (node->value == "&&") {
-        CommandResult left = execute_command(node->left->value);
-        if (left.exitStatus == 0) {
-            CommandResult right = execute_command(node->right->value);
-            std::string full_output = left.output + '\n' + right.output;
-            CommandResult full_result;
-            full_result.output = full_output;
-            full_result.exitStatus = right.exitStatus;
-            return full_result;
+    else if (node->value == "&&") {
+        CommandResult cmdResult;
+        cmdResult = execute_command(leftResult.output);
+        if (cmdResult.exitStatus == 0) {
+            cmdResult = execute_command(rightResult.output);
+            return cmdResult;
         }
+        return cmdResult;
     }
-    if (node->value == "||") {
-        CommandResult left = execute_command(node->left->value);
-        if (left.exitStatus == 1) {
-            CommandResult right = execute_command(node->right->value);
-            return right;
+    else if (node->value == "||") {
+        CommandResult cmdResult;
+        cmdResult = execute_command(leftResult.output);
+        if (cmdResult.exitStatus != 0) {
+            cmdResult = execute_command(rightResult.output);
+            return cmdResult;
         }
-        return left;
+        return cmdResult;
     }
-    if (node->value == ";") {
-        CommandResult left = execute_command(node->left->value);
-        CommandResult right = execute_command(node->right->value);
-        std::string full_output = left.output + '\n' + right.output;
-        CommandResult full_result;
-        full_result.output = full_output;
-        full_result.exitStatus = right.exitStatus;
-        return full_result;
+    else if (node->value == ";") {
+        CommandResult cmdResult;
+        // CommandResult first_expr = execute_command(leftResult.output);
+        // CommandResult second_expr = execute_command(rightResult.output);
+        // std::string full_output = first_expr.output + second_expr.output;
+        if (isBashExecutable(leftResult.output)) {
+            cmdResult = execute_command(leftResult.output);
+        } else {
+            cmdResult.output = leftResult.output;
+        }
+        if (isBashExecutable(rightResult.output)) {
+            cmdResult = execute_command(rightResult.output);
+        } else {
+            cmdResult.output += " " + rightResult.output;
+        }
+
+        /*std::string full_output = leftResult.output + rightResult.output;
+        cmdResult.output = full_output;
+        cmdResult.exitStatus = rightResult.exitStatus;*/
+        return cmdResult;
     }
 
-
-    result.output = "";
-    result.exitStatus = 0;
-    return result;
+    // Default case if an unknown operator is encountered
+    return { "Unknown operator: " + node->value, 1 };
 }

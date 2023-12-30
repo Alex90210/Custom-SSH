@@ -23,20 +23,21 @@
     <list default="true" id="130bb384-29c7-42af-8209-79973e5eb384" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/client_data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/SSH_C" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/SSH_C" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/client.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/command_AST.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/command_AST.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/exec_command.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/exec_command.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/server.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/server.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/multiple_commands.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/multiple_commands.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/SSHS" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/SSHS" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/include/command_AST.h" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/include/command_AST.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/include/exec_command.h" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/include/exec_command.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/include/multiple_commands.h" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/include/multiple_commands.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SSHS/server_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/server_data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SSHS/src/command_AST.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/src/command_AST.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/src/exec_command.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/src/exec_command.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SSHS/src/infix_to_postfix.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/src/infix_to_postfix.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SSHS/src/multiple_commands.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/src/multiple_commands.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -233,6 +234,7 @@
       <workItem from="1703759259211" duration="8000" />
       <workItem from="1703894171908" duration="28000" />
       <workItem from="1703938321380" duration="1000" />
+      <workItem from="1703967545722" duration="54000" />
     </task>
     <servers />
   </component>

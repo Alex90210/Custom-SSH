@@ -9,6 +9,7 @@
 struct CommandResult {
     std::string output;
     int exitStatus;
+    bool processed {false};
 };
 
 #include <unistd.h>
@@ -19,7 +20,30 @@ struct CommandResult {
 #include <string>
 #include <array>
 
+bool isBashExecutable(const std::string& cmd) {
+    // Check if the command exists in the PATH
+    if (system(("command -v " + cmd + " >/dev/null 2>&1").c_str()) != 0) {
+        std::cerr << cmd << " is not found in PATH." << std::endl;
+        return false;
+    }
+
+    // Check if the command is executable
+    if (access(cmd.c_str(), X_OK) == -1) {
+        std::cerr << cmd << " is not executable." << std::endl;
+        return false;
+    }
+
+    return true;
+}
+
 CommandResult execute_command(const std::string& command) {
+
+    CommandResult result;
+    /*if(!isBashExecutable(command)) {
+        result.output = command;
+        result.exitStatus = 0;
+        return result;
+    }*/
     int pipefd[2];
     if (pipe(pipefd) == -1) {
         perror("pipe");
@@ -60,13 +84,22 @@ CommandResult execute_command(const std::string& command) {
     int status;
     waitpid(pid, &status, 0);
 
-    CommandResult result;
+    // CommandResult result;
+    result.processed = true;
     result.output = output;
     result.exitStatus = WEXITSTATUS(status);
     return result;
 }
 
 CommandResult execute_pipe_command(const std::string& leftCmd, const std::string& rightCmd, const std::string& path) {
+
+    CommandResult cmdResult;
+    /*if(!isBashExecutable(rightCmd)) {
+        cmdResult.output = rightCmd;
+        cmdResult.exitStatus = 0;
+        return cmdResult;
+    }*/
+
     int pipefd[2];  // Pipe between leftCmd and rightCmd
     int outputfd[2]; // Pipe to capture the output of rightCmd
     pid_t leftPid, rightPid;
@@ -133,7 +166,7 @@ CommandResult execute_pipe_command(const std::string& leftCmd, const std::string
     waitpid(leftPid, NULL, 0); // We still need to wait for the left command, but we don't need its status
 
     // Construct and return the CommandResult
-    CommandResult cmdResult;
+    cmdResult.processed = true;
     cmdResult.output = result;
     cmdResult.exitStatus = WEXITSTATUS(status); // Extract the exit status
 
@@ -166,6 +199,7 @@ CommandResult redirectOutputToFile(const std::string& input, const std::string& 
     close(fd);
 
     // Indicate successful execution
+    result.processed = true;
     result.output = ""; // No output to return for a redirection operation
     result.exitStatus = 0; // Success
     return result;
@@ -234,6 +268,7 @@ CommandResult redirectInputFromFile(const std::string& command, const std::strin
     int status;
     waitpid(pid, &status, 0);
 
+    result.processed = true;
     result.output = output;
     result.exitStatus = WEXITSTATUS(status);
     return result;
@@ -276,10 +311,8 @@ CommandResult redirectStderrToFile(const std::string& command, const std::string
     int status;
     waitpid(pid, &status, 0);
 
+    result.processed = true;
     result.output = ""; // No output to capture for stderr redirection
     result.exitStatus = WEXITSTATUS(status);
     return result;
 }
-
-
-
