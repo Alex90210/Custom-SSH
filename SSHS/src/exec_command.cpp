@@ -1,5 +1,10 @@
 #include "../include/exec_command.h"
 
+struct CommandResult {
+    std::string output;
+    int exitStatus;
+};
+
 std::string get_current_directory() {
     size_t size = 1024;
     char *buffer = new (std::nothrow) char[size];
@@ -59,11 +64,15 @@ std::string interpret_command(const std::string& command, std::string& path) {
             std::vector<std::string> tokens = tokenize(command);
             std::vector<std::string> postfix = convertToPostfix(tokens);
             // The command is correctly parsed and converted to postfix
-
-
-
-
-
+            // Pipes and input redirections both overwrite it, so you can't use both at the same
+            // time. If you try, the redirection takes precedence and the input pipe is closed.
+            // ls -l | grep ".txt" > output.txt
+            // execlp("/bin/sh", "sh", "-c", command.c_str(), (char *)NULL);
+            TreeNode* root = constructAST(postfix);
+            printPostOrder(root);
+            // Clear command should be executed in an instance of bash
+            CommandResult output = traverseAndExecute(root, path);
+            command_output = output.output;
         }
     }
 
@@ -83,6 +92,7 @@ std::string execute_command(const std::string& command, std::string& path) {
         close(pipe_fd[1]);
 
         int status;
+        // The second command freezes the program here
         waitpid(pid, &status, 0);
 
         char buffer[16384]; // 16KB

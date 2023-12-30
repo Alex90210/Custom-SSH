@@ -71,8 +71,8 @@ std::vector<std::string> tokenize(const std::string& str) {
 
 bool isOperator(const std::string& token) {
     static const std::unordered_map<std::string, int> operators = {
-            {">", 1}, {"<", 1}, {"2>", 1},
-            {"|", 2},
+            {"|", 1},
+            {">", 2}, {"<", 2}, {"2>", 2},
             {"&&", 3}, {"||", 3},
             {";", 4}
     };
@@ -83,8 +83,8 @@ std::vector<std::string> convertToPostfix(const std::vector<std::string>& tokens
     std::stack<std::string> stack;
     std::vector<std::string> postfix;
     std::unordered_map<std::string, int> precedence = {
-            {">", 1}, {"<", 1}, {"2>", 1},
-            {"|", 2},
+            {"|", 1},
+            {">", 2}, {"<", 2}, {"2>", 2},
             {"&&", 3}, {"||", 3},
             {";", 4}
     };
