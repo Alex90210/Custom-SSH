@@ -77,7 +77,7 @@ CommandResult traverseAndExecute(TreeNode* node, const std::string& path) {
     CommandResult rightResult = traverseAndExecute(node->right, path);
 
     if (node->value == "|") {
-        return execute_pipe_command(leftResult.output, rightResult.output, path);
+        return execute_pipe_command(leftResult, rightResult, path);
     }
     else if (node->value == ">") {
         return redirectOutputToFile(leftResult.output, rightResult.output);
@@ -86,7 +86,7 @@ CommandResult traverseAndExecute(TreeNode* node, const std::string& path) {
         return redirectInputFromFile(leftResult.output, rightResult.output);
     }
     else if (node->value == "2>") {
-        return redirectStderrToFile(leftResult.output, rightResult.output);
+        return redirectStderrToFile(leftResult, rightResult);
     }
     else if (node->value == "&&") {
         CommandResult cmdResult;

@@ -11,9 +11,9 @@
 struct CommandResult;
 bool isBashExecutable(const std::string& cmd);
 CommandResult execute_command(const std::string& command);
-CommandResult execute_pipe_command(const std::string& leftCmd, const std::string& rightCmd, const std::string& path);
+CommandResult execute_pipe_command(const CommandResult& leftCmd, const CommandResult& rightCmd, const std::string& path);
 CommandResult redirectOutputToFile(const std::string& command, const std::string& filePath);
 CommandResult redirectInputFromFile(const std::string& command, const std::string& filePath);
-CommandResult redirectStderrToFile(const std::string& command, const std::string& filePath);
+CommandResult redirectStderrToFile(const CommandResult& command, const CommandResult& filePath);
 
 #endif
