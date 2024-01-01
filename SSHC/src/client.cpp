@@ -2,15 +2,15 @@
 
 void command_loop(const int& sd, std::string& username) {
 
-    std::string path = "/home/alex";
+    std::string path {"/home/alex"};
+    std::string server_output_delimiter {"@@@"};
     const char* user_n = username.c_str();
-    try {
+
         while(1) {
 
             char buf[1000];
             memset(buf, 0, sizeof(buf));
 
-            // printf("%s> ", user_n);
             std::cout << user_n << " @ <" << path << "> :: ";
             fflush(stdout);
 
@@ -96,10 +96,18 @@ void command_loop(const int& sd, std::string& username) {
             std::string binary_ciphertext = base64_decode(client_input);
             std::string decoded = aes_decrypt(binary_ciphertext, aes_key);
 
-            std::cout << "[Client]The decrypted msg is: " << std::endl << decoded;
+            // Parsing the message in paths and output
+            std::string server_output;
+            size_t delimiterPos = decoded.find(server_output_delimiter);
+            if (delimiterPos != std::string::npos) {
+                path = decoded.substr(0, delimiterPos);
 
+                server_output = decoded.substr(delimiterPos + server_output_delimiter.length());
+            } else {
+                std::cerr << "Something went wrong with the server output." << std::endl;
+            }
+
+            std::cout << server_output << std::endl;
         }
-    } catch (...) {
-        std::cerr << "[Client]General error at sending/receiving the message." << std::endl;
-    }
+
 }

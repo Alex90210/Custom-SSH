@@ -5,72 +5,46 @@ struct CommandResult {
     int exitStatus;
 };
 
-std::string get_current_directory() {
-    size_t size = 1024;
-    char *buffer = new (std::nothrow) char[size];
-    if (buffer == nullptr) {
-        std::cerr << "Unable to allocate buffer" << std::endl;
-        return "";
-    }
-
-    while (getcwd(buffer, size) == nullptr) {
-        size *= 2;
-        char *newBuffer = new (std::nothrow) char[size];
-        if (newBuffer == nullptr) {
-            std::cerr << "Unable to reallocate buffer" << std::endl;
-            delete[] buffer;
-            return "";
-        }
-        delete[] buffer;
-        buffer = newBuffer;
-    }
-
-    std::string currentDirectory(buffer);
-    delete[] buffer;
-    return currentDirectory;
-}
-
-bool is_path_valid(const std::filesystem::path& path) {
-    return std::filesystem::exists(path);
+bool is_path_valid(const std::string& path) {
+    std::filesystem::path fs_path(path);
+    return std::filesystem::exists(fs_path) && std::filesystem::is_directory(fs_path);
 }
 
 std::string interpret_command(const std::string& command, std::string& path) {
-
-    // You should verify in the client if the command is cd
-    // If it is, you should expect the server to send you the new path
-    // and then update it accordingly
     std::string command_output;
-    if (command == "cd") {
+
+    if (command == "cd" && !containsBashOperator(command)) {
         path = "/home/alex";
-        command_output = path;
+        // command_output = path;
     }
-    if (command.substr(0, 3) == "cd ") {
+    if (command.substr(0, 3) == "cd " && !containsBashOperator(command)) {
         std::string parsed_path = command.substr(3, command.length());
-        if (is_path_valid(path)) {
-            path = command.substr(3, command.length());
-            command_output = path;
+        std::string temp_path1 = path + "/" + command.substr(3, command.length());
+        // std::string temp_path2 = path + command.substr(3, command.length());
+        std::string temp_path2 = command.substr(3, command.length());
+
+        if (is_path_valid(temp_path1)) {
+            path = temp_path1;
+        }
+        else if (is_path_valid(temp_path2)) {
+            path = temp_path2;
         }
         else {
-            command_output = "Invalid path";
+            command_output = "Invalid path.\n";
         }
     }
+    else if (command == "pwd") {
+        command_output = path + "\n";
+    }
     else {
-        // A single command
         if (!containsBashOperator(command)) {
-            command_output = execute_command(command, path);
+            command_output = main_execute_command(command, path);
         }
-        // Multiple commands
         else {
             std::vector<std::string> tokens = tokenize(command);
             std::vector<std::string> postfix = convertToPostfix(tokens);
-            // The command is correctly parsed and converted to postfix
-            // Pipes and input redirections both overwrite it, so you can't use both at the same
-            // time. If you try, the redirection takes precedence and the input pipe is closed.
-            // ls -l | grep ".txt" > output.txt
-            // execlp("/bin/sh", "sh", "-c", command.c_str(), (char *)NULL);
             TreeNode* root = constructAST(postfix);
-            printPostOrder(root);
-            // Clear command should be executed in an instance of bash
+            // printPostOrder(root);
             CommandResult output = traverseAndExecute(root, path);
             command_output = output.output;
         }
@@ -79,7 +53,7 @@ std::string interpret_command(const std::string& command, std::string& path) {
     return command_output;
 }
 
-std::string execute_command(const std::string& command, std::string& path) {
+std::string main_execute_command(const std::string& command, std::string& path) {
     std::array<int, 2> pipe_fd{};
     pipe(pipe_fd.data());
 

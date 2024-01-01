@@ -181,19 +181,47 @@ CMakeFiles/SSHS.dir/src/exec_command.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSHS.dir/src/exec_command.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHS/src/exec_command.cpp -o CMakeFiles/SSHS.dir/src/exec_command.cpp.s
 
-CMakeFiles/SSHS.dir/src/parse_command.cpp.o: CMakeFiles/SSHS.dir/flags.make
-CMakeFiles/SSHS.dir/src/parse_command.cpp.o: /home/alex/Desktop/SSH/SSHS/src/parse_command.cpp
-CMakeFiles/SSHS.dir/src/parse_command.cpp.o: CMakeFiles/SSHS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/SSH/SSHS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/SSHS.dir/src/parse_command.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SSHS.dir/src/parse_command.cpp.o -MF CMakeFiles/SSHS.dir/src/parse_command.cpp.o.d -o CMakeFiles/SSHS.dir/src/parse_command.cpp.o -c /home/alex/Desktop/SSH/SSHS/src/parse_command.cpp
+CMakeFiles/SSHS.dir/src/multiple_commands.cpp.o: CMakeFiles/SSHS.dir/flags.make
+CMakeFiles/SSHS.dir/src/multiple_commands.cpp.o: /home/alex/Desktop/SSH/SSHS/src/multiple_commands.cpp
+CMakeFiles/SSHS.dir/src/multiple_commands.cpp.o: CMakeFiles/SSHS.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/SSH/SSHS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/SSHS.dir/src/multiple_commands.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SSHS.dir/src/multiple_commands.cpp.o -MF CMakeFiles/SSHS.dir/src/multiple_commands.cpp.o.d -o CMakeFiles/SSHS.dir/src/multiple_commands.cpp.o -c /home/alex/Desktop/SSH/SSHS/src/multiple_commands.cpp
 
-CMakeFiles/SSHS.dir/src/parse_command.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SSHS.dir/src/parse_command.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/SSH/SSHS/src/parse_command.cpp > CMakeFiles/SSHS.dir/src/parse_command.cpp.i
+CMakeFiles/SSHS.dir/src/multiple_commands.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SSHS.dir/src/multiple_commands.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/SSH/SSHS/src/multiple_commands.cpp > CMakeFiles/SSHS.dir/src/multiple_commands.cpp.i
 
-CMakeFiles/SSHS.dir/src/parse_command.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSHS.dir/src/parse_command.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHS/src/parse_command.cpp -o CMakeFiles/SSHS.dir/src/parse_command.cpp.s
+CMakeFiles/SSHS.dir/src/multiple_commands.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSHS.dir/src/multiple_commands.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHS/src/multiple_commands.cpp -o CMakeFiles/SSHS.dir/src/multiple_commands.cpp.s
+
+CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.o: CMakeFiles/SSHS.dir/flags.make
+CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.o: /home/alex/Desktop/SSH/SSHS/src/infix_to_postfix.cpp
+CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.o: CMakeFiles/SSHS.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/SSH/SSHS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.o -MF CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.o.d -o CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.o -c /home/alex/Desktop/SSH/SSHS/src/infix_to_postfix.cpp
+
+CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/SSH/SSHS/src/infix_to_postfix.cpp > CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.i
+
+CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHS/src/infix_to_postfix.cpp -o CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.s
+
+CMakeFiles/SSHS.dir/src/command_AST.cpp.o: CMakeFiles/SSHS.dir/flags.make
+CMakeFiles/SSHS.dir/src/command_AST.cpp.o: /home/alex/Desktop/SSH/SSHS/src/command_AST.cpp
+CMakeFiles/SSHS.dir/src/command_AST.cpp.o: CMakeFiles/SSHS.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/alex/Desktop/SSH/SSHS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/SSHS.dir/src/command_AST.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SSHS.dir/src/command_AST.cpp.o -MF CMakeFiles/SSHS.dir/src/command_AST.cpp.o.d -o CMakeFiles/SSHS.dir/src/command_AST.cpp.o -c /home/alex/Desktop/SSH/SSHS/src/command_AST.cpp
+
+CMakeFiles/SSHS.dir/src/command_AST.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/SSHS.dir/src/command_AST.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Desktop/SSH/SSHS/src/command_AST.cpp > CMakeFiles/SSHS.dir/src/command_AST.cpp.i
+
+CMakeFiles/SSHS.dir/src/command_AST.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/SSHS.dir/src/command_AST.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Desktop/SSH/SSHS/src/command_AST.cpp -o CMakeFiles/SSHS.dir/src/command_AST.cpp.s
 
 # Object files for target SSHS
 SSHS_OBJECTS = \
@@ -205,7 +233,9 @@ SSHS_OBJECTS = \
 "CMakeFiles/SSHS.dir/src/base64.cpp.o" \
 "CMakeFiles/SSHS.dir/src/AES.cpp.o" \
 "CMakeFiles/SSHS.dir/src/exec_command.cpp.o" \
-"CMakeFiles/SSHS.dir/src/parse_command.cpp.o"
+"CMakeFiles/SSHS.dir/src/multiple_commands.cpp.o" \
+"CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.o" \
+"CMakeFiles/SSHS.dir/src/command_AST.cpp.o"
 
 # External object files for target SSHS
 SSHS_EXTERNAL_OBJECTS =
@@ -218,12 +248,14 @@ SSHS: CMakeFiles/SSHS.dir/src/RSA.cpp.o
 SSHS: CMakeFiles/SSHS.dir/src/base64.cpp.o
 SSHS: CMakeFiles/SSHS.dir/src/AES.cpp.o
 SSHS: CMakeFiles/SSHS.dir/src/exec_command.cpp.o
-SSHS: CMakeFiles/SSHS.dir/src/parse_command.cpp.o
+SSHS: CMakeFiles/SSHS.dir/src/multiple_commands.cpp.o
+SSHS: CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.o
+SSHS: CMakeFiles/SSHS.dir/src/command_AST.cpp.o
 SSHS: CMakeFiles/SSHS.dir/build.make
 SSHS: /usr/lib/x86_64-linux-gnu/libssl.so
 SSHS: /usr/lib/x86_64-linux-gnu/libcrypto.so
 SSHS: CMakeFiles/SSHS.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alex/Desktop/SSH/SSHS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable SSHS"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/alex/Desktop/SSH/SSHS/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable SSHS"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SSHS.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

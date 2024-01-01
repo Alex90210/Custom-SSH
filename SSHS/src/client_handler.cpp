@@ -47,8 +47,6 @@ void answer_client(void *arg) {
     // std::string current_path = get_current_directory();
     std::string current_path = "/home/alex";
     while (1) {
-
-        // Read the message length header
         int message_len {};
         ssize_t bytes_read = read(tdL.cl, &message_len, sizeof(int));
         if (bytes_read <= 0) {

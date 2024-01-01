@@ -60,19 +60,17 @@ bool isExecutionSuccessful(const CommandResult& result) {
     return result.exitStatus == 0;
 }
 
-CommandResult traverseAndExecute(TreeNode* node, const std::string& path) {
+CommandResult traverseAndExecute(TreeNode* node, std::string& path) {
     CommandResult result;
 
     if (node == nullptr) {
         return { "", 0 };
     }
 
-    // Directly return the command for leaf nodes
     if (!isOperator(node->value)) {
         return { node->value, 0 };
     }
 
-    // Recursively process left and right subtrees
     CommandResult leftResult = traverseAndExecute(node->left, path);
     CommandResult rightResult = traverseAndExecute(node->right, path);
 
@@ -80,54 +78,115 @@ CommandResult traverseAndExecute(TreeNode* node, const std::string& path) {
         return execute_pipe_command(leftResult, rightResult, path);
     }
     else if (node->value == ">") {
-        return redirectOutputToFile(leftResult.output, rightResult.output);
+        return redirect_output_to_file(leftResult, rightResult.output, path);
     }
     else if (node->value == "<") {
-        return redirectInputFromFile(leftResult.output, rightResult.output);
+        return redirect_input_from_file(leftResult.output, rightResult.output, path);
     }
     else if (node->value == "2>") {
-        return redirectStderrToFile(leftResult, rightResult);
+        return redirect_stderr_to_file(leftResult, rightResult, path);
     }
     else if (node->value == "&&") {
         CommandResult cmdResult;
-        cmdResult = execute_command(leftResult.output);
-        if (cmdResult.exitStatus == 0) {
-            cmdResult = execute_command(rightResult.output);
-            return cmdResult;
+        if (leftResult.processed && leftResult.exitStatus == 0) {
+            if (!rightResult.processed) {
+                CommandResult right = execute_command(rightResult.output, path);
+                cmdResult.output = leftResult.output + right.output;
+                cmdResult.exitStatus = right.exitStatus;
+                cmdResult.processed = true;
+                return cmdResult;
+            }
+            else {
+                cmdResult.output = leftResult.output + rightResult.output;
+                cmdResult.exitStatus = rightResult.exitStatus;
+                cmdResult.processed = true;
+                return cmdResult;
+            }
         }
-        return cmdResult;
+        else if (leftResult.processed && leftResult.exitStatus != 0) {
+            return leftResult;
+        }
+        else if (!leftResult.processed) {
+            CommandResult left = execute_command(leftResult.output, path);
+            if (left.exitStatus == 0) {
+                CommandResult right = execute_command(rightResult.output, path);
+                cmdResult.output = left.output + right.output;
+                cmdResult.exitStatus = right.exitStatus;
+                cmdResult.processed = true;
+                return cmdResult;
+            }
+            else if (left.exitStatus != 0) {
+                left.processed = true;
+                return left;
+            }
+        }
     }
     else if (node->value == "||") {
         CommandResult cmdResult;
-        cmdResult = execute_command(leftResult.output);
-        if (cmdResult.exitStatus != 0) {
-            cmdResult = execute_command(rightResult.output);
-            return cmdResult;
+        if (leftResult.processed && leftResult.exitStatus != 0) {
+            if (!rightResult.processed) {
+                CommandResult right = execute_command(rightResult.output, path);
+                cmdResult.output = leftResult.output + right.output;
+                cmdResult.exitStatus = right.exitStatus;
+                return cmdResult;
+            }
+            else {
+                cmdResult.output = leftResult.output + rightResult.output;
+                cmdResult.exitStatus = rightResult.exitStatus;
+                return cmdResult;
+            }
         }
-        return cmdResult;
+        else if (leftResult.processed && leftResult.exitStatus == 0) {
+            return leftResult;
+        }
+        else if (!leftResult.processed) {
+            CommandResult left = execute_command(leftResult.output, path);
+            if (left.exitStatus != 0) {
+                if(!rightResult.processed) {
+                    CommandResult right = execute_command(rightResult.output, path);
+                    cmdResult.output = left.output + right.output;
+                    cmdResult.exitStatus = right.exitStatus;
+                    return cmdResult;
+                }
+                else {
+                    cmdResult.output = left.output + rightResult.output;
+                    cmdResult.exitStatus = rightResult.exitStatus;
+                    return cmdResult;
+                }
+            }
+            else if (left.exitStatus == 0) {
+                return left;
+            }
+        }
     }
     else if (node->value == ";") {
         CommandResult cmdResult;
-        // CommandResult first_expr = execute_command(leftResult.output);
-        // CommandResult second_expr = execute_command(rightResult.output);
-        // std::string full_output = first_expr.output + second_expr.output;
-        if (isBashExecutable(leftResult.output)) {
-            cmdResult = execute_command(leftResult.output);
-        } else {
-            cmdResult.output = leftResult.output;
+        if (!leftResult.processed) {
+            CommandResult left = execute_command(leftResult.output, path);
+            if (!rightResult.processed) {
+                CommandResult right = execute_command(rightResult.output, path);
+                cmdResult.output = left.output + right.output;
+                return  cmdResult;
+            }
+            else if (rightResult.processed) {
+                cmdResult.output = left.output + rightResult.output;
+                return cmdResult;
+            }
         }
-        if (isBashExecutable(rightResult.output)) {
-            cmdResult = execute_command(rightResult.output);
-        } else {
-            cmdResult.output += " " + rightResult.output;
+        else if (leftResult.processed) {
+            if (!rightResult.processed) {
+                CommandResult right = execute_command(rightResult.output, path);
+                cmdResult.output = leftResult.output + right.output;
+                return cmdResult;
+            }
+            else if (rightResult.processed) {
+                cmdResult.output = leftResult.output + rightResult.output;
+                return cmdResult;
+            }
         }
-
-        /*std::string full_output = leftResult.output + rightResult.output;
-        cmdResult.output = full_output;
-        cmdResult.exitStatus = rightResult.exitStatus;*/
-        return cmdResult;
     }
 
-    // Default case if an unknown operator is encountered
-    return { "Unknown operator: " + node->value, 1 };
+    result.output = "This should not be reached.";
+    result.exitStatus = 1;;
+    return result;
 }

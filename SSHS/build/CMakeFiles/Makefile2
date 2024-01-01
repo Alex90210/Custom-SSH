@@ -81,12 +81,12 @@ clean: CMakeFiles/SSHS.dir/clean
 CMakeFiles/SSHS.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/Desktop/SSH/SSHS/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target SSHS"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/alex/Desktop/SSH/SSHS/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12 "Built target SSHS"
 .PHONY : CMakeFiles/SSHS.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/SSHS.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/Desktop/SSH/SSHS/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/Desktop/SSH/SSHS/build/CMakeFiles 12
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/SSHS.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/alex/Desktop/SSH/SSHS/build/CMakeFiles 0
 .PHONY : CMakeFiles/SSHS.dir/rule

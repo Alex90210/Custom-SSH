@@ -374,7 +374,9 @@ CMakeFiles/SSHS.dir/src/server.cpp.o: \
  /home/alex/Desktop/SSH/SSHS/src/../include/exec_command.h \
  /usr/include/x86_64-linux-gnu/sys/wait.h \
  /usr/include/x86_64-linux-gnu/bits/types/idtype_t.h \
- /home/alex/Desktop/SSH/SSHS/src/../include/parse_command.h \
+ /usr/include/dirent.h /usr/include/x86_64-linux-gnu/bits/dirent.h \
+ /usr/include/x86_64-linux-gnu/bits/dirent_ext.h \
+ /home/alex/Desktop/SSH/SSHS/src/../include/multiple_commands.h \
  /usr/include/fcntl.h /usr/include/x86_64-linux-gnu/bits/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/linux/falloc.h /usr/include/x86_64-linux-gnu/bits/stat.h \
@@ -386,6 +388,11 @@ CMakeFiles/SSHS.dir/src/server.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/statx-generic.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h \
+ /home/alex/Desktop/SSH/SSHS/src/../include/command_AST.h \
+ /usr/include/c++/12/stack /usr/include/c++/12/deque \
+ /usr/include/c++/12/bits/stl_deque.h /usr/include/c++/12/bits/deque.tcc \
+ /usr/include/c++/12/bits/stl_stack.h \
+ /home/alex/Desktop/SSH/SSHS/src/../include/infix_to_postfix.h \
  /home/alex/Desktop/SSH/SSHS/src/../include/json_functions.h \
  /home/alex/Desktop/SSH/SSHS/src/../include/RSA.h \
  /usr/include/openssl/rsa.h /usr/include/openssl/rsaerr.h \

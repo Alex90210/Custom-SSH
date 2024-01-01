@@ -225,6 +225,30 @@ src/client_handler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/client_handler.cpp.s
 .PHONY : src/client_handler.cpp.s
 
+src/command_AST.o: src/command_AST.cpp.o
+.PHONY : src/command_AST.o
+
+# target to build an object file
+src/command_AST.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/command_AST.cpp.o
+.PHONY : src/command_AST.cpp.o
+
+src/command_AST.i: src/command_AST.cpp.i
+.PHONY : src/command_AST.i
+
+# target to preprocess a source file
+src/command_AST.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/command_AST.cpp.i
+.PHONY : src/command_AST.cpp.i
+
+src/command_AST.s: src/command_AST.cpp.s
+.PHONY : src/command_AST.s
+
+# target to generate assembly for a file
+src/command_AST.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/command_AST.cpp.s
+.PHONY : src/command_AST.cpp.s
+
 src/exec_command.o: src/exec_command.cpp.o
 .PHONY : src/exec_command.o
 
@@ -248,6 +272,30 @@ src/exec_command.s: src/exec_command.cpp.s
 src/exec_command.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/exec_command.cpp.s
 .PHONY : src/exec_command.cpp.s
+
+src/infix_to_postfix.o: src/infix_to_postfix.cpp.o
+.PHONY : src/infix_to_postfix.o
+
+# target to build an object file
+src/infix_to_postfix.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.o
+.PHONY : src/infix_to_postfix.cpp.o
+
+src/infix_to_postfix.i: src/infix_to_postfix.cpp.i
+.PHONY : src/infix_to_postfix.i
+
+# target to preprocess a source file
+src/infix_to_postfix.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.i
+.PHONY : src/infix_to_postfix.cpp.i
+
+src/infix_to_postfix.s: src/infix_to_postfix.cpp.s
+.PHONY : src/infix_to_postfix.s
+
+# target to generate assembly for a file
+src/infix_to_postfix.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/infix_to_postfix.cpp.s
+.PHONY : src/infix_to_postfix.cpp.s
 
 src/json_functions.o: src/json_functions.cpp.o
 .PHONY : src/json_functions.o
@@ -297,29 +345,29 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
-src/parse_command.o: src/parse_command.cpp.o
-.PHONY : src/parse_command.o
+src/multiple_commands.o: src/multiple_commands.cpp.o
+.PHONY : src/multiple_commands.o
 
 # target to build an object file
-src/parse_command.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/parse_command.cpp.o
-.PHONY : src/parse_command.cpp.o
+src/multiple_commands.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/multiple_commands.cpp.o
+.PHONY : src/multiple_commands.cpp.o
 
-src/parse_command.i: src/parse_command.cpp.i
-.PHONY : src/parse_command.i
+src/multiple_commands.i: src/multiple_commands.cpp.i
+.PHONY : src/multiple_commands.i
 
 # target to preprocess a source file
-src/parse_command.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/parse_command.cpp.i
-.PHONY : src/parse_command.cpp.i
+src/multiple_commands.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/multiple_commands.cpp.i
+.PHONY : src/multiple_commands.cpp.i
 
-src/parse_command.s: src/parse_command.cpp.s
-.PHONY : src/parse_command.s
+src/multiple_commands.s: src/multiple_commands.cpp.s
+.PHONY : src/multiple_commands.s
 
 # target to generate assembly for a file
-src/parse_command.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/parse_command.cpp.s
-.PHONY : src/parse_command.cpp.s
+src/multiple_commands.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSHS.dir/build.make CMakeFiles/SSHS.dir/src/multiple_commands.cpp.s
+.PHONY : src/multiple_commands.cpp.s
 
 src/server.o: src/server.cpp.o
 .PHONY : src/server.o
@@ -366,18 +414,24 @@ help:
 	@echo "... src/client_handler.o"
 	@echo "... src/client_handler.i"
 	@echo "... src/client_handler.s"
+	@echo "... src/command_AST.o"
+	@echo "... src/command_AST.i"
+	@echo "... src/command_AST.s"
 	@echo "... src/exec_command.o"
 	@echo "... src/exec_command.i"
 	@echo "... src/exec_command.s"
+	@echo "... src/infix_to_postfix.o"
+	@echo "... src/infix_to_postfix.i"
+	@echo "... src/infix_to_postfix.s"
 	@echo "... src/json_functions.o"
 	@echo "... src/json_functions.i"
 	@echo "... src/json_functions.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
-	@echo "... src/parse_command.o"
-	@echo "... src/parse_command.i"
-	@echo "... src/parse_command.s"
+	@echo "... src/multiple_commands.o"
+	@echo "... src/multiple_commands.i"
+	@echo "... src/multiple_commands.s"
 	@echo "... src/server.o"
 	@echo "... src/server.i"
 	@echo "... src/server.s"

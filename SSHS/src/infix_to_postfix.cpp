@@ -69,6 +69,7 @@ std::vector<std::string> tokenize(const std::string& str) {
     return tokens;
 }
 
+// Think if it's a good idea to have pipe and &&/|| with the same precedence
 bool isOperator(const std::string& token) {
     static const std::unordered_map<std::string, int> operators = {
             {"<", 1},

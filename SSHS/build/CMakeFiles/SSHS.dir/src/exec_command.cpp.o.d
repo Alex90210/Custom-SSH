@@ -311,7 +311,17 @@ CMakeFiles/SSHS.dir/src/exec_command.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/signal_ext.h \
  /usr/include/x86_64-linux-gnu/bits/types/idtype_t.h \
  /usr/include/c++/12/iostream \
- /home/alex/Desktop/SSH/SSHS/src/../include/parse_command.h \
+ /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h \
+ /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/uio_lim.h /usr/include/dirent.h \
+ /usr/include/x86_64-linux-gnu/bits/dirent.h \
+ /usr/include/x86_64-linux-gnu/bits/dirent_ext.h \
+ /home/alex/Desktop/SSH/SSHS/src/../include/multiple_commands.h \
  /usr/include/fcntl.h /usr/include/x86_64-linux-gnu/bits/fcntl.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h \
@@ -330,4 +340,9 @@ CMakeFiles/SSHS.dir/src/exec_command.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/statx-generic.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_statx.h \
- /home/alex/Desktop/SSH/SSHS/src/../include/exec_command.h
+ /home/alex/Desktop/SSH/SSHS/src/../include/exec_command.h \
+ /home/alex/Desktop/SSH/SSHS/src/../include/command_AST.h \
+ /usr/include/c++/12/stack /usr/include/c++/12/deque \
+ /usr/include/c++/12/bits/stl_deque.h /usr/include/c++/12/bits/deque.tcc \
+ /usr/include/c++/12/bits/stl_stack.h \
+ /home/alex/Desktop/SSH/SSHS/src/../include/infix_to_postfix.h

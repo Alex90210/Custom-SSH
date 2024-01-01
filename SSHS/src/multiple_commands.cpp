@@ -3,47 +3,52 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <cstring>
-#include <vector>
 #include <iostream>
 
 struct CommandResult {
     std::string output;
-    int exitStatus;
+    int exitStatus {};
     bool processed {false};
 };
 
-#include <unistd.h>
-#include <sys/wait.h>
-#include <fcntl.h>
-#include <iostream>
-#include <vector>
-#include <string>
-#include <array>
+bool is_cd_command (const std::string& command, std::string& path) {
+    if (command == "cd") {
+        path = "/home/alex";
+        return true;
+    }
+    else if (command.substr(0, 3) == "cd ") {
 
-bool isBashExecutable(const std::string& cmd) {
-    // Check if the command exists in the PATH
-    if (system(("command -v " + cmd + " >/dev/null 2>&1").c_str()) != 0) {
-        std::cerr << cmd << " is not found in PATH." << std::endl;
-        return false;
+        std::string parsed_path = command.substr(3, command.length());
+        std::string temp_path1 = path + "/" + command.substr(3, command.length());
+        std::string temp_path2 = path + command.substr(3, command.length());
+
+        if (is_path_valid(temp_path1)) {
+            path = temp_path1;
+            return true;
+        }
+        else if (is_path_valid(temp_path2)) {
+            path = temp_path2;
+            return true;
+        }
+        else {
+            std::cout << "Invalid path.\n";
+            return false;
+        }
     }
 
-    // Check if the command is executable
-    if (access(cmd.c_str(), X_OK) == -1) {
-        std::cerr << cmd << " is not executable." << std::endl;
-        return false;
-    }
-
-    return true;
+    return false;
 }
 
-CommandResult execute_command(const std::string& command) {
-
+CommandResult execute_command(const std::string& command, std::string& path) {
     CommandResult result;
-    /*if(!isBashExecutable(command)) {
-        result.output = command;
+
+    if (is_cd_command(command, path)) {
+        result.processed = true;
         result.exitStatus = 0;
+        result.output = path;
         return result;
-    }*/
+    }
+
     int pipefd[2];
     if (pipe(pipefd) == -1) {
         perror("pipe");
@@ -63,12 +68,16 @@ CommandResult execute_command(const std::string& command) {
         dup2(pipefd[1], STDERR_FILENO); // Optionally, redirect stderr to the pipe as well
         close(pipefd[1]);
 
-        // Execute the command
+        if (chdir(path.c_str()) != 0) {
+            std::cerr << "Failed to change directory." << std::endl;
+            exit(EXIT_FAILURE);
+        }
+
         execlp("/bin/sh", "sh", "-c", command.c_str(), (char *)NULL);
         perror("execlp");
         exit(EXIT_FAILURE);
     }
-
+    // exec_from_path_or_cd(command, path);
     // Parent process
     close(pipefd[1]); // Close unused write end
     std::string output;
@@ -93,7 +102,7 @@ CommandResult execute_command(const std::string& command) {
 
 // this doesn't capture the error command, but it should
 // ASAP: fix it
-CommandResult execute_pipe_command(const CommandResult& leftCmd, const CommandResult& rightCmd, const std::string& path) {
+CommandResult execute_pipe_command(const CommandResult& leftCmd, const CommandResult& rightCmd, std::string& path) {
 
     CommandResult cmdResult;
 
@@ -123,6 +132,7 @@ CommandResult execute_pipe_command(const CommandResult& leftCmd, const CommandRe
             exit(EXIT_SUCCESS); // Terminate the process since we've already sent the data
         }
         dup2(pipefd[1], STDOUT_FILENO);
+        dup2(pipefd[1], STDERR_FILENO);
         close(pipefd[0]);
         close(pipefd[1]);
         close(outputfd[0]);
@@ -138,8 +148,17 @@ CommandResult execute_pipe_command(const CommandResult& leftCmd, const CommandRe
         exit(EXIT_FAILURE);
     }
     if (rightPid == 0) {  // Child process for rightCmd
+        if (rightCmd.processed) {
+            ssize_t written = write(outputfd[1], rightCmd.output.c_str(), rightCmd.output.size());
+            if (written == -1) {
+                perror("write");
+                exit(EXIT_FAILURE);
+            }
+            exit(EXIT_SUCCESS); // Terminate the process since we've already sent the data
+        }
         dup2(pipefd[0], STDIN_FILENO);
         dup2(outputfd[1], STDOUT_FILENO);
+        dup2(outputfd[1], STDERR_FILENO);
         close(pipefd[1]);
         close(pipefd[0]);
         close(outputfd[0]);
@@ -177,10 +196,9 @@ CommandResult execute_pipe_command(const CommandResult& leftCmd, const CommandRe
     return cmdResult;
 }
 
-CommandResult redirectOutputToFile(const std::string& input, const std::string& filePath) {
+CommandResult redirect_output_to_file(const CommandResult& input, const std::string& filePath, std::string& path) {
     CommandResult result;
 
-    // Open the file for writing
     int fd = open(filePath.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0644);
     if (fd == -1) {
         perror("open");
@@ -189,27 +207,34 @@ CommandResult redirectOutputToFile(const std::string& input, const std::string& 
         return result;
     }
 
-    // Write the input to the file
-    ssize_t bytes_written = write(fd, input.c_str(), input.size());
+    ssize_t bytes_written;
+    if (input.processed) {
+        bytes_written = write(fd, input.output.c_str(), input.output.size());
+    } else {
+        result = execute_command(input.output, path);
+        bytes_written = write(fd, result.output.c_str(), result.output.size());
+    }
+
     if (bytes_written == -1) {
         perror("write");
-        close(fd);
         result.output = "Error writing to file";
         result.exitStatus = errno; // Capture the error number
-        return result;
     }
 
     // Close the file descriptor
-    close(fd);
+    if (close(fd) == -1) {
+        perror("close");
+        result.output = "Error closing file";
+        result.exitStatus = errno; // Capture the error number
+    }
 
-    // Indicate successful execution
-    result.processed = true;
+    result.processed = (result.exitStatus == 0);
     result.output = ""; // No output to return for a redirection operation
-    result.exitStatus = 0; // Success
     return result;
 }
 
-CommandResult redirectInputFromFile(const std::string& command, const std::string& filePath) {
+
+CommandResult redirect_input_from_file(const std::string& command, const std::string& filePath, std::string& path) {
     CommandResult result;
 
     int filefd = open(filePath.c_str(), O_RDONLY);
@@ -279,7 +304,7 @@ CommandResult redirectInputFromFile(const std::string& command, const std::strin
 }
 
 // this should be executed with a proper command
-CommandResult redirectStderrToFile(const CommandResult& command, const CommandResult& filePath) {
+CommandResult redirect_stderr_to_file(const CommandResult& command, const CommandResult& filePath, std::string& path) {
     CommandResult result;
 
     int fd = open(filePath.output.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0644);

@@ -1,0 +1,1 @@
+ls -l | grep txt ; cd SEM3/LFAC
