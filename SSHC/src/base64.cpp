@@ -1,5 +1,7 @@
 #include "../include/base64.h"
 
+// Checked
+
 std::string base64_encode(const std::string& input) {
     BIO* bio = BIO_new(BIO_s_mem());
     BIO* b64 = BIO_new(BIO_f_base64());
@@ -14,15 +16,15 @@ std::string base64_encode(const std::string& input) {
 
     std::string result(encoded_data, encoded_length);
 
-    BIO_free_all(b64);  // Ensure to free the BIO chain
+    BIO_free_all(b64);
 
     return result;
 }
 
 std::string base64_decode(const std::string& encoded) {
-    BIO* bio = BIO_new_mem_buf(encoded.c_str(), -1); // -1: assume string is null terminated
+    BIO* bio = BIO_new_mem_buf(encoded.c_str(), -1);
     BIO* b64 = BIO_new(BIO_f_base64());
-    BIO_set_flags(b64, BIO_FLAGS_BASE64_NO_NL); // Do not use newlines to flush buffer
+    BIO_set_flags(b64, BIO_FLAGS_BASE64_NO_NL);
     bio = BIO_push(b64, bio);
 
     std::vector<unsigned char> buffer(encoded.length());

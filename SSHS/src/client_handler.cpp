@@ -1,33 +1,28 @@
 #include "../include/client_handler.h"
-#include "../include/server.h"
-#include "../include/AES.h"
-#include "../include/base64.h"
 
+const std::string json_path {"../server_data.json"};
 
-// am eliminat static de aici, ar putea aparea probleme in viitor
-void *treat(void * arg) {
+void* treat(void * arg) {
     struct thData tdL;
     tdL= *((struct thData*)arg);
-    printf ("[Thread]- %d - Asteptam mesajul...\n", tdL.idThread);
+    printf ("[Thread]- %d - Waiting for the message...\n", tdL.idThread);
     fflush (stdout);
     pthread_detach(pthread_self());
 
-    // INSTANTLY SENDING THE RSA PUBLIC KEY
-
-    printf("[Thread] - %d - Sending public key...\n", tdL.idThread);
+    // Instantly sending the public key
+    printf("[Thread]- %d - Sending public key...\n", tdL.idThread);
     fflush(stdout);
 
-    if (!sendPublicKey(tdL.cl, "../server_data.json")) {
+    if (!send_public_key(tdL.cl, json_path)) {
         std::cerr << "Failed to send public key" << std::endl;
         close(tdL.cl);
         return NULL;
     }
 
-    // -------------------------------------
-
     answer_client((struct thData*)arg);
     close ((intptr_t)arg);
-    return(NULL);
+
+    return(nullptr);
 };
 
 void printHex(const char* data, int len) {
@@ -42,16 +37,26 @@ void answer_client(void *arg) {
     int thread_id;
     struct thData tdL;
     tdL= *((struct thData*)arg);
-
-    std::string user = receive_AES_key(tdL.cl);
-    // std::string current_path = get_current_directory();
     std::string current_path = "/home/alex";
+
+    json users = read_json(json_path);
+    std::string user = receive_AES_key(tdL.cl);
+    /*if (user == "User already active.") {
+        // Kill both processes and return error to both processes
+        close(tdL.cl);
+        update_user_status(users, user, "offline");
+        save_json(users, "../server_data.json");
+    }*/
+
     while (1) {
+
         int message_len {};
         ssize_t bytes_read = read(tdL.cl, &message_len, sizeof(int));
         if (bytes_read <= 0) {
             if (bytes_read == 0) {
                 printf("[Thread %d] Client closed the connection.\n", tdL.idThread);
+                /*update_user_status(users, user, "offline");
+                save_json(users, "../server_data.json");*/
             } else {
                 perror("[Thread] Error reading message length header");
             }
@@ -59,15 +64,8 @@ void answer_client(void *arg) {
             return;
         }
 
-        // Allocate memory for the full message and an extra byte for the null terminator
-        // Change malloc with new
-        char *client_input = (char *)malloc(message_len + 1);
-        if (client_input == NULL) {
-            perror("Error allocating memory for full message");
-            return;
-        }
+        char* client_input = new char[message_len + 1];
 
-        // Read the actual message
         ssize_t bytesRead = 0;
         while (bytesRead < message_len) {
             ssize_t result = read(tdL.cl, client_input + bytesRead, message_len - bytesRead);
@@ -95,6 +93,6 @@ void answer_client(void *arg) {
                tdL.idThread, thread_id);
 
         process_command(client_input, tdL, user, current_path);
-        free(client_input);
+        delete[] client_input;
     }
 }

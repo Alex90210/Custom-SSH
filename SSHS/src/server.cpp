@@ -2,15 +2,13 @@
 #include "../include/json_functions.h"
 #include "../include/RSA.h"
 
-void process_command(const char* fullMessage, struct thData tdL,
+void process_command(const char* client_msg, struct thData tdL,
                      const std::string& username, std::string& path) {
 
-    // The header containing the message size should be received in the previous function
-    // You could get its size from a parameter
-    int full_message_len = strlen(fullMessage);
+    int full_message_len = strlen(client_msg);
     char *response_message = new char[full_message_len + 1];
     response_message[0] = '\0';
-    strcat(response_message, fullMessage);
+    strcat(response_message, client_msg);
     printf("[Server]Received from client: %s\n", response_message);
 
     // Getting the key
@@ -48,15 +46,64 @@ void process_command(const char* fullMessage, struct thData tdL,
     delete[] response_message;
 }
 
+void update_user_status(json& users, const std::string& username, const std::string& status) {
+    for (auto& user : users["users"]) {
+        if (user["username"] == username) {
+            user["status"] = status;
+            break;
+        }
+    }
+}
+
+void save_json(const json& j, const std::string& file_path) {
+    std::ofstream file(file_path);
+    if (file.is_open()) {
+        file << j.dump(4); // 4 is for pretty printing
+        file.close();
+    } else {
+        std::cerr << "Could not open file for writing.\n";
+    }
+}
+
+json read_json(const std::string& filename) {
+    std::ifstream ifs(filename);
+    if (!ifs.is_open()) {
+        throw std::runtime_error("Unable to open file: " + filename);
+    }
+
+    json j;
+    try {
+        ifs >> j;
+    } catch (const json::parse_error& e) {
+        throw std::runtime_error("Parse error in file: " + filename + "; " + e.what());
+    }
+
+    return j;
+}
+
+bool is_user_active(const std::string& username, const std::string& file_path) {
+    std::ifstream file(file_path);
+    if (!file.is_open()) {
+        std::cerr << "Unable to open file." << std::endl;
+        return false;
+    }
+
+    json j;
+    file >> j;
+
+    for (const auto& user : j["users"]) {
+        if (user["username"] == username && user["status"] == "active") {
+            return true;
+        }
+    }
+    return false;
+}
 std::string receive_AES_key(int client_socket) {
     int username_len, key_len;
 
     read(client_socket, &username_len, sizeof(int));
     read(client_socket, &key_len, sizeof(int));
 
-    // Allocate memory for the username and key
-    // char* decrypted_username = new char[username_len + 1]; // not necesary because I am using outlen
-    // char* decrypted_aes_key = new char[key_len + 1]; // not necesary because I am using outlen
     char* encrypted_username = new char[RSA_KEY_SIZE + 1];
     char* encrypted_aes_key = new char[RSA_KEY_SIZE + 1];
 
@@ -67,10 +114,8 @@ std::string receive_AES_key(int client_socket) {
     read(client_socket, encrypted_aes_key, RSA_KEY_SIZE);
     encrypted_aes_key[RSA_KEY_SIZE] = '\0';
 
-    // DECRYPT THE USERNAME AND THE ASE KEY
-
     // Load the server's private key
-    EVP_PKEY* privateKey = loadPrivateKeyFromJSON("../server_data.json");
+    EVP_PKEY* privateKey = load_private_key_from_json("../server_data.json");
     if (!privateKey) {
         std::cerr << "Error loading private key." << std::endl;
     }
@@ -79,13 +124,22 @@ std::string receive_AES_key(int client_socket) {
     std::string decryptedAesKey = decryptWithPrivateKey(privateKey, encrypted_aes_key, RSA_KEY_SIZE);
 
     decryptedUsername.resize(username_len);
-    decryptedAesKey.resize(key_len);
-
     update_user_key("/home/alex/Desktop/SSH/SSHS/server_data.json", std::string(decryptedUsername),
                     std::string(decryptedAesKey));
 
-    // delete[] decrypted_username;
-    // delete[] decrypted_aes_key;
+    // Updating the status of the user
+    /*json users = read_json("../server_data.json");
+    if (is_user_active(decryptedUsername, "../server_data.json")) {
+        return "User already active.";
+    }
+    else {
+        update_user_status(users, decryptedUsername, "active");
+        save_json(users, "../server_data.json");
+        decryptedAesKey.resize(key_len);
+        update_user_key("/home/alex/Desktop/SSH/SSHS/server_data.json", std::string(decryptedUsername),
+                        std::string(decryptedAesKey));
+    }*/
+
     delete[] encrypted_username;
     delete[] encrypted_aes_key;
 
@@ -124,7 +178,7 @@ std::vector<char> add_len_header2(const std::string& buffer) {
     return full_message;
 }
 
-bool sendPublicKey(int cl, const std::string& jsonFilePath) {
+bool send_public_key(int cl, const std::string& jsonFilePath) {
     std::ifstream ifs(jsonFilePath);
     if (!ifs.is_open()) {
         std::cerr << "Failed to open JSON file: " << jsonFilePath << std::endl;
@@ -142,9 +196,6 @@ bool sendPublicKey(int cl, const std::string& jsonFilePath) {
     }
 
     char* full_message = add_len_header(publicKey.c_str());
-    if (full_message == NULL) {
-        return false;
-    }
 
     int total_len = sizeof(int) + publicKey.size();
     if (write(cl, full_message, total_len) < 0) {

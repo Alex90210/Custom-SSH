@@ -14,7 +14,11 @@ add_executable(SSH_C src/main.cpp
         include/base64.h
         src/base64.cpp
         include/client.h
-        src/client.cpp)
+        src/client.cpp
+        include/read_write.h
+        src/read_write.cpp
+        include/json_functions.h
+        src/json_functions.cpp)
 
 find_package(OpenSSL REQUIRED)
 

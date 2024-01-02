@@ -1,31 +1,28 @@
 #include "../include/utils.h"
 #include "../include/manage_keys.h"
-#include "../include/utils.h"
 #include "../include/base64.h"
 #include "../include/AES.h"
 #include "../include/client.h"
+#include <wait.h>
 
 extern int errno;
 int port;
-#define KEY_LEN_BYTES 16
-#define RSA_KEY_SIZE (1024 / 8)
 
 int main (int argc, char *argv[]) {
 
     std::string json_path {"../client_data.json"};
     int sd {};
-    struct sockaddr_in server;
+    struct sockaddr_in server {};
 
     if (argc != 3) {
-        printf ("Sintaxa: %s <adresa_server> <port>\n", argv[0]);
+        printf ("Syntax error: %s <server_addr> <port>\n", argv[0]);
         return -1;
     }
 
-    port = atoi (argv[2]);
+    port = atoi(argv[2]);
 
-    if ((sd = socket (AF_INET, SOCK_STREAM, 0)) == -1)
-    {
-        perror ("Eroare la socket().\n");
+    if ((sd = socket (AF_INET, SOCK_STREAM, 0)) == -1) {
+        perror ("Error at socket().\n");
         return errno;
     }
 
@@ -36,22 +33,15 @@ int main (int argc, char *argv[]) {
 
 
     if (connect (sd, (struct sockaddr *) &server,sizeof (struct sockaddr)) == -1) {
-        perror ("[client]Eroare la connect().\n");
+        perror ("[Client]Error at connect().\n");
         return errno;
     }
 
-    // receiving and storing the rsa server public key
-    // create a global variable for the file location
-    // maybe do the function void, the client doesn't need to know about keys
-
-    if (receive_and_store_s_public_key(sd, "../client_data.json")) {
-        std::cout << "Public key received and stored successfully." << std::endl;
+    if (receive_and_store_s_public_key(sd, json_path)) {
+        // std::cout << "Public key received and stored successfully." << std::endl;
     } else {
         std::cerr << "Failed to receive or store the public key." << std::endl;
     }
-
-    // -----------------------------------------------
-
 
     char start_buf[1000];
     printf("[Client] For login press 'l'. For quit, 'q': ");
@@ -64,8 +54,7 @@ int main (int argc, char *argv[]) {
             printf("Enter a valid option: ");
             fflush(stdout);
             int bytes_num_oo = read(0, start_buf, sizeof(start_buf) - 1);
-            start_buf[bytes_num_oo] = '\0'; // Null-terminate the string
-
+            start_buf[bytes_num_oo] = '\0';
             if (bytes_num_oo > 0 && start_buf[bytes_num_oo - 1] != '\n') {
                 int c;
                 while ((c = getchar()) != '\n' && c != EOF) { }
@@ -76,8 +65,7 @@ int main (int argc, char *argv[]) {
     std::string username, password;
     if(strcmp(start_buf, "l\n") == 0) {
 
-        json users = read_json("../client_data.json");
-
+        json users = read_json(json_path);
         const int max_attempts = 3;
         int attempt_count = 0;
 
@@ -90,6 +78,8 @@ int main (int argc, char *argv[]) {
             if (authenticate_user(users, username, password)) {
                 std::cout << "Authentication successful. You are connected to the server."
                 << std::endl;
+                /*update_user_status(users, username, "active");
+                save_json(users, "../client_data.json");*/
                 break;
             } else {
                 std::cout << "Authentication failed." << std::endl;
@@ -112,69 +102,48 @@ int main (int argc, char *argv[]) {
         return 0;
     }
 
-    // generate and store the aes key
+    // Generate and store the aes key
     unsigned char aesKeyC[KEY_LENGTH_BYTES];
     if (!generate_aes_key(aesKeyC)) {
         std::cerr << ("AES Key generation error.");
         return 1;
     }
 
-    std::string aesKey(reinterpret_cast<const char*>(aesKeyC), KEY_LENGTH_BYTES);
-
-    std::string base_64_encoded_key = base64_encode(aesKey);
-
+    std::string aes_key(reinterpret_cast<const char*>(aesKeyC), KEY_LENGTH_BYTES);
+    std::string base_64_encoded_key = base64_encode(aes_key);
     store_aes_key_b64(base_64_encoded_key, username);
 
-    std::string jsonFileName = "../client_data.json";
-    printAESKeys(jsonFileName);
+    // print_AES_key(json_path);
 
-
-    // sending the aes key to the server as the first message
-
-    std::string aesKeyString = get_aes_key_from_json(json_path, username);
+    std::string aes_key_from_json = get_aes_key_from_json(json_path, username);
     EVP_PKEY* publicKey = load_public_key_JSON(json_path);
 
-    std::string encryptedUsername = encrypt_with_public_key(publicKey, username);
-    std::string encryptedAesKey = encrypt_with_public_key(publicKey, aesKeyString);
+    std::string encrypted_username = encrypt_with_public_key(publicKey, username);
+    std::string encrypted_aes_key = encrypt_with_public_key(publicKey, aes_key_from_json);
 
-    int usernameLen = username.length(); // Length of unencrypted username
-    int aesKeyLen = aesKeyString.length(); // Length of unencrypted AES key
+    int usernameLen = username.length();
+    int aesKeyLen = aes_key_from_json.length();
 
-    int encryptedUsernameLen = encryptedUsername.size(); // Length of encrypted username
-    int encryptedAesKeyLen = encryptedAesKey.size();     // Length of encrypted AES key
+    int encrypted_username_len = encrypted_username.size();
+    int encrypted_aes_key_len = encrypted_aes_key.size();
 
-    // Note: total_len includes the size of two headers and the length of the encrypted data
-    int total_len = sizeof(int) * 2 + encryptedUsernameLen + encryptedAesKeyLen;
+    int total_len = sizeof(int) * 2 + encrypted_username_len + encrypted_aes_key_len;
     char* fullMessage = new char[total_len];
-    if (!fullMessage) {
-        std::cerr << "Failed to allocate memory for the message." << std::endl;
-        return 1;
-    }
 
-    // Use unencrypted lengths for the headers
+    // Creating the message
     memcpy(fullMessage, &usernameLen, sizeof(int));
     memcpy(fullMessage + sizeof(int), &aesKeyLen, sizeof(int));
-
-    // Copy the encrypted data
-    memcpy(fullMessage + sizeof(int) * 2, encryptedUsername.data(), encryptedUsernameLen);
-    memcpy(fullMessage + sizeof(int) * 2 + encryptedUsernameLen, encryptedAesKey.data(), encryptedAesKeyLen);
-
+    memcpy(fullMessage + sizeof(int) * 2, encrypted_username.data(), encrypted_username_len);
+    memcpy(fullMessage + sizeof(int) * 2 + encrypted_username_len, encrypted_aes_key.data(), encrypted_aes_key_len);
 
     // printing the message to verify it
-
-    printMessage(fullMessage, total_len);
-
-    //-----------------
+    // print_message(fullMessage, total_len);
 
     // Send the message
     if (write(sd, fullMessage, total_len) <= 0) {
         std::cerr << "Error writing message to server." << std::endl;
     }
 
-    // Free the allocated memory
-    // free(fullMessage);
     delete[] fullMessage;
-
-    // -----------------------------
     command_loop(sd, username);
 }

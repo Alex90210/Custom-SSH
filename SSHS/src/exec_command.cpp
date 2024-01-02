@@ -2,7 +2,7 @@
 
 struct CommandResult {
     std::string output;
-    int exitStatus;
+    int exit_status;
 };
 
 bool is_path_valid(const std::string& path) {
@@ -13,14 +13,12 @@ bool is_path_valid(const std::string& path) {
 std::string interpret_command(const std::string& command, std::string& path) {
     std::string command_output;
 
-    if (command == "cd" && !containsBashOperator(command)) {
+    if (command == "cd" && !contains_bash_operator(command)) {
         path = "/home/alex";
-        // command_output = path;
     }
-    if (command.substr(0, 3) == "cd " && !containsBashOperator(command)) {
+    if (command.substr(0, 3) == "cd " && !contains_bash_operator(command)) {
         std::string parsed_path = command.substr(3, command.length());
         std::string temp_path1 = path + "/" + command.substr(3, command.length());
-        // std::string temp_path2 = path + command.substr(3, command.length());
         std::string temp_path2 = command.substr(3, command.length());
 
         if (is_path_valid(temp_path1)) {
@@ -37,15 +35,15 @@ std::string interpret_command(const std::string& command, std::string& path) {
         command_output = path + "\n";
     }
     else {
-        if (!containsBashOperator(command)) {
+        if (!contains_bash_operator(command)) {
             command_output = main_execute_command(command, path);
         }
         else {
             std::vector<std::string> tokens = tokenize(command);
-            std::vector<std::string> postfix = convertToPostfix(tokens);
-            TreeNode* root = constructAST(postfix);
+            std::vector<std::string> postfix = convert_to_postfix(tokens);
+            TreeNode* root = construct_AST(postfix);
             // printPostOrder(root);
-            CommandResult output = traverseAndExecute(root, path);
+            CommandResult output = traverse_and_execute(root, path);
             command_output = output.output;
         }
     }
@@ -61,15 +59,13 @@ std::string main_execute_command(const std::string& command, std::string& path) 
     if (pid == -1) {
         std::cerr << "Failed to fork." << std::endl;
         exit(EXIT_FAILURE);
-    } else if (pid > 0)
-    {
+    } else if (pid > 0) {
         close(pipe_fd[1]);
 
         int status;
-        // The second command freezes the program here
         waitpid(pid, &status, 0);
 
-        char buffer[16384]; // 16KB
+        char buffer[16384];
         std::string result;
 
         ssize_t count;
@@ -93,8 +89,7 @@ std::string main_execute_command(const std::string& command, std::string& path) 
             exit(EXIT_FAILURE);
         }
 
-        // You should create a tree of commands and execute them in order
-        execlp("bash", "bash", "-c", command.c_str(), NULL);
+        execlp("/bin/sh", "sh", "-c", command.c_str(), (char *)NULL);
         std::cerr << "Failed to execute command." << std::endl;
         exit(EXIT_FAILURE);
     }

@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <iostream>
-#include <limits.h>
+#include <climits>
 #include <dirent.h>
 #include "multiple_commands.h"
 #include "infix_to_postfix.h"

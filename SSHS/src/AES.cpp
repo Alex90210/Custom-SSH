@@ -1,9 +1,9 @@
 #include "../include/AES.h"
 
-std::string get_aes_key_from_json(const std::string& jsonFilePath, const std::string& username) {
-    std::ifstream file(jsonFilePath);
+std::string get_aes_key_from_json(const std::string& json_path, const std::string& username) {
+    std::ifstream file(json_path);
     if (!file.is_open()) {
-        throw std::runtime_error("Unable to open file: " + jsonFilePath);
+        throw std::runtime_error("Unable to open file: " + json_path);
     }
 
     json j;

@@ -7,7 +7,7 @@
 
 struct CommandResult {
     std::string output;
-    int exitStatus {};
+    int exit_status {};
     bool processed {false};
 };
 
@@ -43,8 +43,8 @@ CommandResult execute_command(const std::string& command, std::string& path) {
     CommandResult result;
 
     if (is_cd_command(command, path)) {
-        result.processed = true;
-        result.exitStatus = 0;
+        result.processed = false; // The cd does not output anything, this should skin this step
+        result.exit_status = 0;
         result.output = path;
         return result;
     }
@@ -63,9 +63,9 @@ CommandResult execute_command(const std::string& command, std::string& path) {
 
     if (pid == 0) {
         // Child process
-        close(pipefd[0]); // Close unused read end
-        dup2(pipefd[1], STDOUT_FILENO); // Redirect stdout to pipe
-        dup2(pipefd[1], STDERR_FILENO); // Optionally, redirect stderr to the pipe as well
+        close(pipefd[0]);
+        dup2(pipefd[1], STDOUT_FILENO);
+        dup2(pipefd[1], STDERR_FILENO);
         close(pipefd[1]);
 
         if (chdir(path.c_str()) != 0) {
@@ -77,9 +77,7 @@ CommandResult execute_command(const std::string& command, std::string& path) {
         perror("execlp");
         exit(EXIT_FAILURE);
     }
-    // exec_from_path_or_cd(command, path);
-    // Parent process
-    close(pipefd[1]); // Close unused write end
+    close(pipefd[1]);
     std::string output;
     char buffer[4096];
     ssize_t count;
@@ -93,22 +91,19 @@ CommandResult execute_command(const std::string& command, std::string& path) {
     int status;
     waitpid(pid, &status, 0);
 
-    // CommandResult result;
     result.processed = true;
     result.output = output;
-    result.exitStatus = WEXITSTATUS(status);
+    result.exit_status = WEXITSTATUS(status);
     return result;
 }
 
-// this doesn't capture the error command, but it should
-// ASAP: fix it
-CommandResult execute_pipe_command(const CommandResult& leftCmd, const CommandResult& rightCmd, std::string& path) {
-
+CommandResult execute_pipe_command(const CommandResult& left_cmd, const CommandResult& right_cmd,
+                                   std::string& path) {
     CommandResult cmdResult;
 
-    int pipefd[2];  // Pipe between leftCmd and rightCmd
-    int outputfd[2]; // Pipe to capture the output of rightCmd
-    pid_t leftPid, rightPid;
+    int pipefd[2];
+    int outputfd[2];
+    pid_t left_pid, right_pid;
     const int bufferSize = 16384;
     char buffer[bufferSize];
 
@@ -117,19 +112,19 @@ CommandResult execute_pipe_command(const CommandResult& leftCmd, const CommandRe
         exit(EXIT_FAILURE);
     }
 
-    leftPid = fork();
-    if (leftPid < 0) {
+    left_pid = fork();
+    if (left_pid < 0) {
         perror("fork");
         exit(EXIT_FAILURE);
     }
-    if (leftPid == 0) {  // Child process for leftCmd
-        if (leftCmd.processed) {
-            ssize_t written = write(pipefd[1], leftCmd.output.c_str(), leftCmd.output.size());
+    if (left_pid == 0) {
+        if (left_cmd.processed) {
+            ssize_t written = write(pipefd[1], left_cmd.output.c_str(), left_cmd.output.size());
             if (written == -1) {
                 perror("write");
                 exit(EXIT_FAILURE);
             }
-            exit(EXIT_SUCCESS); // Terminate the process since we've already sent the data
+            exit(EXIT_SUCCESS);
         }
         dup2(pipefd[1], STDOUT_FILENO);
         dup2(pipefd[1], STDERR_FILENO);
@@ -137,24 +132,30 @@ CommandResult execute_pipe_command(const CommandResult& leftCmd, const CommandRe
         close(pipefd[1]);
         close(outputfd[0]);
         close(outputfd[1]);
-        execlp("/bin/sh", "sh", "-c", leftCmd.output.c_str(), (char *)NULL);
+
+        if (chdir(path.c_str()) != 0) {
+            std::cerr << "Failed to change directory." << std::endl;
+            exit(EXIT_FAILURE);
+        }
+
+        execlp("/bin/sh", "sh", "-c", left_cmd.output.c_str(), NULL);
         perror("execlp leftCmd");
         exit(EXIT_FAILURE);
     }
 
-    rightPid = fork();
-    if (rightPid < 0) {
+    right_pid = fork();
+    if (right_pid < 0) {
         perror("fork");
         exit(EXIT_FAILURE);
     }
-    if (rightPid == 0) {  // Child process for rightCmd
-        if (rightCmd.processed) {
-            ssize_t written = write(outputfd[1], rightCmd.output.c_str(), rightCmd.output.size());
+    if (right_pid == 0) {
+        if (right_cmd.processed) {
+            ssize_t written = write(outputfd[1], right_cmd.output.c_str(), right_cmd.output.size());
             if (written == -1) {
                 perror("write");
                 exit(EXIT_FAILURE);
             }
-            exit(EXIT_SUCCESS); // Terminate the process since we've already sent the data
+            exit(EXIT_SUCCESS);
         }
         dup2(pipefd[0], STDIN_FILENO);
         dup2(outputfd[1], STDOUT_FILENO);
@@ -164,17 +165,20 @@ CommandResult execute_pipe_command(const CommandResult& leftCmd, const CommandRe
         close(outputfd[0]);
         close(outputfd[1]);
 
-        execlp("/bin/sh", "sh", "-c", rightCmd.output.c_str(), (char *)NULL);
+        if (chdir(path.c_str()) != 0) {
+            std::cerr << "Failed to change directory." << std::endl;
+            exit(EXIT_FAILURE);
+        }
+
+        execlp("/bin/sh", "sh", "-c", right_cmd.output.c_str(), (char *)NULL);
         perror("execlp rightCmd");
         exit(EXIT_FAILURE);
     }
 
-    // Close the unused ends of the pipes in the parent process
     close(pipefd[0]);
     close(pipefd[1]);
     close(outputfd[1]);
 
-    // Read the output from the second pipe
     std::string result;
     ssize_t count;
     while ((count = read(outputfd[0], buffer, bufferSize - 1)) > 0) {
@@ -183,27 +187,25 @@ CommandResult execute_pipe_command(const CommandResult& leftCmd, const CommandRe
     }
     close(outputfd[0]);
 
-    // Wait for the child processes to finish and capture the exit status
     int status;
-    waitpid(rightPid, &status, 0); // We are primarily interested in the right command's status
-    waitpid(leftPid, NULL, 0); // We still need to wait for the left command, but we don't need its status
+    waitpid(right_pid, &status, 0);
+    waitpid(left_pid, NULL, 0);
 
-    // Construct and return the CommandResult
     cmdResult.processed = true;
     cmdResult.output = result;
-    cmdResult.exitStatus = WEXITSTATUS(status); // Extract the exit status
+    cmdResult.exit_status = WEXITSTATUS(status);
 
     return cmdResult;
 }
 
-CommandResult redirect_output_to_file(const CommandResult& input, const std::string& filePath, std::string& path) {
+CommandResult redirect_output_to_file(const CommandResult& input, const std::string& file_path, std::string& path) {
     CommandResult result;
 
-    int fd = open(filePath.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    int fd = open(file_path.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0644);
     if (fd == -1) {
         perror("open");
         result.output = "Error opening file";
-        result.exitStatus = errno; // Capture the error number
+        result.exit_status = errno;
         return result;
     }
 
@@ -218,30 +220,29 @@ CommandResult redirect_output_to_file(const CommandResult& input, const std::str
     if (bytes_written == -1) {
         perror("write");
         result.output = "Error writing to file";
-        result.exitStatus = errno; // Capture the error number
+        result.exit_status = errno;
     }
 
-    // Close the file descriptor
     if (close(fd) == -1) {
         perror("close");
         result.output = "Error closing file";
-        result.exitStatus = errno; // Capture the error number
+        result.exit_status = errno;
     }
 
-    result.processed = (result.exitStatus == 0);
-    result.output = ""; // No output to return for a redirection operation
+    result.processed = (result.exit_status == 0);
+    result.output = "";
     return result;
 }
 
 
-CommandResult redirect_input_from_file(const std::string& command, const std::string& filePath, std::string& path) {
+CommandResult redirect_input_from_file(const std::string& command, const std::string& file_path, std::string& path) {
     CommandResult result;
 
-    int filefd = open(filePath.c_str(), O_RDONLY);
+    int filefd = open(file_path.c_str(), O_RDONLY);
     if (filefd == -1) {
         perror("open");
         result.output = "Error opening file";
-        result.exitStatus = errno;
+        result.exit_status = errno;
         return result;
     }
 
@@ -250,7 +251,7 @@ CommandResult redirect_input_from_file(const std::string& command, const std::st
         perror("pipe");
         close(filefd);
         result.output = "Error creating pipe";
-        result.exitStatus = errno;
+        result.exit_status = errno;
         return result;
     }
 
@@ -261,28 +262,30 @@ CommandResult redirect_input_from_file(const std::string& command, const std::st
         close(pipefd[0]);
         close(pipefd[1]);
         result.output = "Fork failed";
-        result.exitStatus = errno;
+        result.exit_status = errno;
         return result;
     }
 
     if (pid == 0) {
-        // Child process
         dup2(filefd, STDIN_FILENO);
         dup2(pipefd[1], STDOUT_FILENO);
         close(filefd);
         close(pipefd[0]);
         close(pipefd[1]);
 
+        if (chdir(path.c_str()) != 0) {
+            std::cerr << "Failed to change directory." << std::endl;
+            exit(EXIT_FAILURE);
+        }
+
         execlp("/bin/sh", "sh", "-c", command.c_str(), (char *)NULL);
         perror("execlp");
         exit(EXIT_FAILURE);
     }
 
-    // Parent process
     close(filefd);
     close(pipefd[1]);
 
-    // Read the output from the pipe
     std::string output;
     char buffer[4096];
     ssize_t count;
@@ -293,25 +296,23 @@ CommandResult redirect_input_from_file(const std::string& command, const std::st
 
     close(pipefd[0]);
 
-    // Wait for the child process to finish and capture its exit status
     int status;
     waitpid(pid, &status, 0);
 
     result.processed = true;
     result.output = output;
-    result.exitStatus = WEXITSTATUS(status);
+    result.exit_status = WEXITSTATUS(status);
     return result;
 }
 
-// this should be executed with a proper command
-CommandResult redirect_stderr_to_file(const CommandResult& command, const CommandResult& filePath, std::string& path) {
+CommandResult redirect_stderr_to_file(const CommandResult& command, const CommandResult& file_path, std::string& path) {
     CommandResult result;
 
-    int fd = open(filePath.output.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    int fd = open(file_path.output.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0644);
     if (fd == -1) {
         perror("open");
         result.output = "Error opening file";
-        result.exitStatus = errno;
+        result.exit_status = errno;
         return result;
     }
 
@@ -320,38 +321,40 @@ CommandResult redirect_stderr_to_file(const CommandResult& command, const Comman
         perror("fork");
         close(fd);
         result.output = "Fork failed";
-        result.exitStatus = errno;
+        result.exit_status = errno;
         return result;
     }
 
     if (pid == 0) {
-        // Child process
         if (command.processed) {
             ssize_t written = write(fd, command.output.c_str(), command.output.size());
             if (written == -1) {
                 perror("write");
                 exit(EXIT_FAILURE);
             }
-            close(fd); // Close the file descriptor
-            exit(EXIT_SUCCESS); // Terminate the process successfully
+            close(fd);
+            exit(EXIT_SUCCESS);
         }
-        dup2(fd, STDERR_FILENO); // Redirect stderr to file
+        dup2(fd, STDERR_FILENO);
         close(fd);
+
+        if (chdir(path.c_str()) != 0) {
+            std::cerr << "Failed to change directory." << std::endl;
+            exit(EXIT_FAILURE);
+        }
 
         execlp("/bin/sh", "sh", "-c", command.output.c_str(), (char *)NULL);
         perror("execlp");
         exit(EXIT_FAILURE);
     }
 
-    // Parent process
     close(fd);
 
-    // Wait for the child process to finish and capture its exit status
     int status;
     waitpid(pid, &status, 0);
 
     result.processed = true;
-    result.output = ""; // No output to capture for stderr redirection
-    result.exitStatus = WEXITSTATUS(status);
+    result.output = "";
+    result.exit_status = WEXITSTATUS(status);
     return result;
 }

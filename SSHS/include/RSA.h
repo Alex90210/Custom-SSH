@@ -16,7 +16,7 @@
 
 EVP_PKEY *generate_rsa_key();
 std::string key_to_pem(EVP_PKEY *pkey, bool is_private);
-EVP_PKEY* loadPrivateKeyFromJSON(const std::string& jsonFilePath);
-std::string decryptWithPrivateKey(EVP_PKEY* privateKey, const char* encryptedData, size_t encryptedDataLen);
+EVP_PKEY* load_private_key_from_json(const std::string& json_path);
+std::string decryptWithPrivateKey(EVP_PKEY* private_key, const char* encrypted_data, size_t encrypted_data_len);
 
 #endif

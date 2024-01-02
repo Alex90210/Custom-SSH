@@ -10,8 +10,8 @@
 
 struct CommandResult;
 struct TreeNode;
-void printPostOrder(TreeNode* node);
-TreeNode* constructAST(const std::vector<std::string>& postfix);
-CommandResult traverseAndExecute(TreeNode* node, std::string& path);
+void print_post_order(TreeNode* node);
+TreeNode* construct_AST(const std::vector<std::string>& postfix);
+CommandResult traverse_and_execute(TreeNode* node, std::string& path);
 
 #endif

@@ -1,0 +1,20 @@
+total 512
+-rw-rw-r--  1 alex alex   2634 Dec 20 22:32 BUILD.bazel
+-rw-rw-r--  1 alex alex 304881 Dec 20 22:32 ChangeLog.md
+-rw-rw-r--  1 alex alex    410 Dec 20 22:32 CITATION.cff
+drwxrwxr-x  3 alex alex   4096 Dec 20 22:32 cmake
+-rw-rw-r--  1 alex alex   7180 Dec 20 22:32 CMakeLists.txt
+drwxrwxr-x  6 alex alex   4096 Dec 20 22:32 docs
+drwxrwxr-x  3 alex alex   4096 Dec 20 22:32 include
+-rw-rw-r--  1 alex alex   1076 Dec 20 22:32 LICENSE.MIT
+drwxrwxr-x  2 alex alex   4096 Dec 20 22:32 LICENSES
+-rw-rw-r--  1 alex alex  13461 Dec 20 22:32 Makefile
+-rw-rw-r--  1 alex alex    629 Dec 20 22:32 meson.build
+-rw-rw-r--  1 alex alex  19578 Dec 20 22:32 nlohmann_json.natvis
+-rw-rw-r--  1 alex alex    554 Dec 20 22:32 Package.swift
+-rw-rw-r--  1 alex alex 113296 Dec 20 22:32 README.md
+drwxrwxr-x  3 alex alex   4096 Dec 20 22:32 single_include
+drwxrwxr-x 14 alex alex   4096 Dec 20 22:32 tests
+drwxrwxr-x  7 alex alex   4096 Dec 20 22:32 tools
+-rw-rw-r--  1 alex alex     34 Dec 20 22:32 WORKSPACE.bazel
+-rw-rw-r--  1 alex alex    608 Dec 20 22:32 wsjcpp.yml

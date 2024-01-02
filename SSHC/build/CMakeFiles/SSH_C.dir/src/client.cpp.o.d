@@ -178,8 +178,8 @@ CMakeFiles/SSH_C.dir/src/client.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
- /usr/include/linux/close_range.h /usr/include/c++/12/stdlib.h \
- /usr/include/netdb.h /usr/include/rpc/netdb.h \
+ /usr/include/linux/close_range.h /usr/include/netdb.h \
+ /usr/include/rpc/netdb.h \
  /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
  /usr/include/x86_64-linux-gnu/bits/netdb.h /usr/include/arpa/inet.h \
@@ -289,10 +289,12 @@ CMakeFiles/SSH_C.dir/src/client.cpp.o: \
  /usr/include/openssl/stack.h /usr/include/openssl/core.h \
  /usr/include/openssl/core_dispatch.h /usr/include/openssl/symhacks.h \
  /usr/include/openssl/bio.h /usr/include/openssl/crypto.h \
- /usr/include/openssl/cryptoerr.h /usr/include/openssl/cryptoerr_legacy.h \
- /usr/include/openssl/bioerr.h /usr/include/openssl/evperr.h \
- /usr/include/openssl/params.h /usr/include/openssl/bn.h \
- /usr/include/openssl/bnerr.h /usr/include/openssl/objects.h \
- /usr/include/openssl/obj_mac.h /usr/include/openssl/asn1.h \
- /usr/include/openssl/asn1err.h /usr/include/openssl/objectserr.h \
- /home/alex/Desktop/SSH/SSHC/src/../include/base64.h
+ /usr/include/c++/12/stdlib.h /usr/include/openssl/cryptoerr.h \
+ /usr/include/openssl/cryptoerr_legacy.h /usr/include/openssl/bioerr.h \
+ /usr/include/openssl/evperr.h /usr/include/openssl/params.h \
+ /usr/include/openssl/bn.h /usr/include/openssl/bnerr.h \
+ /usr/include/openssl/objects.h /usr/include/openssl/obj_mac.h \
+ /usr/include/openssl/asn1.h /usr/include/openssl/asn1err.h \
+ /usr/include/openssl/objectserr.h \
+ /home/alex/Desktop/SSH/SSHC/src/../include/base64.h \
+ /home/alex/Desktop/SSH/SSHC/src/../include/read_write.h

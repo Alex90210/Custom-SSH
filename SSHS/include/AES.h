@@ -13,7 +13,7 @@
 
 using json = nlohmann::json;
 
-std::string get_aes_key_from_json(const std::string& jsonFilePath, const std::string& username);
+std::string get_aes_key_from_json(const std::string& json_path, const std::string& username);
 std::string aes_encrypt(const std::string& plaintext, const std::string& key);
 std::string aes_decrypt(const std::string& ciphertext, const std::string& key);
 

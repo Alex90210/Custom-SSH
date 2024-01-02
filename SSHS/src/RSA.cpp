@@ -71,10 +71,10 @@ std::string key_to_pem(EVP_PKEY *pkey, bool is_private) {
     return key_str;
 }
 
-EVP_PKEY* loadPrivateKeyFromJSON(const std::string& jsonFilePath) {
-    std::ifstream ifs(jsonFilePath);
+EVP_PKEY* load_private_key_from_json(const std::string& json_path) {
+    std::ifstream ifs(json_path);
     if (!ifs) {
-        std::cerr << "Cannot open JSON file: " << jsonFilePath << std::endl;
+        std::cerr << "Cannot open JSON file: " << json_path << std::endl;
         return nullptr;
     }
 
@@ -106,8 +106,8 @@ EVP_PKEY* loadPrivateKeyFromJSON(const std::string& jsonFilePath) {
     return privateKey;
 }
 
-std::string decryptWithPrivateKey(EVP_PKEY* privateKey, const char* encryptedData, size_t encryptedDataLen) {
-    EVP_PKEY_CTX* ctx = EVP_PKEY_CTX_new(privateKey, nullptr);
+std::string decryptWithPrivateKey(EVP_PKEY* private_key, const char* encrypted_data, size_t encrypted_data_len) {
+    EVP_PKEY_CTX* ctx = EVP_PKEY_CTX_new(private_key, nullptr);
     if (!ctx) {
         std::cerr << "Error creating context for decryption" << std::endl;
         return "";
@@ -120,14 +120,14 @@ std::string decryptWithPrivateKey(EVP_PKEY* privateKey, const char* encryptedDat
     }
 
     size_t outlen;
-    if (EVP_PKEY_decrypt(ctx, nullptr, &outlen, reinterpret_cast<const unsigned char*>(encryptedData), encryptedDataLen) <= 0) {
+    if (EVP_PKEY_decrypt(ctx, nullptr, &outlen, reinterpret_cast<const unsigned char*>(encrypted_data), encrypted_data_len) <= 0) {
         std::cerr << "Error determining buffer length for decryption" << std::endl;
         EVP_PKEY_CTX_free(ctx);
         return "";
     }
 
     std::string decrypted(outlen, '\0');
-    if (EVP_PKEY_decrypt(ctx, reinterpret_cast<unsigned char*>(&decrypted[0]), &outlen, reinterpret_cast<const unsigned char*>(encryptedData), encryptedDataLen) <= 0) {
+    if (EVP_PKEY_decrypt(ctx, reinterpret_cast<unsigned char*>(&decrypted[0]), &outlen, reinterpret_cast<const unsigned char*>(encrypted_data), encrypted_data_len) <= 0) {
         std::cerr << "Error during decryption" << std::endl;
         EVP_PKEY_CTX_free(ctx);
         return "";

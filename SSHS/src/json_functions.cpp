@@ -20,7 +20,7 @@ void update_user_key(const std::string& filename, const std::string& username, c
         std::cout << "The ASE key of " << username << " has been update successfully." << std::endl;
 
     std::ofstream ofs(filename);
-    ofs << j.dump(4); // Write with indentation for readability
+    ofs << j.dump(4);
 }
 
 void write_keys_to_json(const std::string &filename, const std::string &private_key, const std::string &public_key) {

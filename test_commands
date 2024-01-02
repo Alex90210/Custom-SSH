@@ -1,1 +1,7 @@
+// Works if I'm already in the directory???
 ls -l | grep txt ; cd SEM3/LFAC
+
+cd json && mkdir test ; ls -l | grep .md | grep README
+
+// This does not work yet
+cd json ; ls -l | grep .md | grep README

@@ -26,7 +26,9 @@ add_executable(SSHS src/main.cpp
         include/infix_to_postfix.h
         src/infix_to_postfix.cpp
         include/command_AST.h
-        src/command_AST.cpp)
+        src/command_AST.cpp
+        include/write_read.h
+        src/write_read.cpp)
 
 # Find the OpenSSL package
 find_package(OpenSSL REQUIRED)

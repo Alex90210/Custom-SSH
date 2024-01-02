@@ -14,16 +14,16 @@ bool generate_aes_key(unsigned char (&aesKey)[KEY_LENGTH_BYTES]) {
 
 void store_aes_key_b64(const std::string& base_64_encoded_key, const std::string& username) {
     json users = read_json("../client_data.json");
-    bool userFound = false;
+    bool user_found = false;
     for (auto& user : users["users"]) {
         if (user["username"] == username) {
             user["aes_key"] = base_64_encoded_key;
-            userFound = true;
+            user_found = true;
             break;
         }
     }
 
-    if (userFound) {
+    if (user_found) {
         std::ofstream file("../client_data.json");
         if (file.is_open()) {
             file << users.dump(4); // Write formatted JSON
@@ -34,25 +34,25 @@ void store_aes_key_b64(const std::string& base_64_encoded_key, const std::string
     }
 }
 
-bool receive_and_store_s_public_key(int socket, const std::string& jsonFilePath) {
+bool receive_and_store_s_public_key(int socket, const std::string& json_path) {
     // Read the size of the public key
-    int keySize;
-    if (read(socket, &keySize, sizeof(keySize)) <= 0) {
+    int key_size;
+    if (read(socket, &key_size, sizeof(key_size)) <= 0) {
         std::cerr << "Error reading public key size" << std::endl;
         return false;
     }
 
     // Prepare a string to hold the public key
-    std::string publicKey(keySize, '\0');
-    if (read(socket, &publicKey[0], keySize) <= 0) {
+    std::string public_key(key_size, '\0');
+    if (read(socket, &public_key[0], key_size) <= 0) {
         std::cerr << "Error reading public key" << std::endl;
         return false;
     }
 
     // Load the client's JSON file
-    std::ifstream ifs(jsonFilePath);
+    std::ifstream ifs(json_path);
     if (!ifs.is_open()) {
-        std::cerr << "Failed to open JSON file: " << jsonFilePath << std::endl;
+        std::cerr << "Failed to open JSON file: " << json_path << std::endl;
         return false;
     }
     json j;
@@ -60,12 +60,12 @@ bool receive_and_store_s_public_key(int socket, const std::string& jsonFilePath)
     ifs.close();
 
     // Update the JSON object with the new public key
-    j["server key"][0]["public key"] = publicKey;
+    j["server key"][0]["public key"] = public_key;
 
     // Write the updated JSON object back to the file
-    std::ofstream ofs(jsonFilePath);
+    std::ofstream ofs(json_path);
     if (!ofs.is_open()) {
-        std::cerr << "Failed to open JSON file for writing: " << jsonFilePath << std::endl;
+        std::cerr << "Failed to open JSON file for writing: " << json_path << std::endl;
         return false;
     }
     ofs << j.dump(4);  // Pretty printing with 4 spaces indentation
@@ -74,10 +74,10 @@ bool receive_and_store_s_public_key(int socket, const std::string& jsonFilePath)
     return true;
 }
 
-EVP_PKEY* load_public_key_JSON(const std::string& jsonFilePath) {
-    std::ifstream ifs(jsonFilePath);
+EVP_PKEY* load_public_key_JSON(const std::string& json_path) {
+    std::ifstream ifs(json_path);
     if (!ifs) {
-        std::cerr << "Cannot open JSON file: " << jsonFilePath << std::endl;
+        std::cerr << "Cannot open JSON file: " << json_path << std::endl;
         return nullptr;
     }
 
@@ -109,8 +109,8 @@ EVP_PKEY* load_public_key_JSON(const std::string& jsonFilePath) {
     return publicKey;
 }
 
-std::string encrypt_with_public_key(EVP_PKEY* publicKey, const std::string& message) {
-    EVP_PKEY_CTX* ctx = EVP_PKEY_CTX_new(publicKey, nullptr);
+std::string encrypt_with_public_key(EVP_PKEY* public_key, const std::string& message) {
+    EVP_PKEY_CTX* ctx = EVP_PKEY_CTX_new(public_key, nullptr);
     if (!ctx) {
         std::cerr << "Error creating context for encryption: " << ERR_error_string(ERR_get_error(), nullptr) << std::endl;
         return "";

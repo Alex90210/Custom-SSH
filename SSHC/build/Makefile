@@ -201,6 +201,30 @@ src/client.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/client.cpp.s
 .PHONY : src/client.cpp.s
 
+src/json_functions.o: src/json_functions.cpp.o
+.PHONY : src/json_functions.o
+
+# target to build an object file
+src/json_functions.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/json_functions.cpp.o
+.PHONY : src/json_functions.cpp.o
+
+src/json_functions.i: src/json_functions.cpp.i
+.PHONY : src/json_functions.i
+
+# target to preprocess a source file
+src/json_functions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/json_functions.cpp.i
+.PHONY : src/json_functions.cpp.i
+
+src/json_functions.s: src/json_functions.cpp.s
+.PHONY : src/json_functions.s
+
+# target to generate assembly for a file
+src/json_functions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/json_functions.cpp.s
+.PHONY : src/json_functions.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -249,6 +273,30 @@ src/manage_keys.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/manage_keys.cpp.s
 .PHONY : src/manage_keys.cpp.s
 
+src/read_write.o: src/read_write.cpp.o
+.PHONY : src/read_write.o
+
+# target to build an object file
+src/read_write.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/read_write.cpp.o
+.PHONY : src/read_write.cpp.o
+
+src/read_write.i: src/read_write.cpp.i
+.PHONY : src/read_write.i
+
+# target to preprocess a source file
+src/read_write.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/read_write.cpp.i
+.PHONY : src/read_write.cpp.i
+
+src/read_write.s: src/read_write.cpp.s
+.PHONY : src/read_write.s
+
+# target to generate assembly for a file
+src/read_write.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SSH_C.dir/build.make CMakeFiles/SSH_C.dir/src/read_write.cpp.s
+.PHONY : src/read_write.cpp.s
+
 src/utils.o: src/utils.cpp.o
 .PHONY : src/utils.o
 
@@ -291,12 +339,18 @@ help:
 	@echo "... src/client.o"
 	@echo "... src/client.i"
 	@echo "... src/client.s"
+	@echo "... src/json_functions.o"
+	@echo "... src/json_functions.i"
+	@echo "... src/json_functions.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
 	@echo "... src/manage_keys.o"
 	@echo "... src/manage_keys.i"
 	@echo "... src/manage_keys.s"
+	@echo "... src/read_write.o"
+	@echo "... src/read_write.i"
+	@echo "... src/read_write.s"
 	@echo "... src/utils.o"
 	@echo "... src/utils.i"
 	@echo "... src/utils.s"

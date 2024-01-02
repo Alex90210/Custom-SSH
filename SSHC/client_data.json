@@ -1,17 +1,17 @@
 {
     "server key": [
         {
-            "public key": "-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDyFj4CVSa4l5oxrnk9EPWf0vWt\nZ9h8NFOepjBTW6sHmIIM8jp0jtUcm1yO3QbXCuiYzbmHN43r2THOAjQrp0cDlOT0\nsBHvMZNF34xQPYr9Kp+Ax9TEXaTWeJ6wVT+bmTXmJMofr5G1ub/Kp9GA5WewWLQw\nQQzLgVRcdxgUeH1evQIDAQAB\n-----END PUBLIC KEY-----\n"
+            "public key": "-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC47dOiGjHYSTiIM9k6mKluS0qE\nqRb3iJStQWCkeBl6XG+5Ed1aFywm7DjemwxsREu53AzxxjvaxJbKq2nJn8LifftK\nPnNqC8v2jZ9hKifEhClDxq5EkjVuDv5YP0qW0raTSIFRGwdQZE3pi3CS9ItjhySE\ndVHWPl9iVg9Y17TYlQIDAQAB\n-----END PUBLIC KEY-----\n"
         }
     ],
     "users": [
         {
-            "aes_key": "je95uBQcxaKCmrGN8jHSpmMNLfx4eIYjgMqGcBJFDNY=",
+            "aes_key": "WwEHJkF16F9S5FN0+CJSJSvwf26r/tpattW8ib6/g2w=",
             "password": "1",
             "username": "1"
         },
         {
-            "aes_key": "WtgswvwXVBlRKCGK4XrlPw==",
+            "aes_key": "blfbpoY7AatcKh6BPByAaZuvg2tdjKNHYZw7g9vDbfg=",
             "password": "hasaki",
             "username": "yasuomain"
         }
