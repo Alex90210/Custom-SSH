@@ -46,58 +46,6 @@ void process_command(const char* client_msg, struct thData tdL,
     delete[] response_message;
 }
 
-void update_user_status(json& users, const std::string& username, const std::string& status) {
-    for (auto& user : users["users"]) {
-        if (user["username"] == username) {
-            user["status"] = status;
-            break;
-        }
-    }
-}
-
-void save_json(const json& j, const std::string& file_path) {
-    std::ofstream file(file_path);
-    if (file.is_open()) {
-        file << j.dump(4); // 4 is for pretty printing
-        file.close();
-    } else {
-        std::cerr << "Could not open file for writing.\n";
-    }
-}
-
-json read_json(const std::string& filename) {
-    std::ifstream ifs(filename);
-    if (!ifs.is_open()) {
-        throw std::runtime_error("Unable to open file: " + filename);
-    }
-
-    json j;
-    try {
-        ifs >> j;
-    } catch (const json::parse_error& e) {
-        throw std::runtime_error("Parse error in file: " + filename + "; " + e.what());
-    }
-
-    return j;
-}
-
-bool is_user_active(const std::string& username, const std::string& file_path) {
-    std::ifstream file(file_path);
-    if (!file.is_open()) {
-        std::cerr << "Unable to open file." << std::endl;
-        return false;
-    }
-
-    json j;
-    file >> j;
-
-    for (const auto& user : j["users"]) {
-        if (user["username"] == username && user["status"] == "active") {
-            return true;
-        }
-    }
-    return false;
-}
 std::string receive_AES_key(int client_socket) {
     int username_len, key_len;
 
@@ -146,38 +94,6 @@ std::string receive_AES_key(int client_socket) {
     return decryptedUsername;
 }
 
-char* add_len_header(const char* buffer) {
-
-    int string_len = strlen(buffer);
-    char *full_message = (char *)malloc(sizeof(int) + string_len);
-    if (full_message == NULL) {
-        perror("Error allocating memory for full message");
-    }
-
-    memcpy(full_message, &string_len, sizeof(int));
-    memcpy(full_message + sizeof(int), buffer, string_len);
-
-    return full_message;
-}
-
-std::vector<char> add_len_header2(const std::string& buffer) {
-    int string_len = buffer.size();
-
-    // Convert the length to a binary representation
-    std::vector<char> length_bytes(sizeof(int));
-    std::memcpy(length_bytes.data(), &string_len, sizeof(int));
-
-    // Create a vector to hold the length bytes followed by the string data
-    std::vector<char> full_message;
-    full_message.reserve(sizeof(int) + string_len);
-
-    // Append length bytes and string data
-    full_message.insert(full_message.end(), length_bytes.begin(), length_bytes.end());
-    full_message.insert(full_message.end(), buffer.begin(), buffer.end());
-
-    return full_message;
-}
-
 bool send_public_key(int cl, const std::string& jsonFilePath) {
     std::ifstream ifs(jsonFilePath);
     if (!ifs.is_open()) {
@@ -206,4 +122,18 @@ bool send_public_key(int cl, const std::string& jsonFilePath) {
 
     free(full_message);
     return true;
+}
+
+char* add_len_header(const char* buffer) {
+
+    int string_len = strlen(buffer);
+    char *full_message = (char *)malloc(sizeof(int) + string_len);
+    if (full_message == NULL) {
+        perror("Error allocating memory for full message");
+    }
+
+    memcpy(full_message, &string_len, sizeof(int));
+    memcpy(full_message + sizeof(int), buffer, string_len);
+
+    return full_message;
 }

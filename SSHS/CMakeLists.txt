@@ -3,9 +3,6 @@ project(SSHS)
 
 set(CMAKE_CXX_STANDARD 17)
 
-# Find the JSON package
-find_package(nlohmann_json REQUIRED)
-
 add_executable(SSHS src/main.cpp
         src/client_handler.cpp
         include/client_handler.h
@@ -28,7 +25,12 @@ add_executable(SSHS src/main.cpp
         include/command_AST.h
         src/command_AST.cpp
         include/write_read.h
-        src/write_read.cpp)
+        src/write_read.cpp
+        src/experimental.cpp
+        include/experimental.h)
+
+# Find the JSON package
+find_package(nlohmann_json REQUIRED)
 
 # Find the OpenSSL package
 find_package(OpenSSL REQUIRED)

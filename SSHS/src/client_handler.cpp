@@ -25,13 +25,6 @@ void* treat(void * arg) {
     return(nullptr);
 };
 
-void printHex(const char* data, int len) {
-    for (int i = 0; i < len; ++i) {
-        std::cout << std::hex << std::setw(2) << std::setfill('0') << (static_cast<int>(data[i]) & 0xff) << " ";
-    }
-    std::cout << std::dec << std::endl; // Switch back to decimal format
-}
-
 void answer_client(void *arg) {
 
     int thread_id;

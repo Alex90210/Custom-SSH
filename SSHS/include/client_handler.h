@@ -18,6 +18,7 @@
 #include "../include/server.h"
 #include "../include/AES.h"
 #include "../include/base64.h"
+#include "../include/json_functions.h"
 
 typedef struct thData {
     int idThread;

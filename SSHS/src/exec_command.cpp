@@ -3,6 +3,7 @@
 struct CommandResult {
     std::string output;
     int exit_status;
+    bool processed {false};
 };
 
 bool is_path_valid(const std::string& path) {
