@@ -1,14 +1,28 @@
 #include "../include/infix_to_postfix.h"
 
-bool contains_bash_operator(const std::string& str) {
-    std::vector<std::string> operators = {"|", "<", ">", "2>", "&&", "||", ";"};
+bool contains_bash_operator_vec(const std::vector<std::string>& commands) {
+    std::vector<std::string> operators = {"|", "<", ">", "2>", "&&", "||"};
+
+    for (const auto& command : commands) {
+        for (const auto& op : operators) {
+            if (command == op) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+bool contains_bash_operator_str(const std::string& command) {
+    std::vector<std::string> operators = {"|", "<", ">", "2>", "&&", "||"};
 
     for (const auto& op : operators) {
-        if (str.find(op) != std::string::npos) {
+        if (command.find(op) != std::string::npos) {
             return true;
         }
     }
     return false;
+
 }
 
 bool is_operator_char(char c) {
@@ -70,13 +84,33 @@ std::vector<std::string> tokenize(const std::string& str) {
     return tokens;
 }
 
+std::vector<std::vector<std::string>> split_commands(const std::vector<std::string>& tokens) {
+    std::vector<std::vector<std::string>> result;
+    std::vector<std::string> current_vec;
+
+    for (const auto& token : tokens) {
+        if (token == ";") {
+            if (!current_vec.empty()) {
+                result.push_back(current_vec);
+                current_vec.clear();
+            }
+        } else {
+            current_vec.push_back(token);
+        }
+    }
+
+    if (!current_vec.empty()) {
+        result.push_back(current_vec);
+    }
+
+    return result;
+}
+
 bool is_operator(const std::string& token) {
     static const std::unordered_map<std::string, int> operators = {
             {"<", 1}, {"2>", 1},
-            {"|", 2},
-            {">", 3},
-            {"&&", 4}, {"||", 4},
-            {";", 5}
+            {"|", 2}, {">", 2},
+            {"&&", 2}, {"||", 2}
     };
     return operators.find(token) != operators.end();
 }
@@ -86,10 +120,8 @@ std::vector<std::string> convert_to_postfix(const std::vector<std::string>& toke
     std::vector<std::string> postfix;
     std::unordered_map<std::string, int> precedence = {
             {"<", 1}, {"2>", 1},
-            {"|", 2},
-            {">", 3},
-            {"&&", 4}, {"||", 4},
-            {";", 5}
+            {"|", 2}, {">", 2},
+            {"&&", 2}, {"||", 2}
     };
 
     for (const std::string& token : tokens) {

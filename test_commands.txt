@@ -1,0 +1,13 @@
+Working/tested commands:
+
+ls -lhaF --color=auto /home/alex/json
+ls -l | grep Oct ; ls
+ls | grep test ; cd SEM3/LFAC
+cd json && mkdir test ; ls -l | grep .md | grep README
+grep 1 < prog.c | grep 123
+cat prog.c | grep l | grep clear | grep 19
+ls -l | grep alex > haram
+ls -l | grep Oct < Oct
+ls -l && ls | grep json // works slightly different to the terminal, it filters the whole left side output
+ls -l | grep Oct || ls
+ls -l | grep Oct && ls

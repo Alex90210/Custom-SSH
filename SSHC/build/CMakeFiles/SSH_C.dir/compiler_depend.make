@@ -1298,63 +1298,7 @@ CMakeFiles/SSH_C.dir/src/json_functions.cpp.o: /home/alex/Desktop/SSH/SSHC/src/j
   /usr/include/x86_64-linux-gnu/c++/12/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/12/bits/c++io.h \
   /usr/include/c++/12/bits/fstream.tcc \
-  /usr/include/c++/12/iostream \
-  /usr/include/termios.h \
-  /usr/include/x86_64-linux-gnu/bits/termios.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-struct.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-c_cc.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-c_oflag.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-baud.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-c_cflag.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-tcflow.h \
-  /usr/include/x86_64-linux-gnu/bits/termios-misc.h \
-  /usr/include/x86_64-linux-gnu/sys/ttydefaults.h \
-  /usr/include/unistd.h \
-  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
-  /usr/include/x86_64-linux-gnu/bits/environments.h \
-  /usr/include/x86_64-linux-gnu/bits/confname.h \
-  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
-  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
-  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
-  /usr/include/linux/close_range.h \
-  /usr/include/openssl/bio.h \
-  /usr/include/openssl/macros.h \
-  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
-  /usr/include/x86_64-linux-gnu/openssl/configuration.h \
-  /usr/include/openssl/opensslv.h \
-  /usr/include/openssl/e_os2.h \
-  /usr/include/openssl/crypto.h \
-  /usr/include/c++/12/stdlib.h \
-  /usr/include/openssl/safestack.h \
-  /usr/include/openssl/stack.h \
-  /usr/include/openssl/types.h \
-  /usr/lib/gcc/x86_64-linux-gnu/12/include/limits.h \
-  /usr/lib/gcc/x86_64-linux-gnu/12/include/syslimits.h \
-  /usr/include/limits.h \
-  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
-  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
-  /usr/include/linux/limits.h \
-  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
-  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
-  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
-  /usr/include/openssl/cryptoerr.h \
-  /usr/include/openssl/symhacks.h \
-  /usr/include/openssl/cryptoerr_legacy.h \
-  /usr/include/openssl/core.h \
-  /usr/include/openssl/bioerr.h \
-  /usr/include/openssl/evp.h \
-  /usr/include/openssl/core_dispatch.h \
-  /usr/include/openssl/evperr.h \
-  /usr/include/openssl/params.h \
-  /usr/include/openssl/bn.h \
-  /usr/include/openssl/bnerr.h \
-  /usr/include/openssl/objects.h \
-  /usr/include/openssl/obj_mac.h \
-  /usr/include/openssl/asn1.h \
-  /usr/include/openssl/asn1err.h \
-  /usr/include/openssl/objectserr.h
+  /usr/include/c++/12/iostream
 
 CMakeFiles/SSH_C.dir/src/main.cpp.o: /home/alex/Desktop/SSH/SSHC/src/main.cpp \
   /usr/include/stdc-predef.h \
@@ -2782,20 +2726,6 @@ CMakeFiles/SSH_C.dir/src/utils.cpp.o: /home/alex/Desktop/SSH/SSHC/src/utils.cpp 
 
 /home/alex/Desktop/SSH/SSHC/src/main.cpp:
 
-/usr/include/x86_64-linux-gnu/bits/termios-misc.h:
-
-/usr/include/x86_64-linux-gnu/bits/termios-tcflow.h:
-
-/usr/include/x86_64-linux-gnu/bits/termios-c_lflag.h:
-
-/usr/include/x86_64-linux-gnu/bits/termios-baud.h:
-
-/usr/include/x86_64-linux-gnu/bits/termios-c_oflag.h:
-
-/usr/include/x86_64-linux-gnu/bits/termios.h:
-
-/usr/include/termios.h:
-
 /home/alex/Desktop/SSH/SSHC/src/json_functions.cpp:
 
 /home/alex/Desktop/SSH/SSHC/include/read_write.h:
@@ -2855,8 +2785,6 @@ CMakeFiles/SSH_C.dir/src/utils.cpp.o: /home/alex/Desktop/SSH/SSHC/src/utils.cpp 
 /usr/include/openssl/evp.h:
 
 /usr/include/c++/12/pstl/glue_numeric_defs.h:
-
-/usr/include/x86_64-linux-gnu/bits/termios-c_iflag.h:
 
 /usr/include/c++/12/bits/stl_numeric.h:
 
@@ -3082,8 +3010,6 @@ CMakeFiles/SSH_C.dir/src/utils.cpp.o: /home/alex/Desktop/SSH/SSHC/src/utils.cpp 
 
 /usr/include/x86_64-linux-gnu/asm/bitsperlong.h:
 
-/usr/include/x86_64-linux-gnu/bits/termios-struct.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
 
 /usr/include/c++/12/cstdio:
@@ -3097,8 +3023,6 @@ CMakeFiles/SSH_C.dir/src/utils.cpp.o: /home/alex/Desktop/SSH/SSHC/src/utils.cpp 
 /usr/include/x86_64-linux-gnu/c++/12/bits/c++allocator.h:
 
 /usr/include/x86_64-linux-gnu/bits/getopt_core.h:
-
-/usr/include/x86_64-linux-gnu/bits/termios-c_cc.h:
 
 /usr/include/x86_64-linux-gnu/bits/endian.h:
 
@@ -3266,8 +3190,6 @@ CMakeFiles/SSH_C.dir/src/utils.cpp.o: /home/alex/Desktop/SSH/SSHC/src/utils.cpp 
 
 /usr/include/unistd.h:
 
-/usr/include/x86_64-linux-gnu/bits/termios-c_cflag.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/12/include/stddef.h:
 
 /usr/include/x86_64-linux-gnu/sys/wait.h:
@@ -3401,8 +3323,6 @@ CMakeFiles/SSH_C.dir/src/utils.cpp.o: /home/alex/Desktop/SSH/SSHC/src/utils.cpp 
 /usr/include/alloca.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
-
-/usr/include/x86_64-linux-gnu/sys/ttydefaults.h:
 
 /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
 

@@ -13,6 +13,7 @@
 
 bool is_path_valid(const std::string& path);
 std::string interpret_command(const std::string& command, std::string& path);
-std::string main_execute_command(const std::string& command, std::string& path);
+std::string execute_cmd_without_operators(const std::vector<std::string>& vec_command,
+                                          std::string& path);
 
 #endif

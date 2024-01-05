@@ -75,7 +75,7 @@ CommandResult traverse_and_execute(TreeNode* node, std::string& path) {
         return redirect_input_from_file(left_result.output, right_result.output, path);
     }
     else if (node->value == "2>") {
-        return redirect_stderr_to_file(left_result, right_result, path);
+        return redirect_stderr_to_file(left_result, right_result.output, path);
     }
     else if (node->value == "&&") {
         CommandResult cmdResult;
@@ -150,7 +150,7 @@ CommandResult traverse_and_execute(TreeNode* node, std::string& path) {
             }
         }
     }
-    else if (node->value == ";") {
+    /*else if (node->value == ";") {
         CommandResult cmdResult;
         // In the case that the ";" symbol is used after an odd number of commands
         // it should be able the work as a unary operator
@@ -177,7 +177,7 @@ CommandResult traverse_and_execute(TreeNode* node, std::string& path) {
                 return cmdResult;
             }
         }
-    }
+    }*/
 
     result.output = "This should not be reached.";
     result.exit_status = 1;;

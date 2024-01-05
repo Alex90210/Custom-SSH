@@ -1,4 +1,0 @@
-1. Interpret pipe-ing, redirecting...
-2. Introduce 'active' status in JSON.
-3. Clean screen after login.
-4. Update outputed path after login.

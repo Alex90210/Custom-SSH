@@ -11,7 +11,7 @@ struct CommandResult {
     bool processed {false};
 };
 
-bool is_cd_command (const std::string& command, std::string& path) {
+bool is_cd_command(const std::string& command, std::string& path) {
     if (command == "cd") {
         path = "/home/alex";
         return true;
@@ -43,7 +43,7 @@ CommandResult execute_command(const std::string& command, std::string& path) {
     CommandResult result;
 
     if (is_cd_command(command, path)) {
-        result.processed = false; // The cd does not output anything, this should skin this step
+        result.processed = false; // The cd does not output anything, this should skip this step
         result.exit_status = 0;
         result.output = path;
         return result;
@@ -67,25 +67,25 @@ CommandResult execute_command(const std::string& command, std::string& path) {
         dup2(pipefd[1], STDOUT_FILENO);
         dup2(pipefd[1], STDERR_FILENO);
         close(pipefd[1]);
-
         if (chdir(path.c_str()) != 0) {
             std::cerr << "Failed to change directory." << std::endl;
             exit(EXIT_FAILURE);
         }
-
         execlp("/bin/sh", "sh", "-c", command.c_str(), (char *)NULL);
         perror("execlp");
         exit(EXIT_FAILURE);
     }
-    close(pipefd[1]);
-    std::string output;
-    char buffer[4096];
-    ssize_t count;
 
-    while ((count = read(pipefd[0], buffer, sizeof(buffer) - 1)) > 0) {
+    close(pipefd[1]);
+
+    std::string output;
+    std::vector<char> buffer(16384);
+    ssize_t count;
+    while ((count = read(pipefd[0], buffer.data(), buffer.size() - 1)) > 0) {
         buffer[count] = '\0';
-        output += buffer;
+        output.append(buffer.data());
     }
+
     close(pipefd[0]);
 
     int status;
@@ -97,15 +97,12 @@ CommandResult execute_command(const std::string& command, std::string& path) {
     return result;
 }
 
-CommandResult execute_pipe_command(const CommandResult& left_cmd, const CommandResult& right_cmd,
-                                   std::string& path) {
+CommandResult execute_pipe_command(const CommandResult& left_cmd, const CommandResult& right_cmd, std::string& path) {
     CommandResult cmdResult;
 
     int pipefd[2];
     int outputfd[2];
     pid_t left_pid, right_pid;
-    const int bufferSize = 16384;
-    char buffer[bufferSize];
 
     if (pipe(pipefd) == -1 || pipe(outputfd) == -1) {
         perror("pipe");
@@ -132,12 +129,10 @@ CommandResult execute_pipe_command(const CommandResult& left_cmd, const CommandR
         close(pipefd[1]);
         close(outputfd[0]);
         close(outputfd[1]);
-
         if (chdir(path.c_str()) != 0) {
             std::cerr << "Failed to change directory." << std::endl;
             exit(EXIT_FAILURE);
         }
-
         execlp("/bin/sh", "sh", "-c", left_cmd.output.c_str(), NULL);
         perror("execlp leftCmd");
         exit(EXIT_FAILURE);
@@ -164,12 +159,10 @@ CommandResult execute_pipe_command(const CommandResult& left_cmd, const CommandR
         close(pipefd[0]);
         close(outputfd[0]);
         close(outputfd[1]);
-
         if (chdir(path.c_str()) != 0) {
             std::cerr << "Failed to change directory." << std::endl;
             exit(EXIT_FAILURE);
         }
-
         execlp("/bin/sh", "sh", "-c", right_cmd.output.c_str(), (char *)NULL);
         perror("execlp rightCmd");
         exit(EXIT_FAILURE);
@@ -180,10 +173,11 @@ CommandResult execute_pipe_command(const CommandResult& left_cmd, const CommandR
     close(outputfd[1]);
 
     std::string result;
+    std::vector<char> buffer(16384);
     ssize_t count;
-    while ((count = read(outputfd[0], buffer, bufferSize - 1)) > 0) {
+    while ((count = read(outputfd[0], buffer.data(), buffer.size() - 1)) > 0) {
         buffer[count] = '\0';
-        result += buffer;
+        result.append(buffer.data());
     }
     close(outputfd[0]);
 
@@ -201,7 +195,15 @@ CommandResult execute_pipe_command(const CommandResult& left_cmd, const CommandR
 CommandResult redirect_output_to_file(const CommandResult& input, const std::string& file_path, std::string& path) {
     CommandResult result;
 
-    int fd = open(file_path.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    std::string full_path;
+    if (file_path.substr(0, 1) == "/") {
+        full_path = file_path;
+    }
+    else {
+        full_path = path + "/" + file_path;
+    }
+
+    int fd = open(full_path.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0644);
     if (fd == -1) {
         perror("open");
         result.output = "Error opening file";
@@ -234,11 +236,12 @@ CommandResult redirect_output_to_file(const CommandResult& input, const std::str
     return result;
 }
 
-
 CommandResult redirect_input_from_file(const std::string& command, const std::string& file_path, std::string& path) {
     CommandResult result;
 
-    int filefd = open(file_path.c_str(), O_RDONLY);
+    std::string full_path = (file_path.front() == '/') ? file_path : path + "/" + file_path;
+
+    int filefd = open(full_path.c_str(), O_RDONLY);
     if (filefd == -1) {
         perror("open");
         result.output = "Error opening file";
@@ -272,12 +275,10 @@ CommandResult redirect_input_from_file(const std::string& command, const std::st
         close(filefd);
         close(pipefd[0]);
         close(pipefd[1]);
-
         if (chdir(path.c_str()) != 0) {
             std::cerr << "Failed to change directory." << std::endl;
             exit(EXIT_FAILURE);
         }
-
         execlp("/bin/sh", "sh", "-c", command.c_str(), (char *)NULL);
         perror("execlp");
         exit(EXIT_FAILURE);
@@ -287,11 +288,11 @@ CommandResult redirect_input_from_file(const std::string& command, const std::st
     close(pipefd[1]);
 
     std::string output;
-    char buffer[4096];
+    std::vector<char> buffer(16384);
     ssize_t count;
-    while ((count = read(pipefd[0], buffer, sizeof(buffer) - 1)) > 0) {
+    while ((count = read(pipefd[0], buffer.data(), buffer.size() - 1)) > 0) {
         buffer[count] = '\0';
-        output += buffer;
+        output.append(buffer.data());
     }
 
     close(pipefd[0]);
@@ -305,10 +306,18 @@ CommandResult redirect_input_from_file(const std::string& command, const std::st
     return result;
 }
 
-CommandResult redirect_stderr_to_file(const CommandResult& command, const CommandResult& file_path, std::string& path) {
+CommandResult redirect_stderr_to_file(const CommandResult& command, const std::string& file_path, std::string& path) {
     CommandResult result;
 
-    int fd = open(file_path.output.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    std::string full_path;
+    if (file_path.substr(0, 1) == "/") {
+        full_path = file_path;
+    }
+    else {
+        full_path = path + "/" + file_path;
+    }
+
+    int fd = open(full_path.c_str(), O_WRONLY | O_CREAT | O_TRUNC, 0644);
     if (fd == -1) {
         perror("open");
         result.output = "Error opening file";
