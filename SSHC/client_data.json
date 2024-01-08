@@ -1,12 +1,12 @@
 {
     "server key": [
         {
-            "public key": "-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDu3A4B5nT2+dUFRZScG3wCjSVJ\ncImJVSQRXNn8O0SZFEWMaHlhXYMUnfDiAaAvmFQ1P0nuNNZ099NWrVsRAUHdehDZ\n6liHFhYNDPc3xwB7C2vw52Gueg2aezcU2tu5sl4wjzTLYVJzRQKN1LlMh0BrCtF1\n5caG7dIeKJL9+lmOrQIDAQAB\n-----END PUBLIC KEY-----\n"
+            "public key": "-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCxxH+nQJ3wpzLY8m8yk7DayJUy\nkYeP9HPpKy+rb+/4Io38irqIbqp+X0X4NAt79ZuoYPccjet/NMwOQNnEEWFvBEYO\n1+77BmNmF/qPitl37Yww9zz6YaDEb6EvmMi6u9XEK4ulFACpX2u4OV+adAof8vyB\nKNb38JWWMQ3kGPIVxwIDAQAB\n-----END PUBLIC KEY-----\n"
         }
     ],
     "users": [
         {
-            "aes_key": "2Jady395PDkJcSSa2k/n7ISNy3P9eosAKI/krM/NUbU=",
+            "aes_key": "xPEaI/g3hUpPQ2MlGqnPsu2MrrQNiUQxC1ts+hN28XA=",
             "password": "strongman123",
             "username": "joebiden"
         },
@@ -19,6 +19,11 @@
             "aes_key": "7saOnigR4et5CYShEssCu61Tg+67E+s2YPJasO18KAA=",
             "password": "test33",
             "username": "test11"
+        },
+        {
+            "aes_key": "s/rs4GfmuQyjBk4Q6l+1jlPrnZn68WnCSkE3nNmhMtI=",
+            "password": "1",
+            "username": "1"
         }
     ]
 }

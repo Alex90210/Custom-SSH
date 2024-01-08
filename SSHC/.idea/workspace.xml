@@ -22,19 +22,18 @@
   <component name="ChangeListManager">
     <list default="true" id="130bb384-29c7-42af-8209-79973e5eb384" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/client.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/client.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/SSH_C" beforeDir="false" afterPath="$PROJECT_DIR$/build/SSH_C" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/client_data.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SSH_C.dir/src/client.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SSH_C.dir/src/client.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/SSH_C" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/SSH_C" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/.cmake/api/v1/reply/index-2024-01-05T00-31-42-0446.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/server.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/CMakeFiles/SSHS.dir/src/server.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/SSHS" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/SSHS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/client.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SSHS/server_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/server_data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/src/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/src/server.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../test_commands.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../test_commands.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -269,6 +268,26 @@
       <workItem from="1704640728070" duration="87000" />
       <workItem from="1704640898041" duration="674000" />
       <workItem from="1704709585915" duration="87000" />
+      <workItem from="1704709912813" duration="9000" />
+      <workItem from="1704709990721" duration="125000" />
+      <workItem from="1704710178275" duration="94000" />
+      <workItem from="1704710313609" duration="43000" />
+      <workItem from="1704710386013" duration="158000" />
+      <workItem from="1704710570289" duration="67000" />
+      <workItem from="1704710662635" duration="52000" />
+      <workItem from="1704710833284" duration="28000" />
+      <workItem from="1704710908805" duration="15000" />
+      <workItem from="1704710949709" duration="28000" />
+      <workItem from="1704711009017" duration="47000" />
+      <workItem from="1704711088409" duration="8000" />
+      <workItem from="1704711166043" duration="56000" />
+      <workItem from="1704711249483" duration="23000" />
+      <workItem from="1704712517534" duration="7000" />
+      <workItem from="1704712540429" duration="19000" />
+      <workItem from="1704712578954" duration="35000" />
+      <workItem from="1704712647421" duration="21000" />
+      <workItem from="1704712688448" duration="62000" />
+      <workItem from="1704712780085" duration="29000" />
     </task>
     <servers />
   </component>
