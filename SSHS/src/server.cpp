@@ -72,6 +72,7 @@ std::string receive_AES_key(int client_socket) {
     std::string decryptedAesKey = decryptWithPrivateKey(privateKey, encrypted_aes_key, RSA_KEY_SIZE);
 
     decryptedUsername.resize(username_len);
+    decryptedAesKey.resize(key_len);
     update_user_key("/home/alex/Desktop/SSH/SSHS/server_data.json", std::string(decryptedUsername),
                     std::string(decryptedAesKey));
 
