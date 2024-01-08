@@ -22,18 +22,9 @@
   <component name="ChangeListManager">
     <list default="true" id="130bb384-29c7-42af-8209-79973e5eb384" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/client.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeFiles/SSH_C.dir/src/client.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/SSH_C" beforeDir="false" afterPath="$PROJECT_DIR$/build/SSH_C" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/client_data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SSH_C.dir/src/client.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/SSH_C.dir/src/client.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/SSH_C" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/SSH_C" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SSHS/server_data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../SSHS/server_data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../test_commands.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../test_commands.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,6 +279,7 @@
       <workItem from="1704712647421" duration="21000" />
       <workItem from="1704712688448" duration="62000" />
       <workItem from="1704712780085" duration="29000" />
+      <workItem from="1704714844479" duration="1109000" />
     </task>
     <servers />
   </component>

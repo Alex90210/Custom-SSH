@@ -54,7 +54,7 @@ void command_loop(const int& sd, std::string& username) {
             throw std::runtime_error("Error writing message to server.");
         }
 
-        // Receiving the message from the server dynamically
+        // Receive the server output
         int message_len {};
         read_msg_len(sd, message_len);
         std::string client_input = read_msg(sd, message_len);

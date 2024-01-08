@@ -2,7 +2,7 @@
 
 const std::string json_path {"../server_data.json"};
 
-void* treat(void * arg) {
+void* treat(void* arg) {
     struct thData tdL;
     tdL= *((struct thData*)arg);
     printf ("[Thread]- %d - Waiting for the message...\n", tdL.idThread);
@@ -59,9 +59,9 @@ void answer_client(void *arg) {
 
         char* client_input = new char[message_len + 1];
 
-        ssize_t bytesRead = 0;
-        while (bytesRead < message_len) {
-            ssize_t result = read(tdL.cl, client_input + bytesRead, message_len - bytesRead);
+        ssize_t cl_input_bytes_read = 0;
+        while (cl_input_bytes_read < message_len) {
+            ssize_t result = read(tdL.cl, client_input + cl_input_bytes_read, message_len - cl_input_bytes_read);
             if (result <= 0) {
                 if (result == 0) {
                     printf("Client closed the connection.\n");
@@ -71,12 +71,12 @@ void answer_client(void *arg) {
                 free(client_input);
                 return;
             }
-            bytesRead += result;
+            cl_input_bytes_read += result;
         }
 
         client_input[message_len] = '\0';
-        if (bytesRead > 0 && client_input[bytesRead - 1] == '\n') {
-            client_input[bytesRead - 1] = '\0';
+        if (cl_input_bytes_read > 0 && client_input[cl_input_bytes_read - 1] == '\n') {
+            client_input[cl_input_bytes_read - 1] = '\0';
         }
 
         message_len = strlen(client_input);

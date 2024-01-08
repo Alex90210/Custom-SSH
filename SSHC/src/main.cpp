@@ -103,13 +103,13 @@ int main (int argc, char *argv[]) {
     }
 
     // Generate and store the aes key
-    unsigned char aesKeyC[KEY_LENGTH_BYTES];
-    if (!generate_aes_key(aesKeyC)) {
+    unsigned char aes_Key[KEY_LENGTH_BYTES];
+    if (!generate_aes_key(aes_Key)) {
         std::cerr << ("AES Key generation error.");
         return 1;
     }
 
-    std::string aes_key(reinterpret_cast<const char*>(aesKeyC), KEY_LENGTH_BYTES);
+    std::string aes_key(reinterpret_cast<const char*>(aes_Key), KEY_LENGTH_BYTES);
     std::string base_64_encoded_key = base64_encode(aes_key);
     store_aes_key_b64(base_64_encoded_key, username);
 

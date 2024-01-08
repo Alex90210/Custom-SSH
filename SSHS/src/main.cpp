@@ -65,7 +65,6 @@ int main ()
                              reinterpret_cast<socklen_t *>(&length))) < 0) {
 
             perror ("[Server]Error at accept().\n");
-
             continue;
         }
 

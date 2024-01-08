@@ -6,17 +6,17 @@ void process_command(const char* client_msg, struct thData tdL,
                      const std::string& username, std::string& path) {
 
     int full_message_len = strlen(client_msg);
-    char *response_message = new char[full_message_len + 1];
-    response_message[0] = '\0';
-    strcat(response_message, client_msg);
-    printf("[Server]Received from client: %s\n", response_message);
+    char *client_input = new char[full_message_len + 1];
+    client_input[0] = '\0';
+    strcat(client_input, client_msg);
+    printf("[Server]Received from client: %s\n", client_input);
 
     // Getting the key
     std::string b64_aes_key = get_aes_key_from_json("../server_data.json", username);
     std::string aes_key = base64_decode(b64_aes_key);
 
     // Decrypt the message
-    std::string ciphertext = base64_decode(response_message);
+    std::string ciphertext = base64_decode(client_input);
     std::string decrypted_ciphertext = aes_decrypt(ciphertext, aes_key);
     std::cout << "[Server]The decrypted message is: " << decrypted_ciphertext << std::endl;
 
@@ -43,7 +43,7 @@ void process_command(const char* client_msg, struct thData tdL,
         printf("[Thread %d] The message was sent successfully.\n", tdL.idThread);
     }
 
-    delete[] response_message;
+    delete[] client_input;
 }
 
 std::string receive_AES_key(int client_socket) {
