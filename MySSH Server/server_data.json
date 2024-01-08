@@ -1,0 +1,30 @@
+{
+    "server keys": [
+        {
+            "private key": "-----BEGIN PRIVATE KEY-----\nMIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAL+ltmt5OXbpEtcl\nkyQ+eIrvRi5vgXif9JqSRfS2kPieEk0ugeiDZqGxSZ1XsHoiGyK5Mdc+d8GQgu+/\nDiMlS+GoTBZ0lpVdFtQBH11tGCKKZwMuHeCVJeuDRxER2atV4m3xV+P21mT4Flpe\nHXW3N6OdRBwEaMMRzSWfJwtKVO7fAgMBAAECgYEAgrGqvo40DxCRZaFdP+lOYUkd\nrksimzVSJRs9k83w/WsnBfWCaCM8GWaC0kdbtV6O7NYo1CXom1tGv+Kl7Hfhz3jm\n+Cq7LL6nQcM7AWexbJOxBLXvqztDzQLfFBtoZ1k2Zs/52wSHYLhLzA8sD4Q0COTq\nSHSwyDLqnhhtTHgQ2akCQQD312MXrhLiM2mz/pjt7u1bCYHYTZHa/yGt0XXca7q6\nrxHVRRt/VcjYuVUxHQYwoQ1tApRdpK27xJ4scjBBQ74lAkEAxfTEH+o2wd6J0cn9\nr7wvkindhAB5GOi5bNIFe4xczFwFwibk3SYLJkkXML9CR22zLBugNRZdwDDWM53L\noAafswJBAM2KC/0keTatKrmCqLOSlbgNP2jyk8bKFdVAQ/2kPjz6WdDEOlS1ARdz\nREqx5mNH/YltPTwYCZkSK5dyr8BAfR0CQASGVb1NAzdnOMs8zLmpmYTDxDZyNFJn\nb2WXX1y1lqFtMQyBCxYq+nJDlW4d0QwE6+WENCNCgZ4U/7BqWO8td5UCQHpkvgs4\nnWfPXvxvkApvzmxbxzFP0i/zmNEXTLb2akKtEF9HwEJlQyWRGJOAggJuPRMX91RU\neno8Z4YnxCQnVXQ=\n-----END PRIVATE KEY-----\n",
+            "public key": "-----BEGIN PUBLIC KEY-----\nMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC/pbZreTl26RLXJZMkPniK70Yu\nb4F4n/SakkX0tpD4nhJNLoHog2ahsUmdV7B6IhsiuTHXPnfBkILvvw4jJUvhqEwW\ndJaVXRbUAR9dbRgiimcDLh3glSXrg0cREdmrVeJt8Vfj9tZk+BZaXh11tzejnUQc\nBGjDEc0lnycLSlTu3wIDAQAB\n-----END PUBLIC KEY-----\n"
+        }
+    ],
+    "users": [
+        {
+            "aes_key": "UhocQ4VSmtThMzBV0ng2XraDqjSWcE4Zt5aqGoJ/p4Y=",
+            "status": "offline",
+            "username": "joebiden"
+        },
+        {
+            "aes_key": "rMzDG9iMTQ+EJvcDRPfPVckgVaVIfKzSIVKA2dBKhvQ=",
+            "status": "offline",
+            "username": "alex"
+        },
+        {
+            "aes_key": "7saOnigR4et5CYShEssCu61Tg+67E+s2YPJasO18KAA=",
+            "status": "offline",
+            "username": "test11"
+        },
+        {
+            "aes_key": "Pd77tosjbk38n/klo0KKhhYjr3wAPkWXh+0b8KS6dyU=",
+            "status": "offline",
+            "username": "1"
+        }
+    ]
+}

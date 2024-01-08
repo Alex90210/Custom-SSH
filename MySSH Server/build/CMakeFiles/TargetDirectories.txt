@@ -1,0 +1,3 @@
+/home/alex/Desktop/SSH/SSHS/build/CMakeFiles/SSHS.dir
+/home/alex/Desktop/SSH/SSHS/build/CMakeFiles/edit_cache.dir
+/home/alex/Desktop/SSH/SSHS/build/CMakeFiles/rebuild_cache.dir

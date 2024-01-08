@@ -1,0 +1,1 @@
+while ((count = read(outputfd[0], buffer, bufferSize - 1))
